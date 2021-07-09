@@ -134,16 +134,159 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-float 布局" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-flex 布局" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/08/flex%20%E5%B8%83%E5%B1%80/">flex布局</a>
+    </h1>
+  
+
+        
+        <a href="/2021/07/08/flex%20%E5%B8%83%E5%B1%80/" class="archive-article-date">
+  	<time datetime="2021-07-08T15:01:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-08</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="float-布局"><a href="#float-布局" class="headerlink" title="float 布局"></a>float 布局</h1><ol>
+        <h2 id="container属性"><a href="#container属性" class="headerlink" title="container属性"></a>container属性</h2><h3 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a>flex-direction</h3><center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/item%E6%B5%81%E5%8A%A8%E6%96%B9%E5%90%91.png" width="560px"></center>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.container &#123;</span><br><span class="line">	flex-direction: row / row-reverse / column /column-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h3><center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/%E6%94%B9%E5%8F%98%E6%8A%98%E8%A1%8C.png" width="560px"></center>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.container &#123;</span><br><span class="line">	flex-warp: nowarp / wrap / wrap-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h3><center><img src=https://cdn.jsdelivr.net/gh/Drwna/image//images/%E4%B8%BB%E8%BD%B4%E5%AF%B9%E9%BD%90%E6%96%B9%E5%BC%8F.png width="560px"></center>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.container &#123;</span><br><span class="line">justify-content: flex-start / flex-end/ space-between / sapce-around / space-evenly;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h3><center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/%E6%AC%A1%E8%BD%B4%E5%AF%B9%E9%BD%90%E6%96%B9%E5%BC%8F.png" width="560px"  ></center>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.container &#123;</span><br><span class="line">	align-items: flex-start / flex-end / center / stretch / baseline;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h3><center><img src=https://cdn.jsdelivr.net/gh/Drwna/image//images/%E5%A4%9A%E8%A1%8C%E5%86%85%E5%AE%B9.png width="560px"  ></center>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.container &#123;</span><br><span class="line">align-content: flex-start / flex-end / center / stetch / space-between / space-around;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="item属性"><a href="#item属性" class="headerlink" title="item属性"></a>item属性</h2><h3 id="order"><a href="#order" class="headerlink" title="order"></a>order</h3><center><img src=https://cdn.jsdelivr.net/gh/Drwna/image//images/item-order.png width=560px  ></center>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.item:first-child &#123;</span><br><span class="line">	order: 1;</span><br><span class="line">&#125;</span><br><span class="line">.item:nth-child(2)&#123;</span><br><span class="line">	order: 1;</span><br><span class="line">&#125;</span><br><span class="line">.item:nth-child(3)&#123;</span><br><span class="line">	order: -2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h3><center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/item-flex-grow.png" alt="item-flex-grow" width="560px"  ></center>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item &#123;</span><br><span class="line">	flex-grow: 1 / 2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h3><p>控制如何变瘦，<strong>一般写<code>flex-shrink: 0;</code>防止变瘦</strong>，默认是1</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">.item &#123;</span><br><span class="line">	flex-shrink: 1;</span><br><span class="line">&#125;</span><br><span class="line">.item:nth-child(2)&#123;</span><br><span class="line">	flex-shrink: 5;</span><br><span class="line">	/* 缩放程度更快 */</span><br><span class="line">&#125;</span><br><span class="line">.item:nth-child(3)&#123;</span><br><span class="line">	flex-shrink: 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h3><p>控制基准宽度，默认是<code>auto</code>，就是宽度，不常用</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item &#123;</span><br><span class="line">	flex-basis: 100px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="align-self"><a href="#align-self" class="headerlink" title="align-self"></a>align-self</h3><center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/item-align-self.png" alt="item-align-self" width="560px"  ></center>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item &#123;</span><br><span class="line">	align-self: flex-end;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/* 工作中基本只用这些 */</span><br><span class="line">dispaly: flex;</span><br><span class="line">flex-direction: row / column;</span><br><span class="line">/* 流动方向，横或竖 */</span><br><span class="line">flex-wrap: warp / nowarp;</span><br><span class="line">/* 是否换行 */</span><br><span class="line">justify-content: center / space-betten;</span><br><span class="line">/* 主轴（横轴）方向 居中或分开对齐 */</span><br><span class="line">align-items: center;</span><br><span class="line">/* 次轴*（竖轴）方向，居中 */</span><br></pre></td></tr></table></figure>
+
+<p>通关<a target="_blank" rel="noopener" href="https://flexboxfroggy.com/#zh-cn">flex小游戏</a></p>
+<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><p><code>margin-xxx: auto</code>和<code>justify-content: space-between</code>实现相同的效果，推荐使用前者</p>
+<p>平局布局 使用负margin</p>
+<ul>
+<li><p>不要写死 width</p>
+</li>
+<li><p>max-width: 100px;</p>
+</li>
+<li><p>min-width: 80%;</p>
+</li>
+<li><p>width: 30vw;</p>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/07/08/flex%20%E5%B8%83%E5%B1%80/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-float 布局" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/07/float%20%E5%B8%83%E5%B1%80/">float布局</a>
+    </h1>
+  
+
+        
+        <a href="/2021/07/07/float%20%E5%B8%83%E5%B1%80/" class="archive-article-date">
+  	<time datetime="2021-07-07T12:01:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
 <li>子元素加上 float: left 和 width</li>
 <li>在父元素上加 .clearfix</li>
 </ol>
-<p><b>ie 6/7 存在双倍 margin bug</b>, 解决办法：<br><br></p>
+<p><b>ie 6/7 存在双倍 margin bug</b>, 解决办法：</p>
 <ul>
 <li>针对 ie 6/7 把 margin 减半</li>
 <li>再加一个 display: inline-block </li>
@@ -158,11 +301,22 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/07/09/float%20%E5%B8%83%E5%B1%80/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/07/07/float%20%E5%B8%83%E5%B1%80/">展开全文 >></a>
         </p>
       
 
@@ -565,6 +719,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
             
             <div class="clearfix"></div>
