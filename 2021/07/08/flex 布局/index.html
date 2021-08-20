@@ -8,20 +8,22 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>flex布局 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="container属性flex-direction  123.container &amp;#123;	flex-direction: row &#x2F; row-reverse &#x2F; column &#x2F;column-reverse;&amp;#125;  flex-wrap  123.container &amp;#123;	flex-warp: nowarp &#x2F; wrap &#x2F; wrap-reverse;&amp;#125;  justi">
+  <meta name="description" content="采用Flex布局的元素，称为Flex容器（fcontainer），简称”容器”。它的所有子元素自动成为容器成员，称为项目（item）。 123.box&amp;#123;  display: flex | inline-flex;&amp;#125;  containerflex-direction  123.container &amp;#123;	flex-direction: row &#x2F; row-reverse &#x2F;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="flex布局">
 <meta property="og:url" content="http://example.com/2021/07/08/flex%20%E5%B8%83%E5%B1%80/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="container属性flex-direction  123.container &amp;#123;	flex-direction: row &#x2F; row-reverse &#x2F; column &#x2F;column-reverse;&amp;#125;  flex-wrap  123.container &amp;#123;	flex-warp: nowarp &#x2F; wrap &#x2F; wrap-reverse;&amp;#125;  justi">
+<meta property="og:description" content="采用Flex布局的元素，称为Flex容器（fcontainer），简称”容器”。它的所有子元素自动成为容器成员，称为项目（item）。 123.box&amp;#123;  display: flex | inline-flex;&amp;#125;  containerflex-direction  123.container &amp;#123;	flex-direction: row &#x2F; row-reverse &#x2F;">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Drwna/image//images/item%E6%B5%81%E5%8A%A8%E6%96%B9%E5%90%91.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Drwna/image//images/%E6%94%B9%E5%8F%98%E6%8A%98%E8%A1%8C.png">
+<meta property="og:image" content="http://example.com/2021/07/08/flex%20%E5%B8%83%E5%B1%80/flex%20布局.assets/主轴对齐方式.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Drwna/image//images/%E6%AC%A1%E8%BD%B4%E5%AF%B9%E9%BD%90%E6%96%B9%E5%BC%8F.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Drwna/image//images/item-flex-grow.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Drwna/image//images/item-align-self.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-08-20_08-33-25.png">
 <meta property="article:published_time" content="2021-07-08T15:01:39.000Z">
-<meta property="article:modified_time" content="2021-07-09T15:49:51.455Z">
+<meta property="article:modified_time" content="2021-08-20T07:51:51.199Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="css">
 <meta name="twitter:card" content="summary">
@@ -163,61 +165,62 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="container属性"><a href="#container属性" class="headerlink" title="container属性"></a>container属性</h2><h3 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a>flex-direction</h3><center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/item%E6%B5%81%E5%8A%A8%E6%96%B9%E5%90%91.png" width="560px"></center>
+        <p>采用Flex布局的元素，称为Flex容器（fcontainer），简称”容器”。它的所有子元素自动成为容器成员，称为项目（item）。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: flex | inline-flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.container &#123;</span><br><span class="line">	flex-direction: row / row-reverse / column /column-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="container"><a href="#container" class="headerlink" title="container"></a>container</h2><h3 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a>flex-direction</h3><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/item%E6%B5%81%E5%8A%A8%E6%96%B9%E5%90%91.png" width="600px">
 
-<h3 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h3><center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/%E6%94%B9%E5%8F%98%E6%8A%98%E8%A1%8C.png" width="560px"></center>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">	<span class="attribute">flex-direction</span>: row / row-reverse / column /column-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.container &#123;</span><br><span class="line">	flex-warp: nowarp / wrap / wrap-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h3><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/%E6%94%B9%E5%8F%98%E6%8A%98%E8%A1%8C.png" width="600px">
 
-<h3 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h3><center><img src=https://cdn.jsdelivr.net/gh/Drwna/image//images/%E4%B8%BB%E8%BD%B4%E5%AF%B9%E9%BD%90%E6%96%B9%E5%BC%8F.png width="560px"></center>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">	<span class="attribute">flex</span>-warp: nowarp / wrap / wrap-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.container &#123;</span><br><span class="line">justify-content: flex-start / flex-end/ space-between / sapce-around / space-evenly;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h3><img src="flex 布局.assets/主轴对齐方式.png" width="600px" />
 
-<h3 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h3><center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/%E6%AC%A1%E8%BD%B4%E5%AF%B9%E9%BD%90%E6%96%B9%E5%BC%8F.png" width="560px"  ></center>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">justify-content</span>: flex-start / flex-end/ space-between / sapce-around / space-evenly;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.container &#123;</span><br><span class="line">	align-items: flex-start / flex-end / center / stretch / baseline;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h3><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/%E6%AC%A1%E8%BD%B4%E5%AF%B9%E9%BD%90%E6%96%B9%E5%BC%8F.png" width="600px">
 
-<h3 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h3><center><img src=https://cdn.jsdelivr.net/gh/Drwna/image//images/%E5%A4%9A%E8%A1%8C%E5%86%85%E5%AE%B9.png width="560px"  ></center>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">	<span class="attribute">align-items</span>: flex-start / flex-end / center / stretch / baseline;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.container &#123;</span><br><span class="line">align-content: flex-start / flex-end / center / stetch / space-between / space-around;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h3><img src=https://cdn.jsdelivr.net/gh/Drwna/image//images/%E5%A4%9A%E8%A1%8C%E5%86%85%E5%AE%B9.png width="600px">
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">	<span class="attribute">align-content</span>: flex-start / flex-end / center / stetch / space-between / space-around;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="item属性"><a href="#item属性" class="headerlink" title="item属性"></a>item属性</h2><h3 id="order"><a href="#order" class="headerlink" title="order"></a>order</h3><center><img src=https://cdn.jsdelivr.net/gh/Drwna/image//images/item-order.png width=560px  ></center>
+<h2 id="item属性"><a href="#item属性" class="headerlink" title="item属性"></a>item属性</h2><h3 id="order"><a href="#order" class="headerlink" title="order"></a>order</h3><img src=https://cdn.jsdelivr.net/gh/Drwna/image//images/item-order.png width=600px>
 
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.item:first-child &#123;</span><br><span class="line">	order: 1;</span><br><span class="line">&#125;</span><br><span class="line">.item:nth-child(2)&#123;</span><br><span class="line">	order: 1;</span><br><span class="line">&#125;</span><br><span class="line">.item:nth-child(3)&#123;</span><br><span class="line">	order: -2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span><span class="selector-pseudo">:first</span>-child &#123;</span><br><span class="line">	<span class="attribute">order</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span><span class="selector-pseudo">:nth-child</span>(<span class="number">2</span>)&#123;</span><br><span class="line">	<span class="attribute">order</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span><span class="selector-pseudo">:nth-child</span>(<span class="number">3</span>)&#123;</span><br><span class="line">	<span class="attribute">order</span>: -<span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h3><center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/item-flex-grow.png" alt="item-flex-grow" width="560px"  ></center>
+<h3 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h3><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/item-flex-grow.png" alt="item-flex-grow" width="600px">
 
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item &#123;</span><br><span class="line">	flex-grow: 1 / 2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">	<span class="attribute">flex-grow</span>: <span class="number">1</span> / <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h3><p>控制如何变瘦，<strong>一般写<code>flex-shrink: 0;</code>防止变瘦</strong>，默认是1</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">.item &#123;</span><br><span class="line">	flex-shrink: 1;</span><br><span class="line">&#125;</span><br><span class="line">.item:nth-child(2)&#123;</span><br><span class="line">	flex-shrink: 5;</span><br><span class="line">	/* 缩放程度更快 */</span><br><span class="line">&#125;</span><br><span class="line">.item:nth-child(3)&#123;</span><br><span class="line">	flex-shrink: 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">	<span class="attribute">flex-shrink</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span><span class="selector-pseudo">:nth-child</span>(<span class="number">2</span>)&#123;</span><br><span class="line">	<span class="attribute">flex-shrink</span>: <span class="number">5</span>;</span><br><span class="line">	<span class="comment">/* 缩放程度更快 */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span><span class="selector-pseudo">:nth-child</span>(<span class="number">3</span>)&#123;</span><br><span class="line">	<span class="attribute">flex-shrink</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h3><p>控制基准宽度，默认是<code>auto</code>，就是宽度，不常用</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item &#123;</span><br><span class="line">	flex-basis: 100px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">	<span class="attribute">flex-basis</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="align-self"><a href="#align-self" class="headerlink" title="align-self"></a>align-self</h3><center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/item-align-self.png" alt="item-align-self" width="560px"  ></center>
+<h3 id="align-self"><a href="#align-self" class="headerlink" title="align-self"></a>align-self</h3><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/item-align-self.png" alt="item-align-self" width="600px">
 
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item &#123;</span><br><span class="line">	align-self: flex-end;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">	<span class="attribute">align-self</span>: flex-end;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/* 工作中基本只用这些 */</span><br><span class="line">dispaly: flex;</span><br><span class="line">flex-direction: row / column;</span><br><span class="line">/* 流动方向，横或竖 */</span><br><span class="line">flex-wrap: warp / nowarp;</span><br><span class="line">/* 是否换行 */</span><br><span class="line">justify-content: center / space-betten;</span><br><span class="line">/* 主轴（横轴）方向 居中或分开对齐 */</span><br><span class="line">align-items: center;</span><br><span class="line">/* 次轴*（竖轴）方向，居中 */</span><br></pre></td></tr></table></figure>
+<h2 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 工作中基本只用这些 */</span></span><br><span class="line">dispaly: flex;</span><br><span class="line"></span><br><span class="line"><span class="attribute">flex-direction</span>: row / column;</span><br><span class="line"><span class="comment">/* 流动方向，横或竖 */</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">flex-wrap</span>: warp / nowarp;</span><br><span class="line"><span class="comment">/* 是否换行 */</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">justify-content</span>: center / space-betten;</span><br><span class="line"><span class="comment">/* 主轴（横轴）方向 居中或分开对齐 */</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">align-items</span>: center;</span><br><span class="line"><span class="comment">/* 次轴*（竖轴）方向，居中 */</span></span><br></pre></td></tr></table></figure>
 
-<p>通关<a target="_blank" rel="noopener" href="https://flexboxfroggy.com/#zh-cn">flex小游戏</a></p>
-<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><p><code>margin-xxx: auto</code>和<code>justify-content: space-between</code>实现相同的效果，推荐使用前者</p>
-<p>平局布局 使用负margin</p>
+<p><a target="_blank" rel="noopener" href="https://flexboxfroggy.com/#zh-cn">flex小游戏</a></p>
+<p>Tips:</p>
+<p>不要把 width 和 height 写死，除非特殊说明</p>
 <ul>
-<li><p>不要写死 width</p>
-</li>
-<li><p>max-width: 100px;</p>
-</li>
-<li><p>min-width: 80%;</p>
-</li>
-<li><p>width: 30vw;</p>
-</li>
+<li>写死 width：100px</li>
+<li>不写死 width：50% / max-width：100px /  min-width：80% / width：30vw</li>
+<li>特点：不使用 px，或者加 min max 前缀</li>
 </ul>
+<p><code>margin-xxx: auto</code>和<code>justify-content: space-between</code>实现相同的效果，推荐使用前者</p>
+<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-08-20_08-33-25.png" alt="Snipaste_2021-08-20_08-33-25" width="800px"></center>
+
 
       
 
@@ -249,6 +252,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2021/07/09/grid%E5%B8%83%E5%B1%80/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          grid布局
+        
+      </div>
+    </a>
   
   
     <a href="/2021/07/07/float%20%E5%B8%83%E5%B1%80/" id="article-nav-older" class="article-nav-link-wrap">
