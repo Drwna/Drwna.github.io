@@ -134,6 +134,195 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-JS对象基本用法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/08/25/JS%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/">JS对象基本用法</a>
+    </h1>
+  
+
+        
+        <a href="/2021/08/25/JS%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2021-08-25T13:41:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h4><p>对象就是一组”键值对“（key-value）的集合，是一种<strong>无序</strong>的复合数据集合。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = <span class="keyword">new</span> &#123;</span><br><span class="line">    <span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;frank&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;age&#x27;</span>: <span class="number">18</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>(&#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;frank&#x27;</span>, </span><br><span class="line">    <span class="attr">age</span>: <span class="number">18</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(&#123;<span class="attr">name</span>: frank, <span class="attr">age</span>: <span class="number">18</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>键名都是字符串</strong>，不是标识符，可以包含任意字符（必须加上引号）</li>
+<li>引号可以省略，省略后键名必须符合标识符的规则</li>
+<li>所有键名都会被自动转成字符串</li>
+</ul>
+<p>特殊键名</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    <span class="number">1</span>: <span class="string">&#x27;a&#x27;</span>,</span><br><span class="line">    <span class="number">3.2</span>: <span class="string">&#x27;b&#x27;</span>,</span><br><span class="line">    <span class="number">1e2</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="number">1e-2</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="number">.234</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="number">0xFF</span>: <span class="literal">true</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">Object</span>.keys(obj) <span class="comment">// 列出 obj 所有的 key</span></span><br><span class="line">=&gt; [<span class="string">&quot;1&quot;</span>, <span class="string">&quot;100&quot;</span>, <span class="string">&quot;255&quot;</span>, <span class="string">&quot;3.2&quot;</span>, <span class="string">&quot;0.01&quot;</span>, <span class="string">&quot;0.234&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<p>用变量做键名 用 <code>[ ]</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> p1 = <span class="string">&#x27;name&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    <span class="attr">p1</span>: <span class="string">&#x27;frank&#x27;</span> <span class="comment">// 键名为 &#x27;p1&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    [p1]: <span class="string">&#x27;frank&#x27;</span> <span class="comment">// 键名为 name</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 不加 [] 的键名会自动变成字符串</span></span><br><span class="line"><span class="comment">// 加了 [] 则会当作变量求值</span></span><br><span class="line"><span class="comment">// 值如果不是字符串，则会自动变成字符串</span></span><br><span class="line"><span class="keyword">var</span> obj &#123;</span><br><span class="line">    [<span class="number">1</span>+<span class="number">2</span>+<span class="number">3</span>]: <span class="string">&#x27;shi&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Object</span>.keys(obj);</span><br></pre></td></tr></table></figure>
+
+<hr>
+
+
+<h4 id="隐藏属性"><a href="#隐藏属性" class="headerlink" title="隐藏属性"></a>隐藏属性</h4><blockquote>
+<ul>
+<li>JS中每一个对象都一个隐藏属性 _<em>proto</em>_</li>
+<li>这个隐藏属性存储着<strong>共有属性组成的对象</strong>的地址</li>
+<li>这个共<strong>有属性组成的对象</strong>叫做原型</li>
+<li>也就是说，隐藏属性存储着原型的的地址</li>
+</ul>
+</blockquote>
+<p>示例</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 隐藏属性为 __proto__</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;&#125;</span><br><span class="line">obj.soString() <span class="comment">// 不报错</span></span><br><span class="line">因为 obj 的隐藏属性 对应的对象 上有 toString() </span><br></pre></td></tr></table></figure>
+
+<hr>
+
+
+<h4 id="删除属性"><a href="#删除属性" class="headerlink" title="删除属性"></a>删除属性</h4><p><strong>delete obj.xxx 或 delete obj[‘xxx’]</strong></p>
+<blockquote>
+<p>可删除 obj 的 xxx 属性</p>
+<p>区分 【属性值为 undefined】和【不含属性名】</p>
+</blockquote>
+<p><strong>不含属性名</strong></p>
+<blockquote>
+<p>‘xxx’ in obj === false</p>
+</blockquote>
+<p><strong>含有属性名，但是值为 undefined</strong></p>
+<blockquote>
+<p>‘xxx’ in obj &amp;&amp; obj.xxx === undefined </p>
+</blockquote>
+<p><strong>注意 obj.xxx === undefined</strong></p>
+<blockquote>
+<p>不能断定 ‘xxx‘ 是否为 obj 的属性</p>
+</blockquote>
+<hr>
+
+
+<h4 id="读取属性"><a href="#读取属性" class="headerlink" title="读取属性"></a>读取属性</h4><p><strong>查看属性</strong></p>
+<blockquote>
+<p>obj[‘key’]   </p>
+<p>obj[key]</p>
+<p>obj.key</p>
+<p><strong>obj.name 等价于 obj[‘name’] 不等价于 obj[name]</strong>  这里的 name 是字符串，不是变量 </p>
+</blockquote>
+<p><strong>查看自身所有属性</strong></p>
+<blockquote>
+<p>Object.keys(obj);</p>
+</blockquote>
+<p><strong>查看自身 + 共有属性</strong></p>
+<blockquote>
+<p>console.dir(obj)</p>
+<p>或者依次用 Object.keys 打印出 obj._<em>proto</em>_</p>
+</blockquote>
+<p><strong>判断一个属性是自身的还是共有</strong></p>
+<blockquote>
+<p>obj.hasOwnProperty(‘toString’)</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.keys(obj);</span><br><span class="line"><span class="built_in">Object</span>.values(obj);</span><br><span class="line"><span class="built_in">Object</span>.entries(obj);</span><br><span class="line"><span class="built_in">console</span>.dir(obj);</span><br></pre></td></tr></table></figure>
+
+<p><strong>‘name’ in  obj 和 obj.hasOwnPrototy(‘name’)</strong></p>
+<blockquote>
+<p>前者判断 obj 是否含有 name 属性名，但不会区分自身属性和共有属性</p>
+<p>后者判断 obj 的属性 name 是自身的属性还是共有属性，返回 false，不是自身属性；发返回 ture，是自身属性。</p>
+</blockquote>
+<hr>
+#### 原型
+
+<p><strong>每个对象都有原型</strong></p>
+<blockquote>
+<p>原型里存着对象的共有属性</p>
+<p>比如 obj 的原型就是一个对象</p>
+<p>obj.__proto__存着这个对象的地址</p>
+<p>这个对象里有 toString  / constructor / valueOf 等属性</p>
+</blockquote>
+<p><strong>对象的原型也是对象</strong></p>
+<blockquote>
+<p>所以对象的原型也有原型</p>
+<p>obj = {} 的原型即为所有对象的原型</p>
+<p>这个原型包含所有对象的共有属性，是<strong>对象的根</strong></p>
+<p>这个原型也有原型，是 null。 console.log(_<em>proto</em><em>._<em>proto</em></em>)</p>
+</blockquote>
+<hr>
+
+<h4 id="修改属性"><a href="#修改属性" class="headerlink" title="修改属性"></a>修改属性</h4><p><strong>直接赋值</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;<span class="attr">name</span>: <span class="string">&#x27;frank&#x27;</span>&#125; <span class="comment">// name 是字符串</span></span><br><span class="line">obj.name = <span class="string">&#x27;frank&#x27;</span> <span class="comment">// name 是字符串</span></span><br><span class="line">obj[<span class="string">&#x27;name&#x27;</span>] = <span class="string">&#x27;frank&#x27;</span></span><br><span class="line">❌obj[name] = <span class="string">&#x27;frank&#x27;</span> <span class="comment">// 错，因 name 不确定</span></span><br><span class="line">obj[<span class="string">&#x27;na&#x27;</span> + <span class="string">&#x27;me&#x27;</span>] = <span class="string">&#x27;frank&#x27;</span></span><br><span class="line"><span class="keyword">let</span> key = <span class="string">&#x27;name&#x27;</span>; obj[<span class="string">&#x27;key&#x27;</span>] = <span class="string">&#x27;frank&#x27;</span></span><br><span class="line"><span class="keyword">let</span> key = <span class="string">&#x27;name&#x27;</span>;  ❌ obj.key = <span class="string">&#x27;frank&#x27;</span> <span class="comment">// 错</span></span><br><span class="line">因为 obj.key 等价于 obj[<span class="string">&#x27;key&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<p><strong>批量赋值</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.assign(obj.&#123;<span class="attr">age</span>: <span class="number">18</span>, <span class="attr">gender</span>: <span class="string">&#x27;man&#x27;</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="修改或增加共有属性"><a href="#修改或增加共有属性" class="headerlink" title="修改或增加共有属性"></a>修改或增加共有属性</h4><p><strong>无法通过自身修改或增加共有属性</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj1 = &#123;&#125;，obj2 = &#123;&#125;  <span class="comment">// 共有toString</span></span><br><span class="line">obj.toString = <span class="string">&#x27;xxxx&#x27;</span> <span class="comment">// 只会改 obj1 自身的属性</span></span><br><span class="line">obj2.toString 还是在原型上</span><br></pre></td></tr></table></figure>
+
+<p><strong>偏要修改共有属性</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">obj1.__proto__.toString = <span class="string">&#x27;xxx&#x27;</span>; <span class="comment">// 不推荐使用__proto__Object.prototype.toString = &#x27;xxx&#x27;;一般不要修改原型</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="修改隐藏属性"><a href="#修改隐藏属性" class="headerlink" title="修改隐藏属性"></a>修改隐藏属性</h4><p><strong>不推荐使用_<em>proto</em></strong>_</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 代码示例</span></span><br><span class="line"><span class="keyword">let</span> person = &#123;<span class="attr">name</span>: <span class="string">&#x27;frank&#x27;</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> person1 = &#123;<span class="attr">name</span>: <span class="string">&#x27;jack&#x27;</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> common = &#123;<span class="attr">kind</span>: <span class="string">&#x27;human&#x27;</span>&#125;;</span><br><span class="line">obj.__proto__ = common;</span><br><span class="line">obj2.__proto__ = common;</span><br></pre></td></tr></table></figure>
+
+<p><strong>强烈推荐使用 Object.create</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> persion = <span class="built_in">Object</span>.cteate(common); <span class="comment">// 以 common 为原型创建 persion 对象</span></span><br><span class="line">persion.name = <span class="string">&#x27;frank&#x27;</span>; <span class="comment">// 然后添加属性，或批量添加</span></span><br><span class="line"><span class="keyword">let</span> persion2 = <span class="built_in">Object</span>.create(common, &#123; <span class="comment">// </span></span><br><span class="line">    <span class="attr">name</span>: &#123;<span class="attr">value</span>: <span class="string">&#x27;jack&#x27;</span>&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<hr>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/08/25/JS%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-JS基本语法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1522,105 +1711,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/07/08/flex%20%E5%B8%83%E5%B1%80/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-float 布局" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/07/float%20%E5%B8%83%E5%B1%80/">float布局</a>
-    </h1>
-  
-
-        
-        <a href="/2021/07/07/float%20%E5%B8%83%E5%B1%80/" class="archive-article-date">
-  	<time datetime="2021-07-07T12:01:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>步骤：</p>
-<ol>
-<li>子元素加上 float: left 和 width</li>
-<li>在父元素上加 .clearfix</li>
-</ol>
-<p>经验:</p>
-<ul>
-<li>有经验者会留一些空间或者最后有一个不设 width</li>
-<li>不需要响应式，因为手机上没有 IE，而这个布局是专门为 IE准备的</li>
-</ul>
-<p><b>IE 6/7 存在双倍 margin bug</b>, 两个解决办法（基本不用）：</p>
-<ol>
-<li><p>针对 IE 6/7 把 margin 减半</p>
-</li>
-<li><p>加一个 display: inline-block </p>
-</li>
-</ol>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span>:after &#123;</span><br><span class="line">    /* 清除浮动 */</span><br><span class="line">    content: <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">    <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">IE bug</span><br><span class="line"><span class="comment">/* margin 减半 &amp;&amp; inline-block */</span></span><br><span class="line"><span class="selector-class">.class</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">10px</span>;</span><br><span class="line">    _margin-<span class="attribute">left</span>: <span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://www.php.cn/css-tutorial-412744.html">为什么要清除浮动</a></p>
-<p><a target="_blank" rel="noopener" href="http://js.jirengu.com/wiwuh/3/edit?html,css,output">float demo</a></p>
-<p>Tips：</p>
-<ul>
-<li>border 有时候会干扰尺寸，可以改成 outline</li>
-<li>用 float 做平均布局时，可以在布局中增加一个x图层，其多余的右边距可以用 <strong>负的 margin</strong> 来改善布局</li>
-</ul>
-<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-08-20_08-33-25.png" alt="Snipaste_2021-08-20_08-33-25" width="800px"></center>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/07/07/float%20%E5%B8%83%E5%B1%80/">展开全文 >></a>
         </p>
       
 
