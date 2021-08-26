@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="浏览器渲染原理 步骤：  根据 HTML 构建 HTML 树（DOM） 根据 CSS 构建 CSS 树 （CSS DOM） 将两棵树合并成一颗渲染树 （render tree） Layout 布局（文档流、盒模型、计算大小和位置） Paint 绘制 （把边框颜色、文字颜色、阴影等画出来） Compose 合成（根据层叠关系展示画面）      JS三种更新样式方式  JS&#x2F;CSS &gt; 样式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浏览器渲染原理">
+<meta property="og:url" content="http://example.com/2021/07/10/08/index.html">
+<meta property="og:site_name" content="Xiaolong&#39;s Blog">
+<meta property="og:description" content="浏览器渲染原理 步骤：  根据 HTML 构建 HTML 树（DOM） 根据 CSS 构建 CSS 树 （CSS DOM） 将两棵树合并成一颗渲染树 （render tree） Layout 布局（文档流、盒模型、计算大小和位置） Paint 绘制 （把边框颜色、文字颜色、阴影等画出来） Compose 合成（根据层叠关系展示画面）      JS三种更新样式方式  JS&#x2F;CSS &gt; 样式">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Drwna/image//images/render-tree-construction.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Drwna/image//images/frame-full.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Drwna/image//images/frame-no-layout.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Drwna/image//images/frame-no-layout-paint.jpg">
+<meta property="article:published_time" content="2021-07-10T08:29:08.000Z">
+<meta property="article:modified_time" content="2021-08-20T08:38:38.940Z">
+<meta property="article:author" content="Xiaolong">
+<meta property="article:tag" content="js">
+<meta property="article:tag" content="css">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Drwna/image//images/render-tree-construction.png">
+
+
+<link rel="canonical" href="http://example.com/2021/07/10/08/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/07/10/08/","path":"2021/07/10/08/","title":"浏览器渲染原理"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>浏览器渲染原理 | Xiaolong's Blog</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Xiaolong's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Xiaolong"
+      src="/images/1.jpg">
+  <p class="site-author-name" itemprop="name">Xiaolong</p>
+  <div class="site-description" itemprop="description">learning</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/drwna" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;drwna" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+          </div>
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/10/08/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/1.jpg">
+      <meta itemprop="name" content="Xiaolong">
+      <meta itemprop="description" content="learning">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xiaolong's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          浏览器渲染原理
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-07-10 16:29:08" itemprop="dateCreated datePublished" datetime="2021-07-10T16:29:08+08:00">2021-07-10</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-08-20 16:38:38" itemprop="dateModified" datetime="2021-08-20T16:38:38+08:00">2021-08-20</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><strong>浏览器渲染原理</strong></p>
+<p>步骤：</p>
+<ul>
+<li>根据 HTML 构建 HTML 树（DOM）</li>
+<li>根据 CSS 构建 CSS 树 （CSS DOM）</li>
+<li>将两棵树合并成一颗渲染树 （render tree）</li>
+<li>Layout 布局（文档流、盒模型、计算大小和位置）</li>
+<li>Paint 绘制 （把边框颜色、文字颜色、阴影等画出来）</li>
+<li>Compose 合成（根据层叠关系展示画面）</li>
+</ul>
+<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/render-tree-construction.png" alt="render-tree-construction" width="800px"></center>
+
+
+
+<p><strong>JS三种更新样式方式</strong></p>
+<ol>
+<li><p>JS/CSS &gt; 样式 &gt; 布局 &gt; 绘制 &gt; 合成</p>
+<img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/frame-full.jpg" alt="frame-full" width="800px">
+
+<p>如果修改元素的“layout”属性，也就是改变了元素的几何属性（例如宽度、高度、左侧或顶部位置等），那么浏览器将必须检查所有其他元素，然后“自动重排”页面。任何受影响的部分都需要重新绘制，而且最终绘制的元素需进行合成。</p>
+</li>
+<li><p>JS/CSS &gt; 样式 &gt; 绘制 &gt; 合成</p>
+<img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/frame-no-layout.jpg" alt="frame-no-layout" width="800px">
+
+<p>如果修改“paint only”属性（例如背景图片、文字颜色或阴影等），即不会影响页面布局的属性，则浏览器会跳过布局，但仍将执行绘制。</p>
+</li>
+<li><p>JS/CSS &gt; 样式 &gt; 合成</p>
+<img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/frame-no-layout-paint.jpg" alt="frame-no-layout-paint" width="800px">
+
+<p>如果更改一个既不要布局也不要绘制的属性，则浏览器将跳到只执行合成。</p>
+<p>对于应用程序生命周期中的高压点（例如动画或滚动），此最终版本是开销最小和最理想的。</p>
+<p>This final version is the cheapest and most desirable for high pressure points in an app’s lifecycle, like animations or scrolling.</p>
+</li>
+</ol>
+<p>例：勾选 Paint flashing查看</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="http://js.jirengu.com/jagel/1/edit?html,css,js,output">div.remove()</a> 会触发当前消失，其他元素 relayout ，再 repaint + composte</li>
+<li><a target="_blank" rel="noopener" href="http://js.jirengu.com/jidam/1/edit?html,css,js,output">change bg color</a> 直接 repaint + composite</li>
+<li><a target="_blank" rel="noopener" href="http://js.jirengu.com/wusew/1">change transform</a> 只需 composite</li>
+</ol>
+<p>查看css属性变更时触发的改变 <a target="_blank" rel="noopener" href="https://csstriggers.com/">CSSTrigers</a></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-tree-construction">渲染树构建、布局及绘制</a></p>
+<p><a target="_blank" rel="noopener" href="https://developers.google.com/web/fundamentals/performance/rendering/">渲染性能</a></p>
+<p><a target="_blank" rel="noopener" href="https://developers.google.com/web/fundamentals/performance/rendering/stick-to-compositor-only-properties-and-manage-layer-count">使用 transform 实现动画</a></p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/js/" rel="tag"># js</a>
+              <a href="/tags/css/" rel="tag"># css</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/07/09/53/" rel="prev" title="css基础">
+                  <i class="fa fa-chevron-left"></i> css基础
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/07/10/50/" rel="next" title="css定位与层叠上下文">
+                  css定位与层叠上下文 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaolong</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="万维网（World Wide Web）包含三个部分分别是： WWW&#x3D;URL（Uniform）+HTTP（HyperText Transfer Protocol）+HTML（HyperText Markup Language） URL&#x3D; 协议+域名或IP+端口号+路径+查询字符串+锚点 http:&#x2F;&#x2F;www.baidu.com&#x2F;s?wd&#x3D;hi&amp;rsv_spt&#x3D;1#5  协议 —— http:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅析URL">
+<meta property="og:url" content="http://example.com/2021/07/10/41/index.html">
+<meta property="og:site_name" content="Xiaolong&#39;s Blog">
+<meta property="og:description" content="万维网（World Wide Web）包含三个部分分别是： WWW&#x3D;URL（Uniform）+HTTP（HyperText Transfer Protocol）+HTML（HyperText Markup Language） URL&#x3D; 协议+域名或IP+端口号+路径+查询字符串+锚点 http:&#x2F;&#x2F;www.baidu.com&#x2F;s?wd&#x3D;hi&amp;rsv_spt&#x3D;1#5  协议 —— http:">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-07-10T11:47:41.000Z">
+<meta property="article:modified_time" content="2021-08-20T14:33:58.231Z">
+<meta property="article:author" content="Xiaolong">
+<meta property="article:tag" content="http">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2021/07/10/41/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/07/10/41/","path":"2021/07/10/41/","title":"浅析URL"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>浅析URL | Xiaolong's Blog</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Xiaolong's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%8F%E8%AE%AE"><span class="nav-number">1.</span> <span class="nav-text">协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IP%EF%BC%88Internet-Protocol%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">IP（Internet Protocol）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%96%E7%BD%91IP"><span class="nav-number">3.</span> <span class="nav-text">外网IP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E7%BD%91IP"><span class="nav-number">4.</span> <span class="nav-text">内网IP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E5%99%A8"><span class="nav-number">5.</span> <span class="nav-text">路由器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E6%AE%8AIP"><span class="nav-number">6.</span> <span class="nav-text">特殊IP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%9F%E5%90%8D"><span class="nav-number">7.</span> <span class="nav-text">域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AB%AF%E5%8F%A3"><span class="nav-number">8.</span> <span class="nav-text">端口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%AF%E5%BE%84"><span class="nav-number">9.</span> <span class="nav-text">路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E5%8F%82%E6%95%B0"><span class="nav-number">10.</span> <span class="nav-text">查询参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%9A%E7%82%B9"><span class="nav-number">11.</span> <span class="nav-text">锚点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DNS"><span class="nav-number">12.</span> <span class="nav-text">DNS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#curl%E5%91%BD%E4%BB%A4"><span class="nav-number">13.</span> <span class="nav-text">curl命令</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Xiaolong"
+      src="/images/1.jpg">
+  <p class="site-author-name" itemprop="name">Xiaolong</p>
+  <div class="site-description" itemprop="description">learning</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/drwna" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;drwna" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+          </div>
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/10/41/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/1.jpg">
+      <meta itemprop="name" content="Xiaolong">
+      <meta itemprop="description" content="learning">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xiaolong's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          浅析URL
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-07-10 19:47:41" itemprop="dateCreated datePublished" datetime="2021-07-10T19:47:41+08:00">2021-07-10</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-08-20 22:33:58" itemprop="dateModified" datetime="2021-08-20T22:33:58+08:00">2021-08-20</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>万维网（World Wide Web）包含三个部分分别是：</p>
+<p><strong>WWW=URL（Uniform）+HTTP（HyperText Transfer Protocol）+HTML（HyperText Markup Language）</strong></p>
+<p>URL= 协议+域名或IP+端口号+路径+查询字符串+锚点</p>
+<p><strong><a href="https://link.zhihu.com/?target=http://www.baidu.com/s?wd=hi&rsv_spt=1%235">http://www.baidu.com/s?wd=hi&amp;rsv_spt=1#5</a></strong></p>
+<blockquote>
+<p><strong>协议 —— <a href="https://link.zhihu.com/?target=http://zhi/">http://</a></strong><br><strong>域名 —— <a href="https://link.zhihu.com/?target=http://www.baidu.com/s?wd=hi&rsv_spt=1%235">www.baidu.com</a></strong><br><strong>路径 —— <a href="https://link.zhihu.com/?target=http://www.baidu.com/s?wd=hi&rsv_spt=1%235">/s</a></strong><br><strong>查询参数 —— <a href="https://link.zhihu.com/?target=http://www.baidu.com/s?wd=hi&rsv_spt=1%235">?wd=hi&amp;rsv_spt=1</a></strong><br><strong>锚点 —— <a href="https://link.zhihu.com/?target=http://www.baidu.com/s?wd=hi&rsv_spt=1%235">#5</a></strong></p>
+</blockquote>
+<h2 id="协议"><a href="#协议" class="headerlink" title="协议"></a><strong>协议</strong></h2><p>服务器使用的协议一般有两种：</p>
+<blockquote>
+<p>一种为<strong>HTTP（</strong>HyperText Transfer Protocol,超文本传输协议)<br>一种为<strong>HTTPS（</strong>Hyper Text Transfer Protocol over SecureSocket Layer,超文本传输安全协议）</p>
+</blockquote>
+<hr>
+<h2 id="IP（Internet-Protocol）"><a href="#IP（Internet-Protocol）" class="headerlink" title="IP（Internet Protocol）"></a>IP（Internet Protocol）</h2><p><strong>作用</strong></p>
+<blockquote>
+<p> 一、如何定位一台设备（手机、电脑、路由器…）<br> 二、如何封装数据报文，以跟其他设备交流</p>
+</blockquote>
+<p>换句话说，只要你在互联网中，你就至少会有一个独立的IP</p>
+<p> <strong>IP分为内网和外网</strong></p>
+<h2 id="外网IP"><a href="#外网IP" class="headerlink" title="外网IP"></a><strong>外网IP</strong></h2><p><strong>如何获取外网的IP（过程）</strong></p>
+<p>第一步：从电信租用带宽</p>
+<p>第二步：光猫（调制解调器）</p>
+<blockquote>
+<p>作用：拨号上网</p>
+</blockquote>
+<p>第三步：路由器</p>
+<blockquote>
+<p>作用：起到分配的作用</p>
+</blockquote>
+<p>把电脑和手机分别连接由路由器广播出来的无线WIFI</p>
+<p>只要路由器通过“光猫”连接上外面（电信）的服务器时，路由器就会有一个「外网IP」，比如「147.17.32.211」就是一个外网IP，这个IP地址就是在互联网中的地址（所有的通过路由器连接设备都是同一个外网IP地址）</p>
+<p>但是如果重启路由器，那么很有可能被重新分配一个「外网IP」，换句话说你的路由器没有「固定的外网IP」</p>
+<p>拓展：<a target="_blank" rel="noopener" href="https://www.ip138.com/">查询自己的外网IP</a></p>
+<h2 id="内网IP"><a href="#内网IP" class="headerlink" title="内网IP"></a>内网IP</h2><p>路由器会在家里（区域）创建一个内网，内网中的设备使用时内网IP，一般来说内网IP格式为「<a href="https://link.zhihu.com/?target=http://192.168.xxx.xxx">http://192.168.xxx.xxx</a>」</p>
+<p>一般路由器会给自己分配一个好记的内网IP：192.168.1.1（一般会让出一个位置留给光猫）</p>
+<p>然后路由器会给每一个内网中的设备分配一个不同的内网IP，如电脑是192.168.1.2，手机是192.168.1.3，以此类推。</p>
+<h2 id="路由器"><a href="#路由器" class="headerlink" title="路由器"></a>路由器</h2><p>路由器有两个IP：一个外网IP和一个内网IP</p>
+<p>内网中的设备可以互相访问，但是不能直接访问外网</p>
+<p>内网设备想要访问外网，就必须经过路由器中转</p>
+<p>外网中的设备可以互相访问，但无法直接访问内网设备</p>
+<p>外网设备想要把内容送到内网，也必须通过路由器</p>
+<p>换句换说内网和外网就像两个隔绝的空间无法互通，唯一的联通点就是路由器</p>
+<p>所以路由器有时候也被叫做网关</p>
+<h2 id="特殊IP"><a href="#特殊IP" class="headerlink" title="特殊IP"></a><strong>特殊IP</strong></h2><blockquote>
+<p>127.0.0.1 本地</p>
+<p>localhost 本地</p>
+<p>0.0.0.0（不表示任何设备）</p>
+</blockquote>
+<h2 id="域名"><a href="#域名" class="headerlink" title="域名"></a><strong>域名</strong></h2><blockquote>
+<p> 域名就是IP的别称</p>
+</blockquote>
+<p><strong>知识：</strong></p>
+<ul>
+<li><strong>一个域名可以对应不同的IP</strong></li>
+<li><strong>这个叫做均衡负载，防止一台机器扛不住</strong></li>
+</ul>
+<blockquote>
+<p>终端输入ping <a href="https://link.zhihu.com/?target=http://baidu.com/">baidu.com</a> 会生成几个IP地址来对应不同的服务器，这些服务器分别对应各个地区（华中、华南、华北..），进行使用</p>
+</blockquote>
+<ul>
+<li><strong>一个IP可以对应不同域名</strong></li>
+<li><strong>这个叫做共享主机</strong></li>
+</ul>
+<blockquote>
+<p>公司太小公用服务器或者一个公司有两个网站，公用一个IP地址</p>
+</blockquote>
+<p><strong>疑问 ️：<a href="https://link.zhihu.com/?target=http://www.baidu/">www.</a>xiedaimala.com与xiedaimala.com是同一个域名吗？</strong></p>
+<blockquote>
+<p>答案：不是同一个域名</p>
+</blockquote>
+<p><strong>拓展：</strong></p>
+<blockquote>
+<p>com（company，公司）<strong>是顶级域名</strong><br><a href="https://link.zhihu.com/?target=http://xiedaimala.com">http://xiedaimala.com</a>是<strong>二级域名（俗称一级域名）</strong><br><a href="https://link.zhihu.com/?target=http://www.xiedaimala.com">http://www.xiedaimala.com</a>是<strong>三级域名（俗称二级域名）</strong></p>
+</blockquote>
+<p> <strong>他们是父子关系（越长越小）</strong> </p>
+<blockquote>
+<p><a href="https://link.zhihu.com/?target=http://github.io/">github.io</a> 把子域名xxx.github.io免费给用户使用 xx.com与<a target="_blank" rel="noopener" href="http://www.xx.com可以是同一家公司,也可以不是同一家公司(只是公用父域名)/">www.xx.com可以是同一家公司，也可以不是同一家公司（只是公用父域名）</a> www是非常多余的！</p>
+</blockquote>
+<h2 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h2><p><strong>什么是端口</strong></p>
+<blockquote>
+<p>我们知道URL的作用是定位服务器比如定位百度服务器），我们可以通过上面的IP/域名来定位服务器，但是我们定位服务器的根本目的是需要为服务的（不然我们定位服务器干啥！！ ）<br>所有现在接下来的事情就是定位服务，而<strong>端口</strong>就是为了对应不同服务的</p>
+</blockquote>
+<p><strong>端口号</strong></p>
+<blockquote>
+<p>一台服务器（设备）可以提供很多服务，每个服务都有对应号码，这个号码被称为<strong>端口号</strong></p>
+</blockquote>
+<p>很多服务</p>
+<p>要提供HTTP（超文本传输协议）服务最好使用80端口</p>
+<p>要提供HTTPS（超文本传输安全协议）服务最好使用443端口</p>
+<p>要提供FTP（文件传输协议）服务最好使用443端口</p>
+<p>一共有65535个端口，基本够用</p>
+<p>我们怎么知道什么服务对应（提供）什么端口</p>
+<hr>
+<h2 id="路径"><a href="#路径" class="headerlink" title="路径"></a><strong>路径</strong></h2><blockquote>
+<p>在一个服务器（设备）上，如何请求不同的页面 通过路径可以做到</p>
+</blockquote>
+<blockquote>
+<p>例：</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML">https://developer.mozilla.org/zh-CN/docs/Web/HTML</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/css">https://developer.mozilla.org/zh-CN/docs/Web/css</a></p>
+</blockquote>
+<h2 id="查询参数"><a href="#查询参数" class="headerlink" title="查询参数"></a><strong>查询参数</strong></h2><p>同一页面，不同内容</p>
+<p><a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=hi&amp;pn=10">https://www.baidu.com/s?wd=hi&amp;pn=10</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=hello">https://www.baidu.com/s?wd=hello</a></p>
+<blockquote>
+<p><strong>/s：搜索页面</strong><br><strong>?wd=：查询参数 word（单词/词语）</strong><br><strong>wd：word（单词/词语）</strong></p>
+</blockquote>
+<h2 id="锚点"><a href="#锚点" class="headerlink" title="锚点"></a><strong>锚点</strong></h2><blockquote>
+<p>在一个内容上，如何请求不同位置 通过锚点可以做到</p>
+</blockquote>
+<p>举 ：</p>
+<blockquote>
+<p><a href="https://link.zhihu.com/?target=https://develop.mozilla.org/zh-CN/docs/web/HTML">https://develop.mozilla.org/zh-CN/docs/web/HTML</a><strong>#参考书</strong> <a href="https://link.zhihu.com/?target=https://develop.mozilla.org/zh-CN/docs/web/CSS">https://develop.mozilla.org/zh-CN/docs/web/CSS</a><strong>#教程</strong></p>
+</blockquote>
+<p><strong>注意：</strong></p>
+<blockquote>
+<p>锚点看起来有中文，实际不支持中文 <strong>#参考书</strong>传输到服务器会变成一堆乱码 锚点无法在Network面板看到 因为锚点不会传給服务器</p>
+</blockquote>
+<h2 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h2><blockquote>
+<p><strong>DNS全称为Domain Name System，域名系统</strong></p>
+</blockquote>
+<blockquote>
+<p>DNS 的作用就是对域名和IP进行相互对应的</p>
+</blockquote>
+<p><strong>验证下：当我们输入<a href="https://link.zhihu.com/?target=http://baidu.com">http://baidu.com</a>回车后，域名是如何与IP进行相互对应的？</strong></p>
+<ul>
+<li>在Chrome浏览器下输入<a href="https://link.zhihu.com/?target=http://baidu.com">http://baidu.com</a>后，先经过<strong>路由器</strong>向外网的<strong>（电信/联通提供的DNS服务器）</strong>发出询问，询问内容就是<a href="https://link.zhihu.com/?target=http://baidu.com">http://baidu.com</a>所对应的IP地址</li>
+<li><strong>电信/联通提供的DNS服务器</strong>收到请求后，就会回答一个IP地址</li>
+<li>然后Chrome浏览器把回答的IP地址和以及IP对应的端口（80/443端口）再次通过路由器向对应的服务器发送请求</li>
+<li>请求内容：查看<a href="https://link.zhihu.com/?target=http://baidu.com">http://baidu.com</a>的页面</li>
+<li>服务器通过路由器再传回给浏览器（HTML、CSS、JS等）</li>
+<li>最终我们就可以看到<a href="https://link.zhihu.com/?target=http://baidu.com">http://baidu.com</a>的页面了</li>
+</ul>
+<p><strong>通过nslookup 命令查看域名下所有提供服务的服务器</strong></p>
+<blockquote>
+<p>语法：nslookup 网站域名</p>
+</blockquote>
+<p><strong>拓展：</strong>ping与nslookup区别：</p>
+<blockquote>
+<p>ping：查看域名<strong>对应</strong>本地区的服务器，更为准确 nslookup：查看域名对应<strong>所有</strong>提供服务的服务器</p>
+</blockquote>
+<h2 id="curl命令"><a href="#curl命令" class="headerlink" title="curl命令"></a>curl命令</h2><p>用 curl 可以发 HTTP 请求</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -v http://baidu.com</span><br><span class="line">curl -s -v -- https://www.baidu.com</span><br></pre></td></tr></table></figure>
+
+<p>理解：</p>
+<blockquote>
+<p>url 会被 curl 工具重写，先请求 DNS 获得 IP</p>
+<p>先进行 TCP 连接，TCP 连接成功后，开始发送 HTTP　请求</p>
+<p>请求内容看一眼</p>
+<p>响应内容看一眼</p>
+<p>响应结束后，关闭 TCP 连接（看不出来）</p>
+<p>真正结束</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/http/" rel="tag"># http</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/07/10/31/" rel="prev" title="css总结">
+                  <i class="fa fa-chevron-left"></i> css总结
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/08/22/39/" rel="next" title="JavaScript的诞生">
+                  JavaScript的诞生 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaolong</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

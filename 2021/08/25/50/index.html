@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="Object对象就是一组”键值对“（key-value）的集合，是一种无序的复合数据集合。 123456789let obj &#x3D; new &amp;#123;    &amp;#x27;name&amp;#x27;: &amp;#x27;frank&amp;#x27;,    &amp;#x27;age&amp;#x27;: 18&amp;#125;let obj &#x3D; new Object(&amp;#123;    name: &amp;#x27;frank&amp;#x27;,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS对象基本用法">
+<meta property="og:url" content="http://example.com/2021/08/25/50/index.html">
+<meta property="og:site_name" content="Xiaolong&#39;s Blog">
+<meta property="og:description" content="Object对象就是一组”键值对“（key-value）的集合，是一种无序的复合数据集合。 123456789let obj &#x3D; new &amp;#123;    &amp;#x27;name&amp;#x27;: &amp;#x27;frank&amp;#x27;,    &amp;#x27;age&amp;#x27;: 18&amp;#125;let obj &#x3D; new Object(&amp;#123;    name: &amp;#x27;frank&amp;#x27;,">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-08-25T13:41:50.000Z">
+<meta property="article:modified_time" content="2021-08-25T13:58:36.691Z">
+<meta property="article:author" content="Xiaolong">
+<meta property="article:tag" content="js">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2021/08/25/50/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/08/25/50/","path":"2021/08/25/50/","title":"JS对象基本用法"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>JS对象基本用法 | Xiaolong's Blog</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Xiaolong's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Object"><span class="nav-number">1.</span> <span class="nav-text">Object</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9A%90%E8%97%8F%E5%B1%9E%E6%80%A7"><span class="nav-number">2.</span> <span class="nav-text">隐藏属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E5%B1%9E%E6%80%A7"><span class="nav-number">3.</span> <span class="nav-text">删除属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%BB%E5%8F%96%E5%B1%9E%E6%80%A7"><span class="nav-number">4.</span> <span class="nav-text">读取属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%B1%9E%E6%80%A7"><span class="nav-number">5.</span> <span class="nav-text">修改属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%88%96%E5%A2%9E%E5%8A%A0%E5%85%B1%E6%9C%89%E5%B1%9E%E6%80%A7"><span class="nav-number">6.</span> <span class="nav-text">修改或增加共有属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E9%9A%90%E8%97%8F%E5%B1%9E%E6%80%A7"><span class="nav-number">7.</span> <span class="nav-text">修改隐藏属性</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Xiaolong"
+      src="/images/1.jpg">
+  <p class="site-author-name" itemprop="name">Xiaolong</p>
+  <div class="site-description" itemprop="description">learning</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/drwna" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;drwna" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+          </div>
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/25/50/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/1.jpg">
+      <meta itemprop="name" content="Xiaolong">
+      <meta itemprop="description" content="learning">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xiaolong's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JS对象基本用法
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2021-08-25 21:41:50 / Modified: 21:58:36" itemprop="dateCreated datePublished" datetime="2021-08-25T21:41:50+08:00">2021-08-25</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h4 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h4><p>对象就是一组”键值对“（key-value）的集合，是一种<strong>无序</strong>的复合数据集合。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = <span class="keyword">new</span> &#123;</span><br><span class="line">    <span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;frank&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;age&#x27;</span>: <span class="number">18</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>(&#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;frank&#x27;</span>, </span><br><span class="line">    <span class="attr">age</span>: <span class="number">18</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(&#123;<span class="attr">name</span>: frank, <span class="attr">age</span>: <span class="number">18</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>键名都是字符串</strong>，不是标识符，可以包含任意字符（必须加上引号）</li>
+<li>引号可以省略，省略后键名必须符合标识符的规则</li>
+<li>所有键名都会被自动转成字符串</li>
+</ul>
+<p>特殊键名</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    <span class="number">1</span>: <span class="string">&#x27;a&#x27;</span>,</span><br><span class="line">    <span class="number">3.2</span>: <span class="string">&#x27;b&#x27;</span>,</span><br><span class="line">    <span class="number">1e2</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="number">1e-2</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="number">.234</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="number">0xFF</span>: <span class="literal">true</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">Object</span>.keys(obj) <span class="comment">// 列出 obj 所有的 key</span></span><br><span class="line">=&gt; [<span class="string">&quot;1&quot;</span>, <span class="string">&quot;100&quot;</span>, <span class="string">&quot;255&quot;</span>, <span class="string">&quot;3.2&quot;</span>, <span class="string">&quot;0.01&quot;</span>, <span class="string">&quot;0.234&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<p>用变量做键名 用 <code>[ ]</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> p1 = <span class="string">&#x27;name&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    <span class="attr">p1</span>: <span class="string">&#x27;frank&#x27;</span> <span class="comment">// 键名为 &#x27;p1&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    [p1]: <span class="string">&#x27;frank&#x27;</span> <span class="comment">// 键名为 name</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 不加 [] 的键名会自动变成字符串</span></span><br><span class="line"><span class="comment">// 加了 [] 则会当作变量求值</span></span><br><span class="line"><span class="comment">// 值如果不是字符串，则会自动变成字符串</span></span><br><span class="line"><span class="keyword">var</span> obj &#123;</span><br><span class="line">    [<span class="number">1</span>+<span class="number">2</span>+<span class="number">3</span>]: <span class="string">&#x27;shi&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Object</span>.keys(obj);</span><br></pre></td></tr></table></figure>
+
+<hr>
+
+
+<h4 id="隐藏属性"><a href="#隐藏属性" class="headerlink" title="隐藏属性"></a>隐藏属性</h4><blockquote>
+<ul>
+<li>JS中每一个对象都一个隐藏属性 _<em>proto</em>_</li>
+<li>这个隐藏属性存储着<strong>共有属性组成的对象</strong>的地址</li>
+<li>这个共<strong>有属性组成的对象</strong>叫做原型</li>
+<li>也就是说，隐藏属性存储着原型的的地址</li>
+</ul>
+</blockquote>
+<p>示例</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 隐藏属性为 __proto__</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;&#125;</span><br><span class="line">obj.soString() <span class="comment">// 不报错</span></span><br><span class="line">因为 obj 的隐藏属性 对应的对象 上有 toString() </span><br></pre></td></tr></table></figure>
+
+<hr>
+
+
+<h4 id="删除属性"><a href="#删除属性" class="headerlink" title="删除属性"></a>删除属性</h4><p><strong>delete obj.xxx 或 delete obj[‘xxx’]</strong></p>
+<blockquote>
+<p>可删除 obj 的 xxx 属性</p>
+<p>区分 【属性值为 undefined】和【不含属性名】</p>
+</blockquote>
+<p><strong>不含属性名</strong></p>
+<blockquote>
+<p>‘xxx’ in obj === false</p>
+</blockquote>
+<p><strong>含有属性名，但是值为 undefined</strong></p>
+<blockquote>
+<p>‘xxx’ in obj &amp;&amp; obj.xxx === undefined </p>
+</blockquote>
+<p><strong>注意 obj.xxx === undefined</strong></p>
+<blockquote>
+<p>不能断定 ‘xxx‘ 是否为 obj 的属性</p>
+</blockquote>
+<hr>
+
+
+<h4 id="读取属性"><a href="#读取属性" class="headerlink" title="读取属性"></a>读取属性</h4><p><strong>查看属性</strong></p>
+<blockquote>
+<p>obj[‘key’]   </p>
+<p>obj[key]</p>
+<p>obj.key</p>
+<p><strong>obj.name 等价于 obj[‘name’] 不等价于 obj[name]</strong>  这里的 name 是字符串，不是变量 </p>
+</blockquote>
+<p><strong>查看自身所有属性</strong></p>
+<blockquote>
+<p>Object.keys(obj);</p>
+</blockquote>
+<p><strong>查看自身 + 共有属性</strong></p>
+<blockquote>
+<p>console.dir(obj)</p>
+<p>或者依次用 Object.keys 打印出 obj._<em>proto</em>_</p>
+</blockquote>
+<p><strong>判断一个属性是自身的还是共有</strong></p>
+<blockquote>
+<p>obj.hasOwnProperty(‘toString’)</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.keys(obj);</span><br><span class="line"><span class="built_in">Object</span>.values(obj);</span><br><span class="line"><span class="built_in">Object</span>.entries(obj);</span><br><span class="line"><span class="built_in">console</span>.dir(obj);</span><br></pre></td></tr></table></figure>
+
+<p><strong>‘name’ in  obj 和 obj.hasOwnPrototy(‘name’) 区别</strong></p>
+<blockquote>
+<p>前者判断 obj 是否含有 name 属性名，但不会区分自身属性和共有属性</p>
+<p>后者判断 obj 的属性 name 是自身的属性还是共有属性，返回 false，不是自身属性；发返回 ture，是自身属性。</p>
+</blockquote>
+<hr>
+#### 原型
+
+<p><strong>每个对象都有原型</strong></p>
+<blockquote>
+<p>原型里存着对象的共有属性</p>
+<p>比如 obj 的原型就是一个对象</p>
+<p>obj.__proto__存着这个对象的地址</p>
+<p>这个对象里有 toString  / constructor / valueOf 等属性</p>
+</blockquote>
+<p><strong>对象的原型也是对象</strong></p>
+<blockquote>
+<p>所以对象的原型也有原型</p>
+<p>obj = {} 的原型即为所有对象的原型</p>
+<p>这个原型包含所有对象的共有属性，是<strong>对象的根</strong></p>
+<p>这个原型也有原型，是 null。 console.log(_<em>proto</em><em>._<em>proto</em></em>)</p>
+</blockquote>
+<hr>
+
+<h4 id="修改属性"><a href="#修改属性" class="headerlink" title="修改属性"></a>修改属性</h4><p><strong>直接赋值</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;<span class="attr">name</span>: <span class="string">&#x27;frank&#x27;</span>&#125; <span class="comment">// name 是字符串</span></span><br><span class="line">obj.name = <span class="string">&#x27;frank&#x27;</span> <span class="comment">// name 是字符串</span></span><br><span class="line">obj[<span class="string">&#x27;name&#x27;</span>] = <span class="string">&#x27;frank&#x27;</span></span><br><span class="line">❌obj[name] = <span class="string">&#x27;frank&#x27;</span> <span class="comment">// 错，因 name 不确定</span></span><br><span class="line">obj[<span class="string">&#x27;na&#x27;</span> + <span class="string">&#x27;me&#x27;</span>] = <span class="string">&#x27;frank&#x27;</span></span><br><span class="line"><span class="keyword">let</span> key = <span class="string">&#x27;name&#x27;</span>; obj[<span class="string">&#x27;key&#x27;</span>] = <span class="string">&#x27;frank&#x27;</span></span><br><span class="line"><span class="keyword">let</span> key = <span class="string">&#x27;name&#x27;</span>;  ❌ obj.key = <span class="string">&#x27;frank&#x27;</span> <span class="comment">// 错</span></span><br><span class="line">因为 obj.key 等价于 obj[<span class="string">&#x27;key&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<p><strong>批量赋值</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.assign(obj.&#123;<span class="attr">age</span>: <span class="number">18</span>, <span class="attr">gender</span>: <span class="string">&#x27;man&#x27;</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="修改或增加共有属性"><a href="#修改或增加共有属性" class="headerlink" title="修改或增加共有属性"></a>修改或增加共有属性</h4><p><strong>无法通过自身修改或增加共有属性</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj1 = &#123;&#125;，obj2 = &#123;&#125;  <span class="comment">// 共有toString</span></span><br><span class="line">obj.toString = <span class="string">&#x27;xxxx&#x27;</span> <span class="comment">// 只会改 obj1 自身的属性</span></span><br><span class="line">obj2.toString 还是在原型上</span><br></pre></td></tr></table></figure>
+
+<p><strong>偏要修改共有属性</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">obj1.__proto__.toString = <span class="string">&#x27;xxx&#x27;</span>; <span class="comment">// 不推荐使用__proto__Object.prototype.toString = &#x27;xxx&#x27;;一般不要修改原型</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="修改隐藏属性"><a href="#修改隐藏属性" class="headerlink" title="修改隐藏属性"></a>修改隐藏属性</h4><p><strong>不推荐使用_<em>proto</em></strong>_</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 代码示例</span></span><br><span class="line"><span class="keyword">let</span> person = &#123;<span class="attr">name</span>: <span class="string">&#x27;frank&#x27;</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> person1 = &#123;<span class="attr">name</span>: <span class="string">&#x27;jack&#x27;</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> common = &#123;<span class="attr">kind</span>: <span class="string">&#x27;human&#x27;</span>&#125;;</span><br><span class="line">obj.__proto__ = common;</span><br><span class="line">obj2.__proto__ = common;</span><br></pre></td></tr></table></figure>
+
+<p><strong>强烈推荐使用 Object.create</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> persion = <span class="built_in">Object</span>.cteate(common); <span class="comment">// 以 common 为原型创建 persion 对象</span></span><br><span class="line">persion.name = <span class="string">&#x27;frank&#x27;</span>; <span class="comment">// 然后添加属性，或批量添加</span></span><br><span class="line"><span class="keyword">let</span> persion2 = <span class="built_in">Object</span>.create(common, &#123; <span class="comment">// </span></span><br><span class="line">    <span class="attr">name</span>: &#123;<span class="attr">value</span>: <span class="string">&#x27;jack&#x27;</span>&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<hr>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/js/" rel="tag"># js</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/08/24/11/" rel="prev" title="JS基本语法">
+                  <i class="fa fa-chevron-left"></i> JS基本语法
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaolong</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
