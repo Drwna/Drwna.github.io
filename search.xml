@@ -717,7 +717,7 @@
 
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">	<span class="attribute">flex</span>-warp: nowarp / wrap / wrap-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h3><img src="flex 布局.assets/主轴对齐方式.png" width="600px" />
+<h3 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h3><center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-08-27_11-19-38.png" alt="Snipaste_2021-08-27_11-19-38" width="600px"></center>
 
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">justify-content</span>: flex-start / flex-end/ space-between / sapce-around / space-evenly;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -760,6 +760,7 @@
 <li>特点：不使用 px，或者加 min max 前缀</li>
 </ul>
 <p><code>margin-xxx: auto</code>和<code>justify-content: space-between</code>实现相同的效果，推荐使用前者</p>
+<p>参考自<a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a></p>
 <center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-08-20_08-33-25.png" alt="Snipaste_2021-08-20_08-33-25" width="800px"></center>
 
 ]]></content>
