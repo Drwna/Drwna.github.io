@@ -237,10 +237,116 @@
       </tags>
   </entry>
   <entry>
+    <title>JavaScript的诞生</title>
+    <url>/2021/08/22/39/</url>
+    <content><![CDATA[<h2 id="JavaScript的历史"><a href="#JavaScript的历史" class="headerlink" title="JavaScript的历史"></a>JavaScript的历史</h2><p>JavaScript（简称“JS”）  是一种具有函数优先的轻量级，解释型或即时编译型的编程语言。虽然它是作为开发 Web 页面的脚本语言而出名的，但是它也被用到了很多非浏览器环境中，JavaScript 基于原型编程、多范式的动态脚本语言，并且支持面向对象、命令式和声明式（如函数式编程）风格。</p>
+<p>1995年由于网景公司需要做出一款比 Java 还要简单的脚本语言，但是还要于Java相似。这时刚入职没多久的 <strong>Brendan Eich</strong> 就被安排了这项任务。</p>
+<p><strong>1995年5月</strong>，<strong>Brendan Eich</strong>只用了10天，就设计完成了这种语言的第一版。</p>
+<center><img src="https://ss2.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/baike/w%3D249/sign=5801118fad51f3dec3b2be60adeef0ec/838ba61ea8d3fd1f84237b7f324e251f95ca5f49.jpg"></center>
+
+<p>1996年11月，网景正式向 ECMA（欧洲计算机制造商协会）提交语言标准。1997年6月，ECMA以JavaScript语言为基础制定了ECMAScript 标准规范ECMA-262。JavaScript成为了ECMAScript最著名的实现之一。除此之外，ActionScript 和 JScript 也都是ECMAScript 规范的实现语言。尽管JavaScript作为给非程序人员的脚本语言，而非作为给程序人员的脚本语言来推广和宣传，但是 JavaScript 具有非常丰富的特性。</p>
+<h2 id="JavaScrip-特点"><a href="#JavaScrip-特点" class="headerlink" title="JavaScrip 特点"></a>JavaScrip 特点</h2><p>一般来说，完整的 JavaScript 包括以下几个部分:</p>
+<ul>
+<li>ECMAScript，描述了该语言的语法和基本对象</li>
+<li>文档对象模型 DOM，描述处理<strong>网页内容</strong>的方法和接口</li>
+<li>浏览器对象模型 BOM 浏览器对象模型，描述与<strong>浏览器</strong>进行交互的方法和接口</li>
+</ul>
+<p>JavaScript的基本特点如下:</p>
+<ul>
+<li>是一种解释性脚本语言（代码不进行预编译）。</li>
+<li>主要用来向HTML页面添加<strong>交互行为</strong>。</li>
+<li>可以直接嵌入HTML页面，但写成单独的js文件有利于结构和行为的分离。</li>
+</ul>
+<p>JavaScript常用来完成以下任务:</p>
+<ul>
+<li>嵌入动态文本于HTML页面</li>
+<li>对浏览器事件作出响应</li>
+<li>读写HTML元素</li>
+<li>在数据被提交到服务器之前验证数据</li>
+<li>检测访客的浏览器信息</li>
+<li>控制 cookie，包括创建和修改等</li>
+</ul>
+<p>JavaScript 语法有多个来源：</p>
+<ul>
+<li>基本语法：借鉴 C语言和 Java 语言。</li>
+<li>数据机构：借鉴 Java语言，包括将值分为原始值和对象两大类。</li>
+<li>函数的用发：借鉴 Scheme语言 （Smalltalk的一种变种）。</li>
+<li>正则表达式：借鉴 Perl语言。</li>
+<li>字符串和数组处理：借鉴 Python语言。</li>
+</ul>
+<p>为了保持简单，这种脚本语言缺少一些关键的功能，比如块级作用域、模块、子类型（subtyping）等等，但是可以利用现有功能找出解决办法。这种功能的不足，直接导致了后来JavaScript的一个显著特点：对于其他语言，你需要学习语言的各种功能，而对于JavaScript，你常常需要学习各种解决问题的模式。而且由于来源多样，从一开始就注定，JavaScript的编程风格是函数式编程和面向对象编程的一种混合体。</p>
+<h2 id="JavaScript的缺陷"><a href="#JavaScript的缺陷" class="headerlink" title="JavaScript的缺陷"></a>JavaScript的缺陷</h2><ol>
+<li><p><strong>不适合开发大型程序</strong></p>
+<blockquote>
+<p>Javascript没有名称空间（namespace），很难模块化；没有如何将代码分布在多个文件的规范；允许同名函数的重复定义，后面的定义可以覆盖前面的定义，很不利于模块化加载。</p>
+</blockquote>
+</li>
+<li><p><strong>非常小的标准库</strong></p>
+<blockquote>
+<p>Javascript提供的标准函数库非常小，只能完成一些基本操作，很多功能都不具备。</p>
+</blockquote>
+</li>
+<li><p><strong>null 和 undefined</strong></p>
+<blockquote>
+<p>null属于对象（object）的一种，意思是该对象为空；undefined则是一种数据类型，表示未定义。</p>
+</blockquote>
+</li>
+<li><p><strong>全局变量难以控制</strong></p>
+<blockquote>
+<p>Javascript的全局变量，在所有模块中都是可见的；任何一个函数内部都可以生成全局变量，这大大加剧了程序的复杂性。</p>
+</blockquote>
+</li>
+<li><p><strong>自动插入行尾分号</strong></p>
+<blockquote>
+<p>Javascript的所有语句，都必须以分号结尾。但是，如果你忘记加分号，解释器并不报错，而是为你自动加上分号。有时候，这会导致一些难以发现的错误。</p>
+</blockquote>
+</li>
+<li><p><strong>加号运算符</strong></p>
+<blockquote>
+<p>+号作为运算符，有两个含义，可以表示数字与数字的和，也可以表示字符与字符的连接。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">alert(<span class="number">1</span>+<span class="number">10</span>); <span class="comment">// 11</span></span><br><span class="line">alert(<span class="string">&quot;1&quot;</span>+<span class="string">&quot;10&quot;</span>); <span class="comment">// 110</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如果一个操作项是字符，另一个是数字，则数字自动转化为字符</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">alert(<span class="number">1</span>+<span class="string">&quot;10&quot;</span>) <span class="comment">// 110</span></span><br><span class="line">alert(<span class="string">&quot;10&quot;</span>+<span class="number">1</span>) <span class="comment">// 101</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>NaN</strong></p>
+<blockquote>
+<p>NaN是一种数字，表示超出了解释器的极限。</p>
+</blockquote>
+</li>
+<li><p><strong>数组和对象的区分</strong></p>
+<blockquote>
+<p>由于Javascript的数组也属于对象（object），所以要区分一个对象到底是不是数组，相当麻烦</p>
+</blockquote>
+</li>
+<li><p><strong>== 和 ===</strong></p>
+<blockquote>
+<p>==用来判断两个值是否相等。当两个值类型不同时，会发生自动转换，得到的结果非常不符合直觉。</p>
+<p>推荐任何时候都是用 “===”</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;&quot;</span> == <span class="string">&quot;0&quot;</span>  <span class="comment">// false</span></span><br><span class="line"><span class="number">0</span> == <span class="string">&quot;&quot;</span>  <span class="comment">// true</span></span><br><span class="line"><span class="number">0</span> == <span class="string">&quot;0&quot;</span>  <span class="comment">// frue</span></span><br><span class="line"><span class="literal">false</span> == <span class="string">&quot;false&quot;</span>  <span class="comment">// false</span></span><br><span class="line"><span class="literal">false</span> == <span class="literal">undefined</span>  <span class="comment">// false</span></span><br><span class="line"><span class="literal">false</span> == <span class="literal">null</span>  <span class="comment">// false</span></span><br><span class="line"><span class="literal">null</span> == <span class="literal">undefined</span>  <span class="comment">// true</span></span><br><span class="line"><span class="string">&quot; \t\r\n&quot;</span> == <span class="number">0</span>  <span class="comment">// ture</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>基本类型的包装对象</strong></p>
+<blockquote>
+<p>Javascript有三种基本数据类型：字符串、数字和布尔值。它们都有相应的建构函数，可以生成字符串对象、数字对象和布尔值对象。</p>
+</blockquote>
+</li>
+</ol>
+<p>资料连接：</p>
+<p><a href="https://zh.wikipedia.org/wiki/JavaScript#%E5%8E%86%E5%8F%B2">JavaScript 的历史</a></p>
+<p><a href="http://www.ruanyifeng.com/blog/2011/06/birth_of_javascript.html">JavaScript 诞生记</a></p>
+<p><a href="http://www.ruanyifeng.com/blog/2011/06/10_design_defects_in_javascript.html">JavaScript 的10个设计缺陷</a></p>
+]]></content>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JS对象基本用法</title>
     <url>/2021/08/25/50/</url>
     <content><![CDATA[<h4 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h4><p>对象就是一组”键值对“（key-value）的集合，是一种<strong>无序</strong>的复合数据集合。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = <span class="keyword">new</span> &#123;</span><br><span class="line">    <span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;frank&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;age&#x27;</span>: <span class="number">18</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>(&#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;frank&#x27;</span>, </span><br><span class="line">    <span class="attr">age</span>: <span class="number">18</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(&#123;<span class="attr">name</span>: frank, <span class="attr">age</span>: <span class="number">18</span>&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    <span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;frank&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;age&#x27;</span>: <span class="number">18</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>(&#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;frank&#x27;</span>, </span><br><span class="line">    <span class="attr">age</span>: <span class="number">18</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(&#123;<span class="attr">name</span>: frank, <span class="attr">age</span>: <span class="number">18</span>&#125;)</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li><strong>键名都是字符串</strong>，不是标识符，可以包含任意字符（必须加上引号）</li>
@@ -355,115 +461,57 @@
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> persion = <span class="built_in">Object</span>.cteate(common); <span class="comment">// 以 common 为原型创建 persion 对象</span></span><br><span class="line">persion.name = <span class="string">&#x27;frank&#x27;</span>; <span class="comment">// 然后添加属性，或批量添加</span></span><br><span class="line"><span class="keyword">let</span> persion2 = <span class="built_in">Object</span>.create(common, &#123; <span class="comment">// </span></span><br><span class="line">    <span class="attr">name</span>: &#123;<span class="attr">value</span>: <span class="string">&#x27;jack&#x27;</span>&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <hr>
+
 ]]></content>
       <tags>
         <tag>js</tag>
       </tags>
   </entry>
   <entry>
-    <title>JavaScript的诞生</title>
-    <url>/2021/08/22/39/</url>
-    <content><![CDATA[<h2 id="JavaScript的历史"><a href="#JavaScript的历史" class="headerlink" title="JavaScript的历史"></a>JavaScript的历史</h2><p>JavaScript（简称“JS”）  是一种具有函数优先的轻量级，解释型或即时编译型的编程语言。虽然它是作为开发 Web 页面的脚本语言而出名的，但是它也被用到了很多非浏览器环境中，JavaScript 基于原型编程、多范式的动态脚本语言，并且支持面向对象、命令式和声明式（如函数式编程）风格。</p>
-<p>1995年由于网景公司需要做出一款比 Java 还要简单的脚本语言，但是还要于Java相似。这时刚入职没多久的 <strong>Brendan Eich</strong> 就被安排了这项任务。</p>
-<p><strong>1995年5月</strong>，<strong>Brendan Eich</strong>只用了10天，就设计完成了这种语言的第一版。</p>
-<center><img src="https://ss2.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/baike/w%3D249/sign=5801118fad51f3dec3b2be60adeef0ec/838ba61ea8d3fd1f84237b7f324e251f95ca5f49.jpg"></center>
+    <title>css定位与层叠上下文</title>
+    <url>/2021/07/10/50/</url>
+    <content><![CDATA[<h2 id="一个-div-的分层"><a href="#一个-div-的分层" class="headerlink" title="一个 div 的分层"></a>一个 div 的分层</h2><center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-07-12_21-36-28.png" alt="Snipaste_2021-07-12_21-36-28" width="800px"></center>
 
-<p>1996年11月，网景正式向 ECMA（欧洲计算机制造商协会）提交语言标准。1997年6月，ECMA以JavaScript语言为基础制定了ECMAScript 标准规范ECMA-262。JavaScript成为了ECMAScript最著名的实现之一。除此之外，ActionScript 和 JScript 也都是ECMAScript 规范的实现语言。尽管JavaScript作为给非程序人员的脚本语言，而非作为给程序人员的脚本语言来推广和宣传，但是 JavaScript 具有非常丰富的特性。</p>
-<h2 id="JavaScrip-特点"><a href="#JavaScrip-特点" class="headerlink" title="JavaScrip 特点"></a>JavaScrip 特点</h2><p>一般来说，完整的 JavaScript 包括以下几个部分:</p>
-<ul>
-<li>ECMAScript，描述了该语言的语法和基本对象</li>
-<li>文档对象模型 DOM，描述处理<strong>网页内容</strong>的方法和接口</li>
-<li>浏览器对象模型 BOM 浏览器对象模型，描述与<strong>浏览器</strong>进行交互的方法和接口</li>
-</ul>
-<p>JavaScript的基本特点如下:</p>
-<ul>
-<li>是一种解释性脚本语言（代码不进行预编译）。</li>
-<li>主要用来向HTML页面添加<strong>交互行为</strong>。</li>
-<li>可以直接嵌入HTML页面，但写成单独的js文件有利于结构和行为的分离。</li>
-</ul>
-<p>JavaScript常用来完成以下任务:</p>
-<ul>
-<li>嵌入动态文本于HTML页面</li>
-<li>对浏览器事件作出响应</li>
-<li>读写HTML元素</li>
-<li>在数据被提交到服务器之前验证数据</li>
-<li>检测访客的浏览器信息</li>
-<li>控制 cookie，包括创建和修改等</li>
-</ul>
-<p>JavaScript 语法有多个来源：</p>
-<ul>
-<li>基本语法：借鉴 C语言和 Java 语言。</li>
-<li>数据机构：借鉴 Java语言，包括将值分为原始值和对象两大类。</li>
-<li>函数的用发：借鉴 Scheme语言 （Smalltalk的一种变种）。</li>
-<li>正则表达式：借鉴 Perl语言。</li>
-<li>字符串和数组处理：借鉴 Python语言。</li>
-</ul>
-<p>为了保持简单，这种脚本语言缺少一些关键的功能，比如块级作用域、模块、子类型（subtyping）等等，但是可以利用现有功能找出解决办法。这种功能的不足，直接导致了后来JavaScript的一个显著特点：对于其他语言，你需要学习语言的各种功能，而对于JavaScript，你常常需要学习各种解决问题的模式。而且由于来源多样，从一开始就注定，JavaScript的编程风格是函数式编程和面向对象编程的一种混合体。</p>
-<h2 id="JavaScript的缺陷"><a href="#JavaScript的缺陷" class="headerlink" title="JavaScript的缺陷"></a>JavaScript的缺陷</h2><ol>
-<li><p><strong>不适合开发大型程序</strong></p>
-<blockquote>
-<p>Javascript没有名称空间（namespace），很难模块化；没有如何将代码分布在多个文件的规范；允许同名函数的重复定义，后面的定义可以覆盖前面的定义，很不利于模块化加载。</p>
-</blockquote>
-</li>
-<li><p><strong>非常小的标准库</strong></p>
-<blockquote>
-<p>Javascript提供的标准函数库非常小，只能完成一些基本操作，很多功能都不具备。</p>
-</blockquote>
-</li>
-<li><p><strong>null 和 undefined</strong></p>
-<blockquote>
-<p>null属于对象（object）的一种，意思是该对象为空；undefined则是一种数据类型，表示未定义。</p>
-</blockquote>
-</li>
-<li><p><strong>全局变量难以控制</strong></p>
-<blockquote>
-<p>Javascript的全局变量，在所有模块中都是可见的；任何一个函数内部都可以生成全局变量，这大大加剧了程序的复杂性。</p>
-</blockquote>
-</li>
-<li><p><strong>自动插入行尾分号</strong></p>
-<blockquote>
-<p>Javascript的所有语句，都必须以分号结尾。但是，如果你忘记加分号，解释器并不报错，而是为你自动加上分号。有时候，这会导致一些难以发现的错误。</p>
-</blockquote>
-</li>
-<li><p><strong>加号运算符</strong></p>
-<blockquote>
-<p>+号作为运算符，有两个含义，可以表示数字与数字的和，也可以表示字符与字符的连接。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">alert(<span class="number">1</span>+<span class="number">10</span>); <span class="comment">// 11</span></span><br><span class="line">alert(<span class="string">&quot;1&quot;</span>+<span class="string">&quot;10&quot;</span>); <span class="comment">// 110</span></span><br></pre></td></tr></table></figure>
+<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-07-12_22-04-00.png" alt="Snipaste_2021-07-12_22-04-00" width="800px"></center>
 
-<blockquote>
-<p>如果一个操作项是字符，另一个是数字，则数字自动转化为字符</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">alert(<span class="number">1</span>+<span class="string">&quot;10&quot;</span>) <span class="comment">// 110</span></span><br><span class="line">alert(<span class="string">&quot;10&quot;</span>+<span class="number">1</span>) <span class="comment">// 101</span></span><br></pre></td></tr></table></figure></li>
-<li><p><strong>NaN</strong></p>
-<blockquote>
-<p>NaN是一种数字，表示超出了解释器的极限。</p>
-</blockquote>
+
+
+<h2 id="position"><a href="#position" class="headerlink" title="position"></a>position</h2><ol>
+<li>static，默认，待在文档流里</li>
+<li>relative，相对定位，原位置不变，显示的位置偏移<ul>
+<li>用于做位移（很少用）</li>
+<li>用于给 absolute 元素做父元素</li>
+<li>配合 z-index，z-index :auto 默认值，不创建新层叠上下文</li>
+</ul>
 </li>
-<li><p><strong>数组和对象的区分</strong></p>
-<blockquote>
-<p>由于Javascript的数组也属于对象（object），所以要区分一个对象到底是不是数组，相当麻烦</p>
-</blockquote>
+<li>absolute，绝对定位，定位基准是祖先里的非static即相对于祖先元素中最近的一个定位元素<ul>
+<li>脱离原来的位置，另起一层，<a href="http://js.jirengu.com/hosugodegi/3/edit">比如对话框的关闭按钮</a>，祖先元素得加 relative </li>
+<li>某些浏览器不写 top / left 会位置错乱。善用 left: 100% left: 50% 加负 margin</li>
+</ul>
 </li>
-<li><p><strong>== 和 ===</strong></p>
-<blockquote>
-<p>==用来判断两个值是否相等。当两个值类型不同时，会发生自动转换，得到的结果非常不符合直觉。</p>
-<p>推荐任何时候都是用 “===”</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;&quot;</span> == <span class="string">&quot;0&quot;</span>  <span class="comment">// false</span></span><br><span class="line"><span class="number">0</span> == <span class="string">&quot;&quot;</span>  <span class="comment">// true</span></span><br><span class="line"><span class="number">0</span> == <span class="string">&quot;0&quot;</span>  <span class="comment">// frue</span></span><br><span class="line"><span class="literal">false</span> == <span class="string">&quot;false&quot;</span>  <span class="comment">// false</span></span><br><span class="line"><span class="literal">false</span> == <span class="literal">undefined</span>  <span class="comment">// false</span></span><br><span class="line"><span class="literal">false</span> == <span class="literal">null</span>  <span class="comment">// false</span></span><br><span class="line"><span class="literal">null</span> == <span class="literal">undefined</span>  <span class="comment">// true</span></span><br><span class="line"><span class="string">&quot; \t\r\n&quot;</span> == <span class="number">0</span>  <span class="comment">// ture</span></span><br></pre></td></tr></table></figure></li>
-<li><p><strong>基本类型的包装对象</strong></p>
-<blockquote>
-<p>Javascript有三种基本数据类型：字符串、数字和布尔值。它们都有相应的建构函数，可以生成字符串对象、数字对象和布尔值对象。</p>
-</blockquote>
+<li>fixed，固定定位，定位基准是 viewport，视口代表当前可见的计算机图形区域，transform 有bug<ul>
+<li>手机上尽量不要使用 fixed</li>
+</ul>
 </li>
+<li>sticky，粘滞定位，兼容差</li>
 </ol>
-<p>资料连接：</p>
-<p><a href="https://zh.wikipedia.org/wiki/JavaScript#%E5%8E%86%E5%8F%B2">JavaScript 的历史</a></p>
-<p><a href="http://www.ruanyifeng.com/blog/2011/06/birth_of_javascript.html">JavaScript 诞生记</a></p>
-<p><a href="http://www.ruanyifeng.com/blog/2011/06/10_design_defects_in_javascript.html">JavaScript 的10个设计缺陷</a></p>
+<p>Tips：</p>
+<p>如果写了 absolute，一般都得补一个 relative</p>
+<p>如果写了 absolute 或 fixed，一定要补 top 和 left</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/position">position MDN</a></p>
+<h2 id="层叠上下文"><a href="#层叠上下文" class="headerlink" title="层叠上下文"></a>层叠上下文</h2><center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-07-13_21-47-35.png" alt="Snipaste_2021-07-13_21-47-35" width="800px"></center>
+
+<p>比喻：</p>
+<ul>
+<li>每个层叠上下文既是一个小世界（作用域）</li>
+<li>这个小世界里面的 z-index 跟外界无关</li>
+<li>处在同一个小世界的 z-index 才能比较</li>
+<li>负 z-index 逃不出小世界，<a href="http://js.jirengu.com/modez/1/edit?html,css,output">例</a></li>
+</ul>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context">那些属性可以创建，查mdn</a></p>
 ]]></content>
       <tags>
-        <tag>js</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -533,48 +581,100 @@
       </tags>
   </entry>
   <entry>
-    <title>css定位与层叠上下文</title>
-    <url>/2021/07/10/50/</url>
-    <content><![CDATA[<h2 id="一个-div-的分层"><a href="#一个-div-的分层" class="headerlink" title="一个 div 的分层"></a>一个 div 的分层</h2><center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-07-12_21-36-28.png" alt="Snipaste_2021-07-12_21-36-28" width="800px"></center>
+    <title>flex布局</title>
+    <url>/2021/07/08/39/</url>
+    <content><![CDATA[<p>采用Flex布局的元素，称为Flex容器（fcontainer），简称”容器”。它的所有子元素自动成为容器成员，称为项目（item）。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: flex | inline-flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-07-12_22-04-00.png" alt="Snipaste_2021-07-12_22-04-00" width="800px"></center>
+<h2 id="container"><a href="#container" class="headerlink" title="container"></a>container</h2><h3 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a>flex-direction</h3><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/item%E6%B5%81%E5%8A%A8%E6%96%B9%E5%90%91.png" width="600px">
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">	<span class="attribute">flex-direction</span>: row / row-reverse / column /column-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h3><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/%E6%94%B9%E5%8F%98%E6%8A%98%E8%A1%8C.png" width="600px">
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">	<span class="attribute">flex</span>-warp: nowarp / wrap / wrap-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h3><center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-08-27_11-19-38.png" alt="Snipaste_2021-08-27_11-19-38" width="600px"></center>
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">justify-content</span>: flex-start / flex-end/ space-between / sapce-around / space-evenly;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h3><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/%E6%AC%A1%E8%BD%B4%E5%AF%B9%E9%BD%90%E6%96%B9%E5%BC%8F.png" width="600px">
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">	<span class="attribute">align-items</span>: flex-start / flex-end / center / stretch / baseline;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h3><img src=https://cdn.jsdelivr.net/gh/Drwna/image//images/%E5%A4%9A%E8%A1%8C%E5%86%85%E5%AE%B9.png width="600px">
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">	<span class="attribute">align-content</span>: flex-start / flex-end / center / stetch / space-between / space-around;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="position"><a href="#position" class="headerlink" title="position"></a>position</h2><ol>
-<li>static，默认，待在文档流里</li>
-<li>relative，相对定位，原位置不变，显示的位置偏移<ul>
-<li>用于做位移（很少用）</li>
-<li>用于给 absolute 元素做父元素</li>
-<li>配合 z-index，z-index :auto 默认值，不创建新层叠上下文</li>
-</ul>
-</li>
-<li>absolute，绝对定位，定位基准是祖先里的非static即相对于祖先元素中最近的一个定位元素<ul>
-<li>脱离原来的位置，另起一层，<a href="http://js.jirengu.com/hosugodegi/3/edit">比如对话框的关闭按钮</a>，祖先元素得加 relative </li>
-<li>某些浏览器不写 top / left 会位置错乱。善用 left: 100% left: 50% 加负 margin</li>
-</ul>
-</li>
-<li>fixed，固定定位，定位基准是 viewport，视口代表当前可见的计算机图形区域，transform 有bug<ul>
-<li>手机上尽量不要使用 fixed</li>
-</ul>
-</li>
-<li>sticky，粘滞定位，兼容差</li>
-</ol>
-<p>Tips：</p>
-<p>如果写了 absolute，一般都得补一个 relative</p>
-<p>如果写了 absolute 或 fixed，一定要补 top 和 left</p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/position">position MDN</a></p>
-<h2 id="层叠上下文"><a href="#层叠上下文" class="headerlink" title="层叠上下文"></a>层叠上下文</h2><center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-07-13_21-47-35.png" alt="Snipaste_2021-07-13_21-47-35" width="800px"></center>
+<h2 id="item属性"><a href="#item属性" class="headerlink" title="item属性"></a>item属性</h2><h3 id="order"><a href="#order" class="headerlink" title="order"></a>order</h3><img src=https://cdn.jsdelivr.net/gh/Drwna/image//images/item-order.png width=600px>
 
-<p>比喻：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item</span><span class="selector-pseudo">:first</span>-child &#123;</span><br><span class="line">	<span class="attribute">order</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span><span class="selector-pseudo">:nth-child</span>(<span class="number">2</span>)&#123;</span><br><span class="line">	<span class="attribute">order</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span><span class="selector-pseudo">:nth-child</span>(<span class="number">3</span>)&#123;</span><br><span class="line">	<span class="attribute">order</span>: -<span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h3><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/item-flex-grow.png" alt="item-flex-grow" width="600px">
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">	<span class="attribute">flex-grow</span>: <span class="number">1</span> / <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h3><p>控制如何变瘦，<strong>一般写<code>flex-shrink: 0;</code>防止变瘦</strong>，默认是1</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">	<span class="attribute">flex-shrink</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span><span class="selector-pseudo">:nth-child</span>(<span class="number">2</span>)&#123;</span><br><span class="line">	<span class="attribute">flex-shrink</span>: <span class="number">5</span>;</span><br><span class="line">	<span class="comment">/* 缩放程度更快 */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span><span class="selector-pseudo">:nth-child</span>(<span class="number">3</span>)&#123;</span><br><span class="line">	<span class="attribute">flex-shrink</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h3><p>控制基准宽度，默认是<code>auto</code>，就是宽度，不常用</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">	<span class="attribute">flex-basis</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="align-self"><a href="#align-self" class="headerlink" title="align-self"></a>align-self</h3><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/item-align-self.png" alt="item-align-self" width="600px">
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">	<span class="attribute">align-self</span>: flex-end;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h2><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 工作中基本只用这些 */</span></span><br><span class="line">dispaly: flex;</span><br><span class="line"></span><br><span class="line"><span class="attribute">flex-direction</span>: row / column;</span><br><span class="line"><span class="comment">/* 流动方向，横或竖 */</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">flex-wrap</span>: warp / nowarp;</span><br><span class="line"><span class="comment">/* 是否换行 */</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">justify-content</span>: center / space-betten;</span><br><span class="line"><span class="comment">/* 主轴（横轴）方向 居中或分开对齐 */</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">align-items</span>: center;</span><br><span class="line"><span class="comment">/* 次轴*（竖轴）方向，居中 */</span></span><br></pre></td></tr></table></figure>
+
+<p><a href="https://flexboxfroggy.com/#zh-cn">flex小游戏</a></p>
+<p>Tips:</p>
+<p>不要把 width 和 height 写死，除非特殊说明</p>
 <ul>
-<li>每个层叠上下文既是一个小世界（作用域）</li>
-<li>这个小世界里面的 z-index 跟外界无关</li>
-<li>处在同一个小世界的 z-index 才能比较</li>
-<li>负 z-index 逃不出小世界，<a href="http://js.jirengu.com/modez/1/edit?html,css,output">例</a></li>
+<li>写死 width：100px</li>
+<li>不写死 width：50% / max-width：100px /  min-width：80% / width：30vw</li>
+<li>特点：不使用 px，或者加 min max 前缀</li>
 </ul>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context">那些属性可以创建，查mdn</a></p>
+<p><code>margin-xxx: auto</code>和<code>justify-content: space-between</code>实现相同的效果，推荐使用前者</p>
+<p>参考自<a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a></p>
+<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-08-20_08-33-25.png" alt="Snipaste_2021-08-20_08-33-25" width="800px"></center>
+
 ]]></content>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>float布局</title>
+    <url>/2021/07/07/39/</url>
+    <content><![CDATA[<p>步骤：</p>
+<ol>
+<li>子元素加上 float: left 和 width</li>
+<li>在父元素上加 .clearfix</li>
+</ol>
+<p>经验:</p>
+<ul>
+<li>有经验者会留一些空间或者最后有一个不设 width</li>
+<li>不需要响应式，因为手机上没有 IE，而这个布局是专门为 IE准备的</li>
+</ul>
+<p><b>IE 6/7 存在双倍 margin bug</b>, 两个解决办法（基本不用）：</p>
+<ol>
+<li><p>针对 IE 6/7 把 margin 减半</p>
+</li>
+<li><p>加一个 display: inline-block </p>
+</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span>:after &#123;</span><br><span class="line">    /* 清除浮动 */</span><br><span class="line">    content: <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">    <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">IE bug</span><br><span class="line"><span class="comment">/* margin 减半 &amp;&amp; inline-block */</span></span><br><span class="line"><span class="selector-class">.class</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">10px</span>;</span><br><span class="line">    _margin-<span class="attribute">left</span>: <span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.php.cn/css-tutorial-412744.html">为什么要清除浮动</a></p>
+<p><a href="http://js.jirengu.com/wiwuh/3/edit?html,css,output">float demo</a></p>
+<p>Tips：</p>
+<ul>
+<li>border 有时候会干扰尺寸，可以改成 outline</li>
+<li>用 float 做平均布局时，可以在布局中增加一个x图层，其多余的右边距可以用 <strong>负的 margin</strong> 来改善布局</li>
+</ul>
+<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-08-20_08-33-25.png" alt="Snipaste_2021-08-20_08-33-25" width="800px"></center>]]></content>
       <tags>
         <tag>css</tag>
       </tags>
@@ -704,105 +804,6 @@
       </tags>
   </entry>
   <entry>
-    <title>flex布局</title>
-    <url>/2021/07/08/39/</url>
-    <content><![CDATA[<p>采用Flex布局的元素，称为Flex容器（fcontainer），简称”容器”。它的所有子元素自动成为容器成员，称为项目（item）。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: flex | inline-flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="container"><a href="#container" class="headerlink" title="container"></a>container</h2><h3 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a>flex-direction</h3><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/item%E6%B5%81%E5%8A%A8%E6%96%B9%E5%90%91.png" width="600px">
-
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">	<span class="attribute">flex-direction</span>: row / row-reverse / column /column-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h3><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/%E6%94%B9%E5%8F%98%E6%8A%98%E8%A1%8C.png" width="600px">
-
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">	<span class="attribute">flex</span>-warp: nowarp / wrap / wrap-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h3><center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-08-27_11-19-38.png" alt="Snipaste_2021-08-27_11-19-38" width="600px"></center>
-
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">justify-content</span>: flex-start / flex-end/ space-between / sapce-around / space-evenly;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h3><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/%E6%AC%A1%E8%BD%B4%E5%AF%B9%E9%BD%90%E6%96%B9%E5%BC%8F.png" width="600px">
-
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">	<span class="attribute">align-items</span>: flex-start / flex-end / center / stretch / baseline;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h3><img src=https://cdn.jsdelivr.net/gh/Drwna/image//images/%E5%A4%9A%E8%A1%8C%E5%86%85%E5%AE%B9.png width="600px">
-
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">	<span class="attribute">align-content</span>: flex-start / flex-end / center / stetch / space-between / space-around;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="item属性"><a href="#item属性" class="headerlink" title="item属性"></a>item属性</h2><h3 id="order"><a href="#order" class="headerlink" title="order"></a>order</h3><img src=https://cdn.jsdelivr.net/gh/Drwna/image//images/item-order.png width=600px>
-
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item</span><span class="selector-pseudo">:first</span>-child &#123;</span><br><span class="line">	<span class="attribute">order</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span><span class="selector-pseudo">:nth-child</span>(<span class="number">2</span>)&#123;</span><br><span class="line">	<span class="attribute">order</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span><span class="selector-pseudo">:nth-child</span>(<span class="number">3</span>)&#123;</span><br><span class="line">	<span class="attribute">order</span>: -<span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h3><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/item-flex-grow.png" alt="item-flex-grow" width="600px">
-
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">	<span class="attribute">flex-grow</span>: <span class="number">1</span> / <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h3><p>控制如何变瘦，<strong>一般写<code>flex-shrink: 0;</code>防止变瘦</strong>，默认是1</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">	<span class="attribute">flex-shrink</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span><span class="selector-pseudo">:nth-child</span>(<span class="number">2</span>)&#123;</span><br><span class="line">	<span class="attribute">flex-shrink</span>: <span class="number">5</span>;</span><br><span class="line">	<span class="comment">/* 缩放程度更快 */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span><span class="selector-pseudo">:nth-child</span>(<span class="number">3</span>)&#123;</span><br><span class="line">	<span class="attribute">flex-shrink</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h3><p>控制基准宽度，默认是<code>auto</code>，就是宽度，不常用</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">	<span class="attribute">flex-basis</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="align-self"><a href="#align-self" class="headerlink" title="align-self"></a>align-self</h3><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/item-align-self.png" alt="item-align-self" width="600px">
-
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">	<span class="attribute">align-self</span>: flex-end;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h2><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 工作中基本只用这些 */</span></span><br><span class="line">dispaly: flex;</span><br><span class="line"></span><br><span class="line"><span class="attribute">flex-direction</span>: row / column;</span><br><span class="line"><span class="comment">/* 流动方向，横或竖 */</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">flex-wrap</span>: warp / nowarp;</span><br><span class="line"><span class="comment">/* 是否换行 */</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">justify-content</span>: center / space-betten;</span><br><span class="line"><span class="comment">/* 主轴（横轴）方向 居中或分开对齐 */</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">align-items</span>: center;</span><br><span class="line"><span class="comment">/* 次轴*（竖轴）方向，居中 */</span></span><br></pre></td></tr></table></figure>
-
-<p><a href="https://flexboxfroggy.com/#zh-cn">flex小游戏</a></p>
-<p>Tips:</p>
-<p>不要把 width 和 height 写死，除非特殊说明</p>
-<ul>
-<li>写死 width：100px</li>
-<li>不写死 width：50% / max-width：100px /  min-width：80% / width：30vw</li>
-<li>特点：不使用 px，或者加 min max 前缀</li>
-</ul>
-<p><code>margin-xxx: auto</code>和<code>justify-content: space-between</code>实现相同的效果，推荐使用前者</p>
-<p>参考自<a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a></p>
-<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-08-20_08-33-25.png" alt="Snipaste_2021-08-20_08-33-25" width="800px"></center>
-
-]]></content>
-      <tags>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>float布局</title>
-    <url>/2021/07/07/39/</url>
-    <content><![CDATA[<p>步骤：</p>
-<ol>
-<li>子元素加上 float: left 和 width</li>
-<li>在父元素上加 .clearfix</li>
-</ol>
-<p>经验:</p>
-<ul>
-<li>有经验者会留一些空间或者最后有一个不设 width</li>
-<li>不需要响应式，因为手机上没有 IE，而这个布局是专门为 IE准备的</li>
-</ul>
-<p><b>IE 6/7 存在双倍 margin bug</b>, 两个解决办法（基本不用）：</p>
-<ol>
-<li><p>针对 IE 6/7 把 margin 减半</p>
-</li>
-<li><p>加一个 display: inline-block </p>
-</li>
-</ol>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span>:after &#123;</span><br><span class="line">    /* 清除浮动 */</span><br><span class="line">    content: <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">    <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">IE bug</span><br><span class="line"><span class="comment">/* margin 减半 &amp;&amp; inline-block */</span></span><br><span class="line"><span class="selector-class">.class</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">10px</span>;</span><br><span class="line">    _margin-<span class="attribute">left</span>: <span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://www.php.cn/css-tutorial-412744.html">为什么要清除浮动</a></p>
-<p><a href="http://js.jirengu.com/wiwuh/3/edit?html,css,output">float demo</a></p>
-<p>Tips：</p>
-<ul>
-<li>border 有时候会干扰尺寸，可以改成 outline</li>
-<li>用 float 做平均布局时，可以在布局中增加一个x图层，其多余的右边距可以用 <strong>负的 margin</strong> 来改善布局</li>
-</ul>
-<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-08-20_08-33-25.png" alt="Snipaste_2021-08-20_08-33-25" width="800px"></center>]]></content>
-      <tags>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>grid布局</title>
     <url>/2021/07/09/28/</url>
     <content><![CDATA[<p>采用网格布局的区域，称为“容器（container）”。容器内部的采用网格定位的子元素称为“项目（item）”</p>
@@ -854,24 +855,6 @@
       <tags>
         <tag>css</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2021/07/03/01/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
   </entry>
   <entry>
     <title>浅析URL</title>
@@ -1032,6 +1015,24 @@
       <tags>
         <tag>http</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2021/07/03/01/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
   </entry>
   <entry>
     <title>浏览器渲染原理</title>

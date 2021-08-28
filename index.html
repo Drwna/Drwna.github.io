@@ -233,10 +233,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2021-08-25 21:41:50 / Modified: 21:58:36" itemprop="dateCreated datePublished" datetime="2021-08-25T21:41:50+08:00">2021-08-25</time>
+      <time title="Created: 2021-08-25 21:41:50" itemprop="dateCreated datePublished" datetime="2021-08-25T21:41:50+08:00">2021-08-25</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-08-28 22:22:44" itemprop="dateModified" datetime="2021-08-28T22:22:44+08:00">2021-08-28</time>
+      </span>
 
   
 </div>
@@ -249,7 +255,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <h4 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h4><p>对象就是一组”键值对“（key-value）的集合，是一种<strong>无序</strong>的复合数据集合。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = <span class="keyword">new</span> &#123;</span><br><span class="line">    <span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;frank&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;age&#x27;</span>: <span class="number">18</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>(&#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;frank&#x27;</span>, </span><br><span class="line">    <span class="attr">age</span>: <span class="number">18</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(&#123;<span class="attr">name</span>: frank, <span class="attr">age</span>: <span class="number">18</span>&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    <span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;frank&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;age&#x27;</span>: <span class="number">18</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>(&#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;frank&#x27;</span>, </span><br><span class="line">    <span class="attr">age</span>: <span class="number">18</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(&#123;<span class="attr">name</span>: frank, <span class="attr">age</span>: <span class="number">18</span>&#125;)</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li><strong>键名都是字符串</strong>，不是标识符，可以包含任意字符（必须加上引号）</li>
@@ -364,6 +370,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> persion = <span class="built_in">Object</span>.cteate(common); <span class="comment">// 以 common 为原型创建 persion 对象</span></span><br><span class="line">persion.name = <span class="string">&#x27;frank&#x27;</span>; <span class="comment">// 然后添加属性，或批量添加</span></span><br><span class="line"><span class="keyword">let</span> persion2 = <span class="built_in">Object</span>.create(common, &#123; <span class="comment">// </span></span><br><span class="line">    <span class="attr">name</span>: &#123;<span class="attr">value</span>: <span class="string">&#x27;jack&#x27;</span>&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <hr>
+
 
       
     </div>
