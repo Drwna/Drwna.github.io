@@ -157,7 +157,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -201,6 +201,114 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/07/35/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/1.jpg">
+      <meta itemprop="name" content="Xiaolong">
+      <meta itemprop="description" content="learning">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xiaolong's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/09/07/35/" class="post-title-link" itemprop="url">JS函数的执行时机</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2021-09-07 23:50:35 / Modified: 23:52:09" itemprop="dateCreated datePublished" datetime="2021-09-07T23:50:35+08:00">2021-09-07</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><p>代码为什么会打印 6 个 6</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++) &#123;</span><br><span class="line">	<span class="built_in">setTimeout</span>( <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i)</span><br><span class="line">    &#125;, <span class="number">0</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>在上面代码中，for 循环是同步代码，setTimeout 是异步代码，JS 按照从上到下的执行顺序执行同步代码，而异步代码被插入到任务队列中。</p>
+<p>当执行完同步代码（for 循环），JS 会去执行异步代码（setTimeout）。</p>
+<p>在每次 for 循环中，都将异步代码（setTimeout）放入任务队列中，所以任务队列中有 6 个 setTimeout 即有 6 个 <code>console.log(i)</code>。</p>
+<p>在每次 for 循环中将 setTimeout 里的代码 <code>console.log(i)</code> 放入任务队列时，i 的值是不一样的，当 JS 引擎开始执行任务队列中代码时，会在当前作用域中找变量 i ，但当前 for 循环的作用域中没有对变量 i 的进行定义，这个时候会在创造该函数的作用域中寻找 i，找到的是 let i，这时的 i 时全局变量，并且值已经确定为 6。所以打印出 6 个 6。</p>
+<p>执行流程：</p>
+<p><code>for(i=0) ==&gt; for(i=1) ==&gt; for(i=2) ==&gt; for(i=3) ==&gt;for(i=4) ==&gt; for(i=5) ==&gt; for(i=6) ==&gt; console.log(6)x6</code></p>
+<h3 id="解决方法一-let"><a href="#解决方法一-let" class="headerlink" title="解决方法一 let"></a>解决方法一 let</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>( <span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++ )&#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>( <span class="function">()=&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>let 的作用域是块作用域，能作用到 for 循环的子块中。</p>
+<p>let 的作用于是块作用域，所以 setTimeout 被放到 任务队列的同时，<strong>let 定义的 i 值 也会跟随 setTimeout 进入队列</strong>。所以每次循环后队列里的 setTimeout 里的 i 值是不一样的。而 var 定义的 i 是无法进入的。（浅显易懂）</p>
+<p>for 循环头部的 let 不仅将 i 绑定到 for 循环中，事实上它将其重新绑定到循环体的每一次迭代中，确保上一次迭代结束的值被重新赋值。setTimeout 里面的函数属于一个新的域，通过 var 定义的变量或全局变量是无法传入到这个函数执行，通过使用 let 来声明块变量能作用于这个块，所以箭头函数就能使用 i 这个变量，所以每次的 i 值不一样。</p>
+<h3 id="解决方法二-使用立即执行函数，即闭包"><a href="#解决方法二-使用立即执行函数，即闭包" class="headerlink" title="解决方法二 使用立即执行函数，即闭包"></a>解决方法二 使用立即执行函数，即闭包</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>( i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++)&#123;</span><br><span class="line">    (<span class="function"><span class="keyword">function</span> (<span class="params">j</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>( <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(j);</span><br><span class="line">   		&#125;, <span class="number">0</span>);</span><br><span class="line">    &#125;)(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>因为 setTimeout 是异步执行，所以让它立即执行就可以了。</p>
+<p>通过闭包，将 i 的变量驻留在内存中，当输出 j 时，引用的是外部函数的变量值 i，i 的值是根据循环来的，执行 setTimeout 时已经确定了里面的的输出了。</p>
+<h3 id="解决方法三-setTimeout-第三个参数"><a href="#解决方法三-setTimeout-第三个参数" class="headerlink" title="解决方法三 setTimeout 第三个参数"></a>解决方法三 setTimeout 第三个参数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++)&#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>( <span class="function">(<span class="params">i</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;, <span class="number">0</span>, i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 将每次的 i 值传入作用域。</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="解决方法四-try-catch"><a href="#解决方法四-try-catch" class="headerlink" title="解决方法四 try catch"></a>解决方法四 try catch</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++)&#123;</span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> i</span><br><span class="line">    &#125;<span class="keyword">catch</span>(i)&#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>( <span class="function">() =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(i)</span><br><span class="line">        &#125;, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 将 i 作为异常抛出，传递给 setTimeout</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="JS执行机制"><a href="#JS执行机制" class="headerlink" title="JS执行机制"></a>JS执行机制</h2><p>首先，JS是单线程环境，代码从上到下依次执行。这种执行方这也被称作是“同步执行”。（同一时间 JS 只能执行一段代码，如果这段代码要执行很长时间，那么之后的代码只能尽情地等待它执行完才能执行）。</p>
+<p>但 JS 中引进了异步机制。于是，所有任务可以分成两种，一种是同步任务（synchronous），另一种是异步任务（asynchronous）。</p>
+<p><strong>同步任务</strong>指的是，在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务；</p>
+<p><strong>异步任务</strong>指的是，不进入主线程、而进入”任务队列”（task queue）的任务，只有主线程上的任务执行完了，才通知”任务队列”，任务队列中的任务才会进入主线程执行。</p>
+<h2 id="执行栈"><a href="#执行栈" class="headerlink" title="执行栈"></a>执行栈</h2><p>当执行某个函数、用户点击一次鼠标，Ajax完成，一个图片加载完成等事件发生时，只要指定过回调函数，这些事件发生时就会进入任务队列中，等待主线程读取,遵循先进先出原则。</p>
+<p>执行任务队列中的某个任务，这个被执行的任务就称为执行栈。</p>
+<h2 id="主线程"><a href="#主线程" class="headerlink" title="主线程"></a>主线程</h2><p>要明确的一点是，主线程跟执行栈是不同概念，主线程规定现在执行执行栈中的哪个事件。</p>
+<p>主线程循环：即主线程会不停的从执行栈中读取事件，会执行完所有栈中的同步代码。</p>
+<p>当遇到一个异步事件后，并不会一直等待异步事件返回结果，而是会将这个事件挂在与执行栈不同的队列中，我们称之为任务队列(Task Queue)。</p>
+<p><strong>当主线程将执行栈中所有的代码执行完之后，主线程将会去查看任务队列是否有任务</strong>。如果有，那么主线程会依次执行那些任务队列中的回调函数。</p>
+<h2 id="JS-异步执行的运行机制"><a href="#JS-异步执行的运行机制" class="headerlink" title="JS 异步执行的运行机制"></a>JS 异步执行的运行机制</h2><ol>
+<li>所有任务都在主线程上执行，形成一个执行栈。</li>
+<li>主线程之外，还存在一个任务队列。只要异步任务有了运行结果，就在任务队列之中放置一个事件。</li>
+<li>一旦执行栈中的所有同步任务执行完毕，系统就会读取任务队列。那些对应的异步任务，进入执行栈开始执行。</li>
+<li>主线程不断重复上面的第三步。</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1619,133 +1727,6 @@
 
 <p><a target="_blank" rel="noopener" href="https://cssgridgarden.com/#zh-cn">grid 游戏</a></p>
 <p>参照 <a target="_blank" rel="noopener" href="https://css-tricks.com/snippets/css/complete-guide-grid/#introduction">A Complete Guide to Grid</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/08/39/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/1.jpg">
-      <meta itemprop="name" content="Xiaolong">
-      <meta itemprop="description" content="learning">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xiaolong's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/08/39/" class="post-title-link" itemprop="url">flex布局</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-07-08 23:01:39" itemprop="dateCreated datePublished" datetime="2021-07-08T23:01:39+08:00">2021-07-08</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-27 11:21:35" itemprop="dateModified" datetime="2021-08-27T11:21:35+08:00">2021-08-27</time>
-      </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>采用Flex布局的元素，称为Flex容器（fcontainer），简称”容器”。它的所有子元素自动成为容器成员，称为项目（item）。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: flex | inline-flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="container"><a href="#container" class="headerlink" title="container"></a>container</h2><h3 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a>flex-direction</h3><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/item%E6%B5%81%E5%8A%A8%E6%96%B9%E5%90%91.png" width="600px">
-
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">	<span class="attribute">flex-direction</span>: row / row-reverse / column /column-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h3><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/%E6%94%B9%E5%8F%98%E6%8A%98%E8%A1%8C.png" width="600px">
-
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">	<span class="attribute">flex</span>-warp: nowarp / wrap / wrap-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h3><center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-08-27_11-19-38.png" alt="Snipaste_2021-08-27_11-19-38" width="600px"></center>
-
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">justify-content</span>: flex-start / flex-end/ space-between / sapce-around / space-evenly;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h3><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/%E6%AC%A1%E8%BD%B4%E5%AF%B9%E9%BD%90%E6%96%B9%E5%BC%8F.png" width="600px">
-
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">	<span class="attribute">align-items</span>: flex-start / flex-end / center / stretch / baseline;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h3><img src=https://cdn.jsdelivr.net/gh/Drwna/image//images/%E5%A4%9A%E8%A1%8C%E5%86%85%E5%AE%B9.png width="600px">
-
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">	<span class="attribute">align-content</span>: flex-start / flex-end / center / stetch / space-between / space-around;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="item属性"><a href="#item属性" class="headerlink" title="item属性"></a>item属性</h2><h3 id="order"><a href="#order" class="headerlink" title="order"></a>order</h3><img src=https://cdn.jsdelivr.net/gh/Drwna/image//images/item-order.png width=600px>
-
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span><span class="selector-pseudo">:first</span>-child &#123;</span><br><span class="line">	<span class="attribute">order</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span><span class="selector-pseudo">:nth-child</span>(<span class="number">2</span>)&#123;</span><br><span class="line">	<span class="attribute">order</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span><span class="selector-pseudo">:nth-child</span>(<span class="number">3</span>)&#123;</span><br><span class="line">	<span class="attribute">order</span>: -<span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h3><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/item-flex-grow.png" alt="item-flex-grow" width="600px">
-
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">	<span class="attribute">flex-grow</span>: <span class="number">1</span> / <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h3><p>控制如何变瘦，<strong>一般写<code>flex-shrink: 0;</code>防止变瘦</strong>，默认是1</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">	<span class="attribute">flex-shrink</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span><span class="selector-pseudo">:nth-child</span>(<span class="number">2</span>)&#123;</span><br><span class="line">	<span class="attribute">flex-shrink</span>: <span class="number">5</span>;</span><br><span class="line">	<span class="comment">/* 缩放程度更快 */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span><span class="selector-pseudo">:nth-child</span>(<span class="number">3</span>)&#123;</span><br><span class="line">	<span class="attribute">flex-shrink</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h3><p>控制基准宽度，默认是<code>auto</code>，就是宽度，不常用</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">	<span class="attribute">flex-basis</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="align-self"><a href="#align-self" class="headerlink" title="align-self"></a>align-self</h3><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/item-align-self.png" alt="item-align-self" width="600px">
-
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">	<span class="attribute">align-self</span>: flex-end;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 工作中基本只用这些 */</span></span><br><span class="line">dispaly: flex;</span><br><span class="line"></span><br><span class="line"><span class="attribute">flex-direction</span>: row / column;</span><br><span class="line"><span class="comment">/* 流动方向，横或竖 */</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">flex-wrap</span>: warp / nowarp;</span><br><span class="line"><span class="comment">/* 是否换行 */</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">justify-content</span>: center / space-betten;</span><br><span class="line"><span class="comment">/* 主轴（横轴）方向 居中或分开对齐 */</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">align-items</span>: center;</span><br><span class="line"><span class="comment">/* 次轴*（竖轴）方向，居中 */</span></span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://flexboxfroggy.com/#zh-cn">flex小游戏</a></p>
-<p>Tips:</p>
-<p>不要把 width 和 height 写死，除非特殊说明</p>
-<ul>
-<li>写死 width：100px</li>
-<li>不写死 width：50% / max-width：100px /  min-width：80% / width：30vw</li>
-<li>特点：不使用 px，或者加 min max 前缀</li>
-</ul>
-<p><code>margin-xxx: auto</code>和<code>justify-content: space-between</code>实现相同的效果，推荐使用前者</p>
-<p>参考自<a target="_blank" rel="noopener" href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a></p>
-<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-08-20_08-33-25.png" alt="Snipaste_2021-08-20_08-33-25" width="800px"></center>
-
 
       
     </div>
