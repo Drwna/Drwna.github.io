@@ -28,7 +28,7 @@
 <meta property="og:description" content="思考代码为什么会打印 6 个 6 123456let i &#x3D; 0;for(i &#x3D; 0; i &lt; 6; i++) &amp;#123;	setTimeout( () &#x3D;&gt; &amp;#123;        console.log(i)    &amp;#125;, 0);&amp;#125;;  分析在上面代码中，for 循环是同步代码，setTimeout 是异步代码，JS 按照从上到下的执行顺序执行同步代码，而异">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-09-07T15:50:35.000Z">
-<meta property="article:modified_time" content="2021-09-07T15:52:09.716Z">
+<meta property="article:modified_time" content="2021-09-07T15:54:46.029Z">
 <meta property="article:author" content="Xiaolong">
 <meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
@@ -161,13 +161,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -240,7 +240,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2021-09-07 23:50:35 / Modified: 23:52:09" itemprop="dateCreated datePublished" datetime="2021-09-07T23:50:35+08:00">2021-09-07</time>
+      <time title="Created: 2021-09-07 23:50:35 / Modified: 23:54:46" itemprop="dateCreated datePublished" datetime="2021-09-07T23:50:35+08:00">2021-09-07</time>
     </span>
 
   
@@ -261,7 +261,7 @@
 <p>在每次 for 循环中，都将异步代码（setTimeout）放入任务队列中，所以任务队列中有 6 个 setTimeout 即有 6 个 <code>console.log(i)</code>。</p>
 <p>在每次 for 循环中将 setTimeout 里的代码 <code>console.log(i)</code> 放入任务队列时，i 的值是不一样的，当 JS 引擎开始执行任务队列中代码时，会在当前作用域中找变量 i ，但当前 for 循环的作用域中没有对变量 i 的进行定义，这个时候会在创造该函数的作用域中寻找 i，找到的是 let i，这时的 i 时全局变量，并且值已经确定为 6。所以打印出 6 个 6。</p>
 <p>执行流程：</p>
-<p><code>for(i=0) ==&gt; for(i=1) ==&gt; for(i=2) ==&gt; for(i=3) ==&gt;for(i=4) ==&gt; for(i=5) ==&gt; for(i=6) ==&gt; console.log(6)x6</code></p>
+<p><code>for(i=0) ==&gt; for(i=1) ==&gt; for(i=2) ==&gt; for(i=3) ==&gt; for(i=4) ==&gt; for(i=5) ==&gt; for(i=6) ==&gt; console.log(6)x6</code></p>
 <h3 id="解决方法一-let"><a href="#解决方法一-let" class="headerlink" title="解决方法一 let"></a>解决方法一 let</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>( <span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++ )&#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>( <span class="function">()=&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>let 的作用域是块作用域，能作用到 for 循环的子块中。</p>
@@ -318,6 +318,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2021/09/12/01/" rel="next" title="浅析jQuery设计思想">
+                  浅析jQuery设计思想 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
