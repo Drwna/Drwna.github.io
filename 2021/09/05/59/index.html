@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="数组对象Array 对象是用于构造数组的全局对象。 创建数组新建123let arr &#x3D; [1, 2, 3]let arr new Array(1, 2, 3)let arr &#x3D; new Array(3) &#x2F;&#x2F; 长度  转化123456789101112let arr1 &#x3D; &amp;#x27;1, 2, 3&amp;#x27;arr1.split(&amp;#x27;,&amp;#x27;) &#x2F;&#x2F; 将字符串用逗号隔开，转化为数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS数组">
+<meta property="og:url" content="http://example.com/2021/09/05/59/index.html">
+<meta property="og:site_name" content="Xiaolong&#39;s Blog">
+<meta property="og:description" content="数组对象Array 对象是用于构造数组的全局对象。 创建数组新建123let arr &#x3D; [1, 2, 3]let arr new Array(1, 2, 3)let arr &#x3D; new Array(3) &#x2F;&#x2F; 长度  转化123456789101112let arr1 &#x3D; &amp;#x27;1, 2, 3&amp;#x27;arr1.split(&amp;#x27;,&amp;#x27;) &#x2F;&#x2F; 将字符串用逗号隔开，转化为数">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-09-01_19-41-33.png">
+<meta property="article:published_time" content="2021-09-05T04:28:59.000Z">
+<meta property="article:modified_time" content="2021-10-07T04:29:25.145Z">
+<meta property="article:author" content="Xiaolong">
+<meta property="article:tag" content="js">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-09-01_19-41-33.png">
+
+
+<link rel="canonical" href="http://example.com/2021/09/05/59/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/09/05/59/","path":"2021/09/05/59/","title":"JS数组"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>JS数组 | Xiaolong's Blog</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Xiaolong's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.</span> <span class="nav-text">数组对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84"><span class="nav-number">1.1.</span> <span class="nav-text">创建数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA"><span class="nav-number">1.1.1.</span> <span class="nav-text">新建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BD%AC%E5%8C%96"><span class="nav-number">1.1.2.</span> <span class="nav-text">转化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%AA%E6%95%B0%E7%BB%84"><span class="nav-number">1.1.3.</span> <span class="nav-text">伪数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%AD"><span class="nav-number">1.1.4.</span> <span class="nav-text">续</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%95%B0%E7%BB%84"><span class="nav-number">1.2.</span> <span class="nav-text">删除数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E5%A4%B4%E9%83%A8%E5%85%83%E7%B4%A0"><span class="nav-number">1.2.1.</span> <span class="nav-text">删除头部元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E5%B0%BE%E9%83%A8%E5%85%83%E7%B4%A0"><span class="nav-number">1.2.2.</span> <span class="nav-text">删除尾部元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E4%B8%AD%E9%97%B4%E5%85%83%E7%B4%A0"><span class="nav-number">1.2.3.</span> <span class="nav-text">删除中间元素</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%89%80%E6%9C%89%E5%85%83%E7%B4%A0"><span class="nav-number">1.3.</span> <span class="nav-text">查看所有元素</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%89%80%E6%9C%89%E5%B1%9E%E6%80%A7%E5%90%8D"><span class="nav-number">1.3.1.</span> <span class="nav-text">查看所有属性名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%95%B0%E5%AD%97%EF%BC%88%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89%E5%B1%9E%E6%80%A7%E5%90%8D%E5%92%8C%E5%80%BC"><span class="nav-number">1.3.2.</span> <span class="nav-text">查看数字（字符串）属性名和值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#forEach%E5%8E%9F%E7%90%86"><span class="nav-number">1.3.3.</span> <span class="nav-text">forEach原理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%8D%95%E4%B8%AA%E5%B1%9E%E6%80%A7"><span class="nav-number">1.4.</span> <span class="nav-text">查看单个属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E8%B6%8A%E7%95%8C"><span class="nav-number">1.4.1.</span> <span class="nav-text">索引越界</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E6%9F%90%E4%B8%AA%E5%85%83%E7%B4%A0%E6%98%AF%E5%90%A6%E5%9C%A8%E6%95%B0%E7%BB%84%E9%87%8C-indexOf"><span class="nav-number">1.4.2.</span> <span class="nav-text">查找某个元素是否在数组里 indexOf</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%9D%A1%E4%BB%B6%E6%9F%A5%E6%89%BE%E5%85%83%E7%B4%A0-find"><span class="nav-number">1.4.3.</span> <span class="nav-text">使用条件查找元素 find</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%9D%A1%E4%BB%B6%E6%9F%A5%E6%89%BE%E5%85%83%E7%B4%A0%E7%9A%84%E7%B4%A2%E5%BC%95-findIndex"><span class="nav-number">1.4.4.</span> <span class="nav-text">使用条件查找元素的索引 findIndex</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A2%9E%E5%8A%A0%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E5%85%83%E7%B4%A0"><span class="nav-number">1.5.</span> <span class="nav-text">增加数组中的元素</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%A8%E5%B0%BE%E9%83%A8%E6%B7%BB%E5%8A%A0%E5%85%83%E7%B4%A0-push"><span class="nav-number">1.5.1.</span> <span class="nav-text">在尾部添加元素 push</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%A8%E5%A4%B4%E9%83%A8%E6%B7%BB%E5%8A%A0%E5%85%83%E7%B4%A0-unshitf"><span class="nav-number">1.5.2.</span> <span class="nav-text">在头部添加元素 unshitf</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%A8%E4%B8%AD%E9%97%B4%E6%B7%BB%E5%8A%A0%E5%85%83%E7%B4%A0-splice"><span class="nav-number">1.5.3.</span> <span class="nav-text">在中间添加元素 splice</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E5%85%83%E7%B4%A0"><span class="nav-number">1.6.</span> <span class="nav-text">修改数组中的元素</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%8D%E8%BD%AC%E9%A1%BA%E5%BA%8F-reverse"><span class="nav-number">1.6.1.</span> <span class="nav-text">反转顺序 reverse</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A1%BA%E5%BA%8F-sort"><span class="nav-number">1.6.2.</span> <span class="nav-text">自定义顺序 sort</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E5%8F%98%E6%8D%A2"><span class="nav-number">1.7.</span> <span class="nav-text">数组变换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#map"><span class="nav-number">1.7.1.</span> <span class="nav-text">map</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#filter"><span class="nav-number">1.7.2.</span> <span class="nav-text">filter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#reduce"><span class="nav-number">1.7.3.</span> <span class="nav-text">reduce</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Xiaolong"
+      src="/images/lion.jpg">
+  <p class="site-author-name" itemprop="name">Xiaolong</p>
+  <div class="site-description" itemprop="description">learning</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/drwna" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;drwna" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+          </div>
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Drwna" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/05/59/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lion.jpg">
+      <meta itemprop="name" content="Xiaolong">
+      <meta itemprop="description" content="learning">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xiaolong's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JS数组
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-09-05 12:28:59" itemprop="dateCreated datePublished" datetime="2021-09-05T12:28:59+08:00">2021-09-05</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-10-07 12:29:25" itemprop="dateModified" datetime="2021-10-07T12:29:25+08:00">2021-10-07</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="数组对象"><a href="#数组对象" class="headerlink" title="数组对象"></a>数组对象</h2><p><code>Array</code> 对象是用于构造数组的全局<strong>对象</strong>。</p>
+<h3 id="创建数组"><a href="#创建数组" class="headerlink" title="创建数组"></a>创建数组</h3><h4 id="新建"><a href="#新建" class="headerlink" title="新建"></a>新建</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="keyword">let</span> arr <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line"><span class="keyword">let</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">3</span>) <span class="comment">// 长度</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="转化"><a href="#转化" class="headerlink" title="转化"></a>转化</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr1 = <span class="string">&#x27;1, 2, 3&#x27;</span></span><br><span class="line">arr1.split(<span class="string">&#x27;,&#x27;</span>) <span class="comment">// 将字符串用逗号隔开，转化为数组</span></span><br><span class="line"><span class="keyword">let</span> arr2 = <span class="string">&#x27;123&#x27;</span></span><br><span class="line">arr2.split(<span class="string">&#x27;&#x27;</span>) <span class="comment">// 或用空字符串</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 示例</span></span><br><span class="line"><span class="built_in">Array</span>.from(<span class="string">&#x27;123&#x27;</span>)</span><br><span class="line">[<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;3&#x27;</span>]</span><br><span class="line"><span class="built_in">Array</span>.from(&#123;<span class="number">0</span>:<span class="string">&#x27;a&#x27;</span>,<span class="number">1</span>:<span class="string">&#x27;b&#x27;</span>,<span class="number">2</span>:<span class="string">&#x27;c&#x27;</span>,<span class="number">3</span>:<span class="string">&#x27;d&#x27;</span>,<span class="attr">length</span>:<span class="number">4</span>&#125;)</span><br><span class="line">[ <span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;c&quot;</span>, <span class="string">&quot;d&quot;</span> ]</span><br><span class="line"><span class="built_in">Array</span>.from(&#123;<span class="number">0</span>:<span class="string">&#x27;a&#x27;</span>,<span class="number">1</span>:<span class="string">&#x27;b&#x27;</span>,<span class="number">2</span>:<span class="string">&#x27;c&#x27;</span>,<span class="number">3</span>:<span class="string">&#x27;d&#x27;</span>,<span class="attr">length</span>:<span class="number">2</span>&#125;)</span><br><span class="line">[ <span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<h4 id="伪数组"><a href="#伪数组" class="headerlink" title="伪数组"></a>伪数组</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 伪数组的原型链中没有数组的原型</span></span><br><span class="line">array1 = &#123;<span class="number">0</span>:<span class="string">&#x27;a&#x27;</span>,<span class="number">1</span>:<span class="string">&#x27;b&#x27;</span>,<span class="number">2</span>:<span class="string">&#x27;c&#x27;</span>,<span class="attr">length</span>:<span class="number">3</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> divList = <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;div&#x27;</span>)</span><br><span class="line"><span class="comment">// 获取的数组是 伪数组</span></span><br><span class="line"><span class="keyword">let</span> divArray = <span class="built_in">Array</span>.from(divList)</span><br><span class="line"><span class="comment">// 转化为数组</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="续"><a href="#续" class="headerlink" title="续"></a>续</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 合并两个数组，得到新数组</span></span><br><span class="line"><span class="keyword">let</span> arr1 = [<span class="number">1</span>,<span class="number">2</span>]</span><br><span class="line"><span class="keyword">let</span> arr2 = [<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line"><span class="keyword">let</span> arr3 = arr1.concat(arr2)</span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line"><span class="comment">// 截取一个数组的一部分</span></span><br><span class="line">arr3.slice(<span class="number">1</span>) <span class="comment">// 从第二个元素开始</span></span><br><span class="line"><span class="keyword">let</span> arr4 = arr3.slice(<span class="number">2</span>)</span><br><span class="line">[<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line"></span><br><span class="line">arr5 = arr3.alice(<span class="number">0</span>)</span><br><span class="line"><span class="comment">// 相当于复制数组</span></span><br><span class="line"><span class="comment">// 注意 JS 只提供浅拷贝</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="删除数组"><a href="#删除数组" class="headerlink" title="删除数组"></a>删除数组</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>]</span><br><span class="line"><span class="keyword">delete</span> arr[<span class="number">0</span>]</span><br><span class="line">arr <span class="comment">// [empty,&#x27;b&#x27;,&#x27;c&#x27;]</span></span><br><span class="line"><span class="comment">// 长度没变</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改 length</span></span><br><span class="line">arr.length = <span class="number">1</span></span><br><span class="line">arr <span class="comment">//[&#x27;a&#x27;]</span></span><br><span class="line"><span class="comment">// 不要随便修改 length</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="删除头部元素"><a href="#删除头部元素" class="headerlink" title="删除头部元素"></a>删除头部元素</h4><p><code>arr.shift()</code> arr 被修改，并返回被删元素</p>
+<h4 id="删除尾部元素"><a href="#删除尾部元素" class="headerlink" title="删除尾部元素"></a>删除尾部元素</h4><p><code>arr.pop()</code> arr 被修改，并返回被删元素</p>
+<h4 id="删除中间元素"><a href="#删除中间元素" class="headerlink" title="删除中间元素"></a>删除中间元素</h4><p><code>arr.splice(index, 1)</code> 删除 index 的一个元素</p>
+<p><code>arr.splice(index, 1, ’x’)</code> 并在删除位置添加 <code>‘x’</code></p>
+<p><code>arr.splice(index, 1, ’x’, ’y’)</code> 并在删除位置添加 <code>‘x’, &#39;y&#39;</code></p>
+<h3 id="查看所有元素"><a href="#查看所有元素" class="headerlink" title="查看所有元素"></a>查看所有元素</h3><h4 id="查看所有属性名"><a href="#查看所有属性名" class="headerlink" title="查看所有属性名"></a>查看所有属性名</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line">arr.x = <span class="string">&#x27;x&#x27;</span></span><br><span class="line"><span class="built_in">Object</span>.keys(arr)</span><br><span class="line"><span class="built_in">Object</span>.values(arr)</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> key <span class="keyword">in</span> arr) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;$&#123;keys&#125;: $&#123;arr[key]&#125;&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="查看数字（字符串）属性名和值"><a href="#查看数字（字符串）属性名和值" class="headerlink" title="查看数字（字符串）属性名和值"></a>查看数字（字符串）属性名和值</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;i&#125;</span>: <span class="subst">$&#123;[i]&#125;</span>`</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item, index</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;index&#125;</span>: <span class="subst">$&#123;item&#125;</span>`</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="forEach原理"><a href="#forEach原理" class="headerlink" title="forEach原理"></a><strong>forEach原理</strong></h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">forEach</span>(<span class="params">array,fn</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; array.length; i++)&#123;</span><br><span class="line">    fn(array[i], i, array); </span><br><span class="line">    <span class="comment">// 获取数组每一项，把数值传到 fn</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">forEach([<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>], <span class="function"><span class="keyword">function</span>(<span class="params">x, y, z</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(x, y, z);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// forEach 用 for 访问 array 的每一项</span></span><br><span class="line"><span class="comment">// 对每一项调用 fn(array[i], i, array)</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="查看单个属性"><a href="#查看单个属性" class="headerlink" title="查看单个属性"></a>查看单个属性</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">11</span>, <span class="number">22</span>, <span class="number">33</span>]arr[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+
+<h4 id="索引越界"><a href="#索引越界" class="headerlink" title="索引越界"></a>索引越界</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr[arr.legnth] === undefinedarr[-<span class="number">1</span>] === <span class="literal">undefined</span><span class="comment">// 示例let arr = [1,2,3,4,5,6,7]for(let i = 0; i&lt;= arr.length; i++)&#123;    console.log(arr[i].toString());&#125;// 报错: Cannot read property &#x27;toString&#x27; of undefined// 意思是你读取了 undefined 的 toString 属性// 不是 toString 的 undefined// x.toString() 其中 x 如果是 undefined 就报这个错</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="查找某个元素是否在数组里-indexOf"><a href="#查找某个元素是否在数组里-indexOf" class="headerlink" title="查找某个元素是否在数组里 indexOf"></a>查找某个元素是否在数组里 indexOf</h4><p><code>arr.indexOf(item)</code> 存在换回索引,否则返回 -1</p>
+<h4 id="使用条件查找元素-find"><a href="#使用条件查找元素-find" class="headerlink" title="使用条件查找元素 find"></a>使用条件查找元素 find</h4><p><code>arr.find(item =&gt; item % 2 === 0)</code> 找第一个偶数</p>
+<h4 id="使用条件查找元素的索引-findIndex"><a href="#使用条件查找元素的索引-findIndex" class="headerlink" title="使用条件查找元素的索引 findIndex"></a>使用条件查找元素的索引 findIndex</h4><p><code>arr.findIndex(item =&gt; item % 2 === 0)</code> 找第一个偶数的索引</p>
+<h3 id="增加数组中的元素"><a href="#增加数组中的元素" class="headerlink" title="增加数组中的元素"></a>增加数组中的元素</h3><h4 id="在尾部添加元素-push"><a href="#在尾部添加元素-push" class="headerlink" title="在尾部添加元素 push"></a>在尾部添加元素 push</h4><p><code>arr.push(newItem)</code> 修改数组，返回新长度</p>
+<p><code>arr.push(item1, item2)</code> 修改数组，返回新长度</p>
+<h4 id="在头部添加元素-unshitf"><a href="#在头部添加元素-unshitf" class="headerlink" title="在头部添加元素 unshitf"></a>在头部添加元素 unshitf</h4><p><code>arr.unshift(newItem)</code> 修改数组，返回新长度</p>
+<p><code>arr.unshift(item1, item2)</code> 修改数组，返回新长度</p>
+<h4 id="在中间添加元素-splice"><a href="#在中间添加元素-splice" class="headerlink" title="在中间添加元素 splice"></a>在中间添加元素 splice</h4><p><code>arr.splice(index, 0, ‘x’)</code> 在 index 出插入 <code>’x’</code></p>
+<p><code>arr.splice(index. 0, ‘x’, ‘y’)</code> 插入 <code>‘X’,’y’</code></p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/splice">Array.prototypr.splice() MDN</a></p>
+<h3 id="修改数组中的元素"><a href="#修改数组中的元素" class="headerlink" title="修改数组中的元素"></a>修改数组中的元素</h3><h4 id="反转顺序-reverse"><a href="#反转顺序-reverse" class="headerlink" title="反转顺序 reverse"></a>反转顺序 reverse</h4><p><code>arr.reverse()</code>  修改原数组</p>
+<h4 id="自定义顺序-sort"><a href="#自定义顺序-sort" class="headerlink" title="自定义顺序 sort"></a>自定义顺序 sort</h4><p><code>arr.sort((a, b)) =&gt; a-b)</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 示例let arr = [1,4,2,3,5]arr.sort() // [1,2,3,4,5]arr.sort(function(a, b)&#123;    console.log(&#x27;a:&#x27;+ a)    console.log(&#x27;b:&#x27;+ b)    if(a&gt;b)&#123;        return 1    &#125;else if(a===b)&#123;        return 0    &#125;else&#123;        return -1    &#125;&#125;)// 等价于arr.sort((a, b) =&gt; a-b) </span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr1 = [    &#123;<span class="attr">name</span>: <span class="string">&#x27;jack&#x27;</span>, <span class="attr">score</span>: <span class="number">99</span>&#125;,    &#123;<span class="attr">name</span>: <span class="string">&#x27;erik&#x27;</span>, <span class="attr">score</span>: <span class="number">96</span>&#125;,    &#123;<span class="attr">name</span>: <span class="string">&#x27;evan&#x27;</span>, <span class="attr">score</span>: <span class="number">100</span>&#125;]arr1.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>)</span>&#123;    <span class="keyword">if</span>(a.score &gt; b.score)&#123;<span class="keyword">return</span> <span class="number">1</span>&#125;    <span class="keyword">else</span> <span class="keyword">if</span>(a.score === b.score)&#123;<span class="keyword">return</span> <span class="number">0</span>&#125;    <span class="keyword">else</span>&#123;<span class="keyword">return</span> -<span class="number">1</span>&#125;&#125;)<span class="comment">// 等价于arr1.sort((a, b) =&gt; a-b)</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>反转字符串</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> s = <span class="string">&#x27;abcdefg&#x27;</span>;s.plit(<span class="string">&#x27;&#x27;</span>).reverse().join(<span class="string">&#x27;&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="数组变换"><a href="#数组变换" class="headerlink" title="数组变换"></a>数组变换</h3><center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-09-01_19-41-33.png" alt="Snipaste_2021-09-01_19-41-33" width="800px"></center>
+
+
+
+<h4 id="map"><a href="#map" class="headerlink" title="map"></a>map</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/map">Array.prototype.map() MDN</a></p>
+<p>map() 方法<strong>返回一个新数组</strong>，数组中的元素为原始数组元素调用函数处理后的值。</p>
+<p>map() 方法按照原数组元素顺序依次处理元素</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]<span class="comment">// 将数组每个值平方arr1.map((item) =&gt; (item * item))// 等价于for(let i = 0; i &lt; arr1.length; i++)&#123;    arr1[i] = arr1[i] * arr1[i]&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">Array.prototype.filter() MDN</a> </p>
+<p>filter() 方法<strong>返回一个新的数组</strong>，新数组中的元素是通过检查指定数组中符合条件的所有元素。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]<span class="comment">// 偶数arr1.filter(item =&gt; item % 2 === 0)// 返回数组元素长度大于6let words = [&#x27;spray&#x27;, &#x27;limit&#x27;, &#x27;elite&#x27;, &#x27;exuberant&#x27;, &#x27;destruction&#x27;, &#x27;present&#x27;];words.filter(word =&gt; word.length &gt; 6)</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce">Array.prototype.reduce.() MDN</a></p>
+<p>reduce() 方法对数组中的每个元素执行一个由您提供的 reducer 函数(升序执行)，将其结果汇总为<strong>单个返回值</strong>。</p>
+<p>reduce() 可以作为一个高阶函数，用于函数的 compose。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]<span class="comment">// 累加let sum = 0;for(let i = 0; i &lt; arr.length; i++)&#123;    sum += arr[i]&#125; consloe.log(sum)// 等价于arr.reduce((sum, item) =&gt; sum + item, 0)// 从5开始：5 + 1 + 2 + 3 + 4 + 5 + 6 = 26arr.reduce((sum, item) =&gt; sum + item, 5)</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// let arr = [1, 2, 3, 4, 5, 6]// 平方 等价于 arr.map(item =&gt; Math.pow(item, 2))arr.reduce((result, item) =&gt; &#123;return result.concat(item * item)&#125;, [])</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]arr.filter(<span class="function"><span class="params">item</span> =&gt;</span> item %<span class="number">2</span> === <span class="number">0</span>)<span class="comment">// 等价于arr.reduce((result, item) =&gt; &#123;    if(item % 2 === 0)&#123;        return result    &#125;else&#123;        return result.concat(item)    &#125;&#125;, [])arr.reduce((result, item) =&gt; item % 2 === 1 ? result : result.concat(item), [])arr.reduce((result, item) =&gt; item % 2 === 1 ? result.concat([]) : result.concat(item), [])arr.reduce((result, item) =&gt; result.concat(item % 2 ? [] : item), [])</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>面试题: 数据变换</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [    &#123;名称: <span class="string">&#x27;动物&#x27;</span>, <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">parent</span>: <span class="literal">null</span>&#125;,    &#123;名称: <span class="string">&#x27;狗&#x27;</span>, <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">parent</span>: <span class="number">1</span>&#125;,    &#123;名称: <span class="string">&#x27;猫&#x27;</span>, <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">parent</span>: <span class="number">1</span>&#125;]<span class="comment">// 数组变成对象&#123;    id: 1, 名称: &#x27;动物&#x27;, children: [        &#123;id: 2, 名称: &#x27;狗&#x27;, children: null&#125;,        &#123;id: 3, 名称: &#x27;猫&#x27;, children: null&#125;    ]&#125;// 答案arr.reduce((result, item) =&gt; &#123;    if(item.parent === null)&#123;        result.id = item.id        result[&#x27;名称&#x27;] = item[&#x27;item&#x27;]    &#125;else&#123;        result.children.push(item)        delete item.parent        item.chrldren = null    &#125;    return result&#125;, &#123;id: null, children: []&#125;)</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><video src="C:\Users\34172\Desktop\Works\饥人谷\notes\JS\videos\面试题【数据变换】.mp4"></video></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/js/" rel="tag"><i class="fa fa-tag"></i> js</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/08/25/50/" rel="prev" title="JS对象基本用法">
+                  <i class="fa fa-chevron-left"></i> JS对象基本用法
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/09/07/36/" rel="next" title="异步与Promise">
+                  异步与Promise <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaolong</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

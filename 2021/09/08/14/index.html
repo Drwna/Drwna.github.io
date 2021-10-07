@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="跨域关键知识：  同源策略。浏览器故意设计的一个功能限制 CORS。突破浏览器限制的一个方法 JSONP。IE 时代的妥协  同源源 &#x3D; 协议 + 域名 + 端口号 window.origin 或 location.origin 可以得到当前源。 如果两个 url 的协议、域名、端口号完全一致，那么这两个 url 就是同源。 例：https:&#x2F;&#x2F;qq.com 和 https:&#x2F;&#x2F;www.baidu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="跨域">
+<meta property="og:url" content="http://example.com/2021/09/08/14/index.html">
+<meta property="og:site_name" content="Xiaolong&#39;s Blog">
+<meta property="og:description" content="跨域关键知识：  同源策略。浏览器故意设计的一个功能限制 CORS。突破浏览器限制的一个方法 JSONP。IE 时代的妥协  同源源 &#x3D; 协议 + 域名 + 端口号 window.origin 或 location.origin 可以得到当前源。 如果两个 url 的协议、域名、端口号完全一致，那么这两个 url 就是同源。 例：https:&#x2F;&#x2F;qq.com 和 https:&#x2F;&#x2F;www.baidu">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-09-27_01-44-31.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-09-27_01-44-56.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-09-27_01-53-35.png">
+<meta property="article:published_time" content="2021-09-08T04:26:14.000Z">
+<meta property="article:modified_time" content="2021-10-07T04:26:37.162Z">
+<meta property="article:author" content="Xiaolong">
+<meta property="article:tag" content="js">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-09-27_01-44-31.png">
+
+
+<link rel="canonical" href="http://example.com/2021/09/08/14/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/09/08/14/","path":"2021/09/08/14/","title":"跨域"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>跨域 | Xiaolong's Blog</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Xiaolong's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8C%E6%BA%90"><span class="nav-number">1.</span> <span class="nav-text">同源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5"><span class="nav-number">2.</span> <span class="nav-text">同源策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E6%B2%A1%E6%9C%89%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5"><span class="nav-number">3.</span> <span class="nav-text">如果没有同源策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BC%94%E7%A4%BA"><span class="nav-number">4.</span> <span class="nav-text">演示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%B7%A8%E5%9F%9F"><span class="nav-number">5.</span> <span class="nav-text">如何跨域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CORS"><span class="nav-number">5.1.</span> <span class="nav-text">CORS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSONP"><span class="nav-number">5.2.</span> <span class="nav-text">JSONP</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Xiaolong"
+      src="/images/lion.jpg">
+  <p class="site-author-name" itemprop="name">Xiaolong</p>
+  <div class="site-description" itemprop="description">learning</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/drwna" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;drwna" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+          </div>
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Drwna" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/08/14/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lion.jpg">
+      <meta itemprop="name" content="Xiaolong">
+      <meta itemprop="description" content="learning">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xiaolong's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          跨域
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-09-08 12:26:14" itemprop="dateCreated datePublished" datetime="2021-09-08T12:26:14+08:00">2021-09-08</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-10-07 12:26:37" itemprop="dateModified" datetime="2021-10-07T12:26:37+08:00">2021-10-07</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>跨域关键知识：</p>
+<ul>
+<li>同源策略。浏览器故意设计的一个功能限制</li>
+<li>CORS。突破浏览器限制的一个方法</li>
+<li>JSONP。IE 时代的妥协</li>
+</ul>
+<h2 id="同源"><a href="#同源" class="headerlink" title="同源"></a>同源</h2><p>源 = 协议 + 域名 + 端口号</p>
+<p><code>window.origin</code> 或 <code>location.origin</code> 可以得到当前源。</p>
+<p>如果两个 url 的<strong>协议、域名、端口号完全一致</strong>，那么这两个 url 就是同源。</p>
+<p>例：<code>https://qq.com</code> 和 <code>https://www.baidu.com</code>     不同源</p>
+<p><code>https://baidu.com</code> 和 <code>https:www.baidu.com</code>     同源</p>
+<p>完全一致才算同源</p>
+<p>下表给出了与 URL <code>http://store.company.com/dir/page.html</code> 的源进行对比的示例:</p>
+<table>
+<thead>
+<tr>
+<th align="left">URL</th>
+<th align="left">结果</th>
+<th align="left">原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>http://store.company.com/dir2/other.html</code></td>
+<td align="left">同源</td>
+<td align="left">只有路径不同</td>
+</tr>
+<tr>
+<td align="left"><code>http://store.company.com/dir/inner/another.html</code></td>
+<td align="left">同源</td>
+<td align="left">只有路径不同</td>
+</tr>
+<tr>
+<td align="left"><code>https://store.company.com/secure.html</code></td>
+<td align="left">失败</td>
+<td align="left">协议不同</td>
+</tr>
+<tr>
+<td align="left"><code>http://store.company.com:81/dir/etc.html</code></td>
+<td align="left">失败</td>
+<td align="left">端口不同 ( <code>http://</code> 默认端口是80)</td>
+</tr>
+<tr>
+<td align="left"><code>http://news.company.com/dir/other.html</code></td>
+<td align="left">失败</td>
+<td align="left">主机不同</td>
+</tr>
+</tbody></table>
+<h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><p>Ajax 最大的限制是同源策略（Same-origin policy），它限制了不同源之间的交互，一个源的文档或脚本不能与另一个源的资源进行交互。<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy">浏览器的同源策略 MDN</a></p>
+<ul>
+<li><p>浏览器规定</p>
+<p>如果 JS 运行在源 A 里，那么就只能获取源 A 的数据</p>
+<p>不能获取源 B 的数据，即==不允许跨域==</p>
+</li>
+<li><p>例如（省略 http 协议）</p>
+<p>假设 frank.com/index.html 引用了 cdn.com/1.js</p>
+<p>那么就说 1.js 运行在源 frank.com 里</p>
+<p>注意 这跟 cdn.com 没有关系，虽然 1.js 从它哪下载</p>
+<p>所以 1.js 就只能获取 frank.com 的数据</p>
+<p>不能获取 1.frank.com 或者 qq.com 的数据</p>
+</li>
+<li><p>这是浏览器的功能</p>
+<p>浏览器故意要这样设计的</p>
+<p>目的：==保护用户隐私==</p>
+</li>
+</ul>
+<h2 id="如果没有同源策略"><a href="#如果没有同源策略" class="headerlink" title="如果没有同源策略"></a>如果没有同源策略</h2><p>以 qq 空间为例</p>
+<p>源为 <code>https://user.qzone.qq.com</code>，假设，当前用户已登录（cookie），假设 AJAX 请求 /friends.json 可获取到用户好友列表。</p>
+<p>黑客来了，假设有人给你分享 <code>https://qzone-qq.com </code> 给你，实际上是个钓鱼网站，你点开后，这个网页会请求你的好友列表 <code>https://user.qzone.qq.com/friends.json</code>。这样好友列表就能被黑客访问到。</p>
+<p><strong>问题根源：</strong></p>
+<ul>
+<li><p>无法区分发送者</p>
+<p>qq 空间页面的 JS 和黑客网页里的 JS 发送的请求几乎没有区别（referrer 有区别）</p>
+<p>如果后台开发者没有检查 referrer，那么就完全没有区别</p>
+<p>所以，没有同源策略，任何页面都能偷 qq 空间的数据</p>
+</li>
+<li><p>那检查 referrer 不就好了</p>
+<p>安全原则：安全链条的强度取决于最弱的一环</p>
+<p>万一这个网站的后端开发工程师就是没有检查 referrer</p>
+<p>所以浏览器应该主动预防这种偷数据的行为</p>
+<p>总之，浏览器为了用户隐私，设置了严格的同源策略</p>
+</li>
+</ul>
+<h2 id="演示"><a href="#演示" class="headerlink" title="演示"></a>演示</h2><ol>
+<li><p>创建目录</p>
+<p>qq-com 里新建 server.js，用来模拟 qq空间</p>
+<p>frank-com 里新建 server.js，用来模拟黑客网站</p>
+</li>
+<li><p>qq-com</p>
+<p>public 目录下新建 index.html 首页</p>
+<p>qq.js 是 JS 脚本文件</p>
+<p>friends.json 是模拟的好友数据</p>
+<p>端口监听为 8888，访问 <code>http://127.0.0.1:8888</code></p>
+</li>
+<li><p>hacker-com</p>
+<p>public 目录下新建 index.html 首页</p>
+<p>frank.js 是 JS 脚本文件</p>
+<p>端口监听为 9999，范问 <code>http://127.0.0.1:9999</code></p>
+</li>
+</ol>
+<p>跨域 AJAX</p>
+<ul>
+<li><p>正常使用 AJAX</p>
+<p>在 qq.com:8888 里运行的 JS 可以访问 /friends.json</p>
+<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-09-27_01-44-31.png" alt="Snipaste_2021-09-27_01-44-31" width="800px"></center><center style="font-size:14px;color:#C0C0C0;text-decoration:underline">能够访问</center> </li>
+<li><p>黑客偷数据</p>
+<p>在 hacker.com:9999 里运行的 JS不能访问</p>
+<p>浏览器需要==CORS==</p>
+</li>
+</ul>
+<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-09-27_01-44-56.png" alt="Snipaste_2021-09-27_01-44-56" width="800px"></center><center style="font-size:14px;color:#C0C0C0;text-decoration:underline">不能访问</center> 
+
+<ul>
+<li><p>提问</p>
+<p>黑客的请求成功了没：</p>
+<p>答：成功了，因为 qq.com 后台有 log。</p>
+<p>黑客拿到响应了没与？</p>
+<p>答：没有，因为浏览器不给数据。</p>
+</li>
+</ul>
+<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-09-27_01-53-35.png" alt="Snipaste_2021-09-27_01-53-35" width="800px"></center>
+
+
+
+<h2 id="如何跨域"><a href="#如何跨域" class="headerlink" title="如何跨域"></a>如何跨域</h2><h3 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h3><p>CORS 是一个 W3C 标准，全称是”跨域资源共享”（Cross-origin resource sharing）。</p>
+<ul>
+<li><p>问题根源</p>
+<p>浏览器默认不同源之间不能互相访问数据</p>
+<p>但是 qq.com 和 hacker.com 都是自己的网站，需要互相访问</p>
+</li>
+<li><p>用 CORS</p>
+<p>浏览器说，如果要共享数据，需要提前声明！</p>
+<p>qq.com 在响应头里写 hacker.com 可以访问</p>
+<p>语法：<code>Access-Control-Allow-Origin: http://hacker.com:9999</code></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CORS#%E7%AE%80%E5%8D%95%E8%AF%B7%E6%B1%82">MDN 文档</a></p>
+</li>
+</ul>
+<p>CORS 不兼容 ie 6789</p>
+<h3 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h3><p><strong>什么是 JSONP？</strong></p>
+<p>跨域时，由于当前浏览器不支持 CORS 或因为某些条件不支持 CORS，我们必须使用另外一种方式来跨域。</p>
+<p>于是，请求一个 JS 文件，这个 JS 文件会执行事先定义好的回调，这个回调里就有我们需要的数据。</p>
+<p><strong>优点：</strong></p>
+<ul>
+<li>支持 IE </li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li>由于是 script 标签，获取不到响应状态</li>
+<li>不支持 POST</li>
+</ul>
+<hr>
+<p>演示：hacker.com 访问 qq.com</p>
+<ul>
+<li>qq.com 将数据写到 /friends.js</li>
+<li>frank.com 用 script 标签引用 /friends.js</li>
+<li>hacker.com 执行 事先定义好的 window.xxx 函数</li>
+<li>/friends.js 执行 window.xxx({friend: […]})</li>
+<li>然后 hacker.com 就通过 window.xxx 获取到数据了</li>
+<li>window.xxx 就是一个回调！！</li>
+</ul>
+<p>JSONP 的实现原理演示：</p>
+<p>hacker-com 里的 hacker.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.xxx = <span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> script = <span class="built_in">document</span>.createElement(<span class="string">&#x27;script&#x27;</span>);</span><br><span class="line">script.src = <span class="string">&#x27;http://qq.com:8888/friends.js&#x27;</span>;</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(script);</span><br></pre></td></tr></table></figure>
+
+<p>qq-com public目录下新建 friends.js 内容为 <code>window.xxx ( &#123;&#123; data &#125;&#125; )</code></p>
+<p>qq-com 的 server.js 添加如下路由</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (path === <span class="string">&#x27;/friends.js&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (request.headers[<span class="string">&#x27;referer&#x27;</span>].indexOf(<span class="string">&#x27;http://hacker.com:9999&#x27;</span>) === <span class="number">0</span>) &#123;</span><br><span class="line">            response.statusCode = <span class="number">200</span></span><br><span class="line">            response.setHeader(<span class="string">&#x27;Content-Type&#x27;</span>, <span class="string">&#x27;text/javascript;charset=utf-8&#x27;</span>)</span><br><span class="line">            <span class="keyword">const</span> string = fs.readFileSync(<span class="string">&#x27;./public/friends.js&#x27;</span>).toString()</span><br><span class="line">            <span class="keyword">const</span> data = fs.readFileSync(<span class="string">&#x27;./public/friends.json&#x27;</span>).toString()</span><br><span class="line">            response.write(string.replace(<span class="string">&#x27;&#123;&#123; data &#125;&#125;&#x27;</span>, data))</span><br><span class="line">            response.end()</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            response.statusCode = <span class="number">404</span>;</span><br><span class="line">            response.end();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">// 控制台 window.xxx</span></span><br><span class="line"><span class="comment">// hacker 拿到了 friends.js 的数据</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>优化：</p>
+<p>window.xxx 能不能改其他名字？</p>
+<p>其实名字不重要，只要 hacker.com 定义的函数名和 qq.com/friends.js 执行的函数名是同一个即可。</p>
+<p>将名字穿给 /friends.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// hacker.js</span></span><br><span class="line"><span class="keyword">const</span> random = <span class="string">`hackerJSONPCallback`</span> + <span class="built_in">Math</span>.random();</span><br><span class="line"><span class="built_in">console</span>.log(random);</span><br><span class="line"><span class="built_in">window</span>[random] = <span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> script = <span class="built_in">document</span>.createElement(<span class="string">&#x27;script&#x27;</span>);</span><br><span class="line">script.src = <span class="string">`http://qq.com:8888/friends.js?functionName=<span class="subst">$&#123;random&#125;</span>`</span>;</span><br><span class="line">script.onload = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    script.remove();</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(script);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// server.js</span></span><br><span class="line"> <span class="keyword">else</span> <span class="keyword">if</span> (path === <span class="string">&#x27;/friends.js&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (request.headers[<span class="string">&#x27;referer&#x27;</span>].indexOf(<span class="string">&#x27;http://hacker.com:9999&#x27;</span>) === <span class="number">0</span>) &#123;</span><br><span class="line">            response.statusCode = <span class="number">200</span></span><br><span class="line">            <span class="built_in">console</span>.log(query.functionName);</span><br><span class="line">            response.setHeader(<span class="string">&#x27;Content-Type&#x27;</span>, <span class="string">&#x27;text/javascript;charset=utf-8&#x27;</span>)</span><br><span class="line">            <span class="keyword">const</span> string = fs.readFileSync(<span class="string">&#x27;./public/friends.js&#x27;</span>).toString()</span><br><span class="line">            <span class="keyword">const</span> data = fs.readFileSync(<span class="string">&#x27;./public/friends.json&#x27;</span>).toString()</span><br><span class="line">            response.write(string.replace(<span class="string">&#x27;&#123;&#123; data &#125;&#125;&#x27;</span>, data).replace(<span class="string">`&#123;&#123; xxx &#125;&#125;`</span>, query.functionName))</span><br><span class="line">            response.end()</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            response.statusCode = <span class="number">404</span>;</span><br><span class="line">            response.end();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// friends.js</span></span><br><span class="line"><span class="built_in">window</span>[<span class="string">`&#123;&#123; xxx &#125;&#125;`</span>]( &#123;&#123; data &#125;&#125; )</span><br></pre></td></tr></table></figure>
+
+
+
+<p>进一步优化</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// hacker.js</span></span><br><span class="line"><span class="comment">// 封装 JSONP</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">jsonp</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> random = <span class="string">`hackerJSONPCallback`</span> + <span class="built_in">Math</span>.random();</span><br><span class="line">        <span class="built_in">console</span>.log(random);</span><br><span class="line">        <span class="built_in">window</span>[random] = <span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">            resolve(data)</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">const</span> script = <span class="built_in">document</span>.createElement(<span class="string">&#x27;script&#x27;</span>);</span><br><span class="line">        script.src = <span class="string">`<span class="subst">$&#123;url&#125;</span>?callback=<span class="subst">$&#123;random&#125;</span>`</span>;</span><br><span class="line">        script.onload = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">            script.remove();</span><br><span class="line">        &#125;;</span><br><span class="line">        script.onerror = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">            reject();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">document</span>.body.appendChild(script);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">jsonp(<span class="string">&#x27;http://qq.com:8888/friends.js&#x27;</span>)</span><br><span class="line">    .then(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(data);</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// server.js</span></span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (path === <span class="string">&#x27;/friends.js&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (request.headers[<span class="string">&#x27;referer&#x27;</span>].indexOf(<span class="string">&#x27;http://hacker.com:9999&#x27;</span>) === <span class="number">0</span>) &#123;</span><br><span class="line">            response.statusCode = <span class="number">200</span></span><br><span class="line">            <span class="built_in">console</span>.log(query.functionName);</span><br><span class="line">            response.setHeader(<span class="string">&#x27;Content-Type&#x27;</span>, <span class="string">&#x27;text/javascript;charset=utf-8&#x27;</span>)</span><br><span class="line">            <span class="keyword">const</span> string = <span class="string">`window[&#x27;&#123;&#123; xxx &#125;&#125;&#x27;]( &#123;&#123; data &#125;&#125; )`</span></span><br><span class="line">            <span class="keyword">const</span> data = fs.readFileSync(<span class="string">&#x27;./public/friends.json&#x27;</span>).toString()</span><br><span class="line">            response.write(string.replace(<span class="string">&#x27;&#123;&#123; data &#125;&#125;&#x27;</span>, data).replace(<span class="string">`&#123;&#123; xxx &#125;&#125;`</span>, query.callback))</span><br><span class="line">            response.end()</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            response.statusCode = <span class="number">404</span>;</span><br><span class="line">            response.end();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>JSONP 的本质是前后端的协作，即前端把想要的资源以及后续的处理都告诉后台，后台封装好返回给前端执行。</p>
+<p>优质博客：</p>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000015597029">不要再问我跨域的问题了</a></p>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000009624849#comment-area">同源策略于JS跨域（JSONP，CORD）</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/js/" rel="tag"><i class="fa fa-tag"></i> js</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/09/07/35/" rel="prev" title="JS函数的执行时机">
+                  <i class="fa fa-chevron-left"></i> JS函数的执行时机
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/09/12/56/" rel="next" title="JS函数">
+                  JS函数 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaolong</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
