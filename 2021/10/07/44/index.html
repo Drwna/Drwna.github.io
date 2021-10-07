@@ -22,28 +22,28 @@
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 <meta name="description" content="异步 如果能直接拿到将结果 那就是同步 比如你在医院挂号，你拿到号才会离开窗口 同步任务可能消耗 10 毫秒，也可能需要 3 秒 总之不拿到结果你是不会离开的，这就是同步  如果不能直接拿到结果 那就异步 比如你在餐厅门口等位，你拿到号后可以去干别的事比如逛街 你可以每 10 分钟取餐厅问一下排到自己了没（轮询） 也可以扫码用微信接受通知（回调）   异步举例 以 AJAX 为例 request.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="异步与Promise">
-<meta property="og:url" content="http://example.com/2021/09/07/36/index.html">
+<meta property="og:title" content="AJAX">
+<meta property="og:url" content="http://example.com/2021/10/07/44/index.html">
 <meta property="og:site_name" content="Xiaolong&#39;s Blog">
 <meta property="og:description" content="异步 如果能直接拿到将结果 那就是同步 比如你在医院挂号，你拿到号才会离开窗口 同步任务可能消耗 10 毫秒，也可能需要 3 秒 总之不拿到结果你是不会离开的，这就是同步  如果不能直接拿到结果 那就异步 比如你在餐厅门口等位，你拿到号后可以去干别的事比如逛街 你可以每 10 分钟取餐厅问一下排到自己了没（轮询） 也可以扫码用微信接受通知（回调）   异步举例 以 AJAX 为例 request.">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-09-25_22-12-10.png">
-<meta property="article:published_time" content="2021-09-07T04:24:36.000Z">
-<meta property="article:modified_time" content="2021-10-07T04:26:46.614Z">
+<meta property="article:published_time" content="2021-10-07T15:02:44.000Z">
+<meta property="article:modified_time" content="2021-10-07T15:03:48.910Z">
 <meta property="article:author" content="Xiaolong">
-<meta property="article:tag" content="js">
+<meta property="article:tag" content="-js -AJAX">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-09-25_22-12-10.png">
 
 
-<link rel="canonical" href="http://example.com/2021/09/07/36/">
+<link rel="canonical" href="http://example.com/2021/10/07/44/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/09/07/36/","path":"2021/09/07/36/","title":"异步与Promise"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/10/07/44/","path":"2021/10/07/44/","title":"AJAX"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>异步与Promise | Xiaolong's Blog</title>
+<title>AJAX | Xiaolong's Blog</title>
   
 
 
@@ -217,7 +217,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/07/36/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/07/44/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/lion.jpg">
@@ -230,7 +230,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          异步与Promise
+          AJAX
         </h1>
 
         <div class="post-meta-container">
@@ -240,16 +240,10 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2021-09-07 12:24:36" itemprop="dateCreated datePublished" datetime="2021-09-07T12:24:36+08:00">2021-09-07</time>
+      <time title="Created: 2021-10-07 23:02:44 / Modified: 23:03:48" itemprop="dateCreated datePublished" datetime="2021-10-07T23:02:44+08:00">2021-10-07</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-10-07 12:26:46" itemprop="dateModified" datetime="2021-10-07T12:26:46+08:00">2021-10-07</time>
-      </span>
 
   
 </div>
@@ -369,10 +363,10 @@
 <li>调用的时候把结果作为参数</li>
 </ul>
 <h2 id="异步任务两个结果，成功或失败"><a href="#异步任务两个结果，成功或失败" class="headerlink" title="异步任务两个结果，成功或失败"></a>异步任务两个结果，成功或失败</h2><h3 id="两个方法解决"><a href="#两个方法解决" class="headerlink" title="两个方法解决"></a>两个方法解决</h3><p><strong>方法一：回调接受两个参数</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.readFile(<span class="string">&#x27;./1.txt&#x27;</span>, <span class="function">(<span class="params">error, data</span>) =&gt;</span> &#123;    <span class="keyword">if</span>(error)&#123;        <span class="built_in">console</span>.log(<span class="string">&#x27;失败&#x27;</span>); <span class="keyword">return</span>;    &#125;    <span class="built_in">console</span>.log(data.toString()) <span class="comment">// 成功&#125;)</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fs.readFile(<span class="string">&#x27;./1.txt&#x27;</span>, <span class="function">(<span class="params">error, data</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(error)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;失败&#x27;</span>); <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(data.toString()) <span class="comment">// 成功</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <p><strong>方法二：两个回调</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ajax(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;/1.json&#x27;</span>, <span class="function"><span class="params">data</span> =&gt;</span> &#123;<span class="comment">/*成功回调*/</span>&#125;, <span class="function"><span class="params">error</span> =&gt;</span> &#123;<span class="comment">/*失败回调*/</span>&#125;)ajax(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;/1.json&#x27;</span>,&#123;    <span class="attr">success</span>: <span class="function">() =&gt;</span> &#123;&#125;,    <span class="attr">fail</span>: <span class="function">() =&gt;</span> &#123;&#125;&#125;)<span class="comment">// 接受一个对象，对象有两个 key 表示成功和失败</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ajax(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;/1.json&#x27;</span>, <span class="function"><span class="params">data</span> =&gt;</span> &#123;<span class="comment">/*成功回调*/</span>&#125;, <span class="function"><span class="params">error</span> =&gt;</span> &#123;<span class="comment">/*失败回调*/</span>&#125;)</span><br><span class="line">ajax(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;/1.json&#x27;</span>,&#123;</span><br><span class="line">    <span class="attr">success</span>: <span class="function">() =&gt;</span> &#123;&#125;,</span><br><span class="line">    <span class="attr">fail</span>: <span class="function">() =&gt;</span> &#123;&#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 接受一个对象，对象有两个 key 表示成功和失败</span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -383,7 +377,7 @@
 <li>很难进行错无处理</li>
 </ol>
 <p><strong>回调地狱举例</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getUser( <span class="function"><span class="params">user</span> =&gt;</span> &#123;    getGroups(user, <span class="function">(<span class="params">groups</span>) =&gt;</span> &#123;        groups.forEach( <span class="function">(<span class="params">g</span>) =&gt;</span> &#123;            g.filter(<span class="function"><span class="params">x</span> =&gt;</span> x.ownerId === user.id)            .forEach(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x))        &#125;)    &#125;)&#125;)<span class="comment">// 仅示例，这只是四层，二十层呢，代码会很难读</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">getUser( <span class="function"><span class="params">user</span> =&gt;</span> &#123;</span><br><span class="line">    getGroups(user, <span class="function">(<span class="params">groups</span>) =&gt;</span> &#123;</span><br><span class="line">        groups.forEach( <span class="function">(<span class="params">g</span>) =&gt;</span> &#123;</span><br><span class="line">            g.filter(<span class="function"><span class="params">x</span> =&gt;</span> x.ownerId === user.id)</span><br><span class="line">            .forEach(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x))</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 仅示例，这只是四层，二十层呢，代码会很难读</span></span><br></pre></td></tr></table></figure>
 
 <center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-09-25_22-12-10.png" alt="Snipaste_2021-09-25_22-12-10" width="800px"></center><center style="font-size:14px;color:#C0C0C0;text-decoration:underline"> 吐槽回调地狱 来源网络</center> 
 
@@ -402,19 +396,19 @@
 <p>该规范详细描述了 Promise 的原理和使用方法。</p>
 </blockquote>
 <h2 id="以-AJAX-的封装为例，来解释-Promise"><a href="#以-AJAX-的封装为例，来解释-Promise" class="headerlink" title="以 AJAX 的封装为例，来解释 Promise"></a>以 AJAX 的封装为例，来解释 Promise</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise MDN</a></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 示例ajax = (method, url, options) =&gt; &#123;    const &#123;success, fail&#125; = option; // 析构赋值    // const succes = option.success;    // const fail = option.fail;    const request = new XMLHttpRequest();    request.open(method, url);    request.onreadystatechange = () =&gt; &#123;        if (request.readyState === 4) &#123;            // 成功就调用 success，失败 fail            if (request.status &lt; 400) &#123;                success.call(null, request.response);            &#125;else if (request.status &gt;= 400) &#123;                fail.call(null, request, request.status);            &#125;        &#125;    &#125;    request.rend();&#125;ajax(&#x27;get&#x27;, &#x27;/xxx&#x27;, &#123;    success(response)&#123;&#125;, // function 缩写    // success: function(response)&#123;&#125;    fail: (request, status) =&gt; &#123;&#125;&#125;)</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 示例</span></span><br><span class="line">ajax = <span class="function">(<span class="params">method, url, options</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123;success, fail&#125; = option; <span class="comment">// 析构赋值</span></span><br><span class="line">    <span class="comment">// const succes = option.success;</span></span><br><span class="line">    <span class="comment">// const fail = option.fail;</span></span><br><span class="line">    <span class="keyword">const</span> request = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    request.open(method, url);</span><br><span class="line">    request.onreadystatechange = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (request.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">            <span class="comment">// 成功就调用 success，失败 fail</span></span><br><span class="line">            <span class="keyword">if</span> (request.status &lt; <span class="number">400</span>) &#123;</span><br><span class="line">                success.call(<span class="literal">null</span>, request.response);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span> (request.status &gt;= <span class="number">400</span>) &#123;</span><br><span class="line">                fail.call(<span class="literal">null</span>, request, request.status);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    request.rend();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ajax(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;/xxx&#x27;</span>, &#123;</span><br><span class="line">    <span class="function"><span class="title">success</span>(<span class="params">response</span>)</span>&#123;&#125;, <span class="comment">// function 缩写</span></span><br><span class="line">    <span class="comment">// success: function(response)&#123;&#125;</span></span><br><span class="line">    <span class="attr">fail</span>: <span class="function">(<span class="params">request, status</span>) =&gt;</span> &#123;&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 
 
 <p>Promise 写法：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 先改一下调用姿势ajax(&#x27;get&#x27;, &#x27;/xxx&#x27;, &#123;    success(response)&#123;&#125;,    fail: (request, status) =&gt; &#123;&#125;&#125;)// 上面用到了两个回调，还使用了 success 和 fail// 改成 Promise 写法ajax(&#x27;get&#x27;, &#x27;/xxx&#x27;)    .then((response)=&gt;&#123;&#125;, (request, status)=&gt;&#123;&#125; )// 虽然也是回调// 但是不需要经济 success 和 fail 了// then 的第一个参数就是 success// then 的第二个参数就是 fail</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 先改一下调用姿势</span></span><br><span class="line">ajax(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;/xxx&#x27;</span>, &#123;</span><br><span class="line">    <span class="function"><span class="title">success</span>(<span class="params">response</span>)</span>&#123;&#125;,</span><br><span class="line">    <span class="attr">fail</span>: <span class="function">(<span class="params">request, status</span>) =&gt;</span> &#123;&#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 上面用到了两个回调，还使用了 success 和 fail</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 改成 Promise 写法</span></span><br><span class="line">ajax(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;/xxx&#x27;</span>)</span><br><span class="line">    .then(<span class="function">(<span class="params">response</span>)=&gt;</span>&#123;&#125;, <span class="function">(<span class="params">request, status</span>)=&gt;</span>&#123;&#125; )</span><br><span class="line"><span class="comment">// 虽然也是回调</span></span><br><span class="line"><span class="comment">// 但是不需要经济 success 和 fail 了</span></span><br><span class="line"><span class="comment">// then 的第一个参数就是 success</span></span><br><span class="line"><span class="comment">// then 的第二个参数就是 fail</span></span><br></pre></td></tr></table></figure>
 
 <p>请问 ajax() 返回了个啥 ？</p>
 <p>返回了一个含有 .then() 方法的对象呗。</p>
 <p>那么再请问如何得到这个含有 .then() 的对象呢 ？</p>
 <p>那就要改造 ajax 的源码了。</p>
 <p><code>return new Promise((resolve, reject) =&gt; &#123;&#125;)</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 修改 ajaxajax = (method, url, option) =&gt; &#123;    return new Promise((resolve, reject) =&gt; &#123;        const &#123;success, fail&#125; = option;        const request = new XMLHttpRequest();        request.open(methon, url);        request.onreadystatechange = () =&gt; &#123;            if(request.readyState === 4) &#123;                if(request.status &lt; 400) &#123;                    // 成功                    resolve.call(null, request.response);                &#125;else if(request.status &gt;= 400) &#123;                    // s                    reject.call(null, request);                &#125;            &#125;        &#125;        request.send();    &#125;);&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 修改 ajax</span></span><br><span class="line">ajax = <span class="function">(<span class="params">method, url, option</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> &#123;success, fail&#125; = option;</span><br><span class="line">        <span class="keyword">const</span> request = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">        request.open(methon, url);</span><br><span class="line">        request.onreadystatechange = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(request.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span>(request.status &lt; <span class="number">400</span>) &#123;</span><br><span class="line">                    <span class="comment">// 成功</span></span><br><span class="line">                    resolve.call(<span class="literal">null</span>, request.response);</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(request.status &gt;= <span class="number">400</span>) &#123;</span><br><span class="line">                    <span class="comment">// s</span></span><br><span class="line">                    reject.call(<span class="literal">null</span>, request);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        request.send();</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -446,21 +440,18 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/js/" rel="tag"><i class="fa fa-tag"></i> js</a>
+              <a href="/tags/js-AJAX/" rel="tag"><i class="fa fa-tag"></i> -js -AJAX</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/09/05/59/" rel="prev" title="JS数组">
-                  <i class="fa fa-chevron-left"></i> JS数组
+                <a href="/2021/09/17/37/" rel="prev" title="JS对象分类">
+                  <i class="fa fa-chevron-left"></i> JS对象分类
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/09/07/35/" rel="next" title="JS函数的执行时机">
-                  JS函数的执行时机 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
