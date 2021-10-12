@@ -20,34 +20,25 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="浏览器渲染原理 步骤：  根据 HTML 构建 HTML 树（DOM） 根据 CSS 构建 CSS 树 （CSS DOM） 将两棵树合并成一颗渲染树 （render tree） Layout 布局（文档流、盒模型、计算大小和位置） Paint 绘制 （把边框颜色、文字颜色、阴影等画出来） Compose 合成（根据层叠关系展示画面）      JS三种更新样式方式  JS&#x2F;CSS &gt; 样式">
-<meta property="og:type" content="article">
-<meta property="og:title" content="浏览器渲染原理">
-<meta property="og:url" content="http://example.com/2021/07/10/08/index.html">
+<meta name="description" content="Never stop learning">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Xiaolong&#39;s Blog">
+<meta property="og:url" content="http://example.com/tags/mvc/index.html">
 <meta property="og:site_name" content="Xiaolong&#39;s Blog">
-<meta property="og:description" content="浏览器渲染原理 步骤：  根据 HTML 构建 HTML 树（DOM） 根据 CSS 构建 CSS 树 （CSS DOM） 将两棵树合并成一颗渲染树 （render tree） Layout 布局（文档流、盒模型、计算大小和位置） Paint 绘制 （把边框颜色、文字颜色、阴影等画出来） Compose 合成（根据层叠关系展示画面）      JS三种更新样式方式  JS&#x2F;CSS &gt; 样式">
+<meta property="og:description" content="Never stop learning">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Drwna/image//images/render-tree-construction.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Drwna/image//images/frame-full.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Drwna/image//images/frame-no-layout.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Drwna/image//images/frame-no-layout-paint.jpg">
-<meta property="article:published_time" content="2021-07-10T08:29:08.000Z">
-<meta property="article:modified_time" content="2021-08-20T08:38:38.940Z">
 <meta property="article:author" content="Xiaolong">
-<meta property="article:tag" content="js">
-<meta property="article:tag" content="css">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Drwna/image//images/render-tree-construction.png">
 
 
-<link rel="canonical" href="http://example.com/2021/07/10/08/">
+<link rel="canonical" href="http://example.com/tags/mvc/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/07/10/08/","path":"2021/07/10/08/","title":"浏览器渲染原理"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en","comments":"","permalink":"","path":"tags/mvc/index.html","title":""}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>浏览器渲染原理 | Xiaolong's Blog</title>
+<title>Tag: mvc | Xiaolong's Blog</title>
   
 
 
@@ -209,142 +200,50 @@
 </noscript>
 
 
-    <div class="main-inner post posts-expand">
+    <div class="main-inner tag posts-collapse">
 
 
   
-
-
-<div class="post-block">
   
   
+  <div class="post-block">
+    <div class="post-content">
+      <div class="collection-title">
+        <h2 class="collection-header">mvc
+          <small>Tag</small>
+        </h2>
+      </div>
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/10/08/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/lion.jpg">
-      <meta itemprop="name" content="Xiaolong">
-      <meta itemprop="description" content="Never stop learning">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xiaolong's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          浏览器渲染原理
-        </h1>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-07-10 16:29:08" itemprop="dateCreated datePublished" datetime="2021-07-10T16:29:08+08:00">2021-07-10</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-20 16:38:38" itemprop="dateModified" datetime="2021-08-20T16:38:38+08:00">2021-08-20</time>
-      </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-        <p><strong>浏览器渲染原理</strong></p>
-<p>步骤：</p>
-<ul>
-<li>根据 HTML 构建 HTML 树（DOM）</li>
-<li>根据 CSS 构建 CSS 树 （CSS DOM）</li>
-<li>将两棵树合并成一颗渲染树 （render tree）</li>
-<li>Layout 布局（文档流、盒模型、计算大小和位置）</li>
-<li>Paint 绘制 （把边框颜色、文字颜色、阴影等画出来）</li>
-<li>Compose 合成（根据层叠关系展示画面）</li>
-</ul>
-<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/render-tree-construction.png" alt="render-tree-construction" width="800px"></center>
-
-
-
-<p><strong>JS三种更新样式方式</strong></p>
-<ol>
-<li><p>JS/CSS &gt; 样式 &gt; 布局 &gt; 绘制 &gt; 合成</p>
-<img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/frame-full.jpg" alt="frame-full" width="800px">
-
-<p>如果修改元素的“layout”属性，也就是改变了元素的几何属性（例如宽度、高度、左侧或顶部位置等），那么浏览器将必须检查所有其他元素，然后“自动重排”页面。任何受影响的部分都需要重新绘制，而且最终绘制的元素需进行合成。</p>
-</li>
-<li><p>JS/CSS &gt; 样式 &gt; 绘制 &gt; 合成</p>
-<img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/frame-no-layout.jpg" alt="frame-no-layout" width="800px">
-
-<p>如果修改“paint only”属性（例如背景图片、文字颜色或阴影等），即不会影响页面布局的属性，则浏览器会跳过布局，但仍将执行绘制。</p>
-</li>
-<li><p>JS/CSS &gt; 样式 &gt; 合成</p>
-<img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/frame-no-layout-paint.jpg" alt="frame-no-layout-paint" width="800px">
-
-<p>如果更改一个既不要布局也不要绘制的属性，则浏览器将跳到只执行合成。</p>
-<p>对于应用程序生命周期中的高压点（例如动画或滚动），此最终版本是开销最小和最理想的。</p>
-<p>This final version is the cheapest and most desirable for high pressure points in an app’s lifecycle, like animations or scrolling.</p>
-</li>
-</ol>
-<p>例：勾选 Paint flashing查看</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="http://js.jirengu.com/jagel/1/edit?html,css,js,output">div.remove()</a> 会触发当前消失，其他元素 relayout ，再 repaint + composte</li>
-<li><a target="_blank" rel="noopener" href="http://js.jirengu.com/jidam/1/edit?html,css,js,output">change bg color</a> 直接 repaint + composite</li>
-<li><a target="_blank" rel="noopener" href="http://js.jirengu.com/wusew/1">change transform</a> 只需 composite</li>
-</ol>
-<p>查看css属性变更时触发的改变 <a target="_blank" rel="noopener" href="https://csstriggers.com/">CSSTrigers</a></p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-tree-construction">渲染树构建、布局及绘制</a></p>
-<p><a target="_blank" rel="noopener" href="https://developers.google.com/web/fundamentals/performance/rendering/">渲染性能</a></p>
-<p><a target="_blank" rel="noopener" href="https://developers.google.com/web/fundamentals/performance/rendering/stick-to-compositor-only-properties-and-manage-layer-count">使用 transform 实现动画</a></p>
-</blockquote>
-
+      
+    <div class="collection-year">
+      <span class="collection-header">2021</span>
     </div>
 
-    
-    
-    
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <div class="post-meta-container">
+        <time itemprop="dateCreated"
+              datetime="2021-09-19T22:54:48+08:00"
+              content="2021-09-19">
+          09-19
+        </time>
+      </div>
 
-    <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/js/" rel="tag"><i class="fa fa-tag"></i> js</a>
-              <a href="/tags/css/" rel="tag"><i class="fa fa-tag"></i> css</a>
-          </div>
+      <div class="post-title">
+          <a class="post-title-link" href="/2021/09/19/48/" itemprop="url">
+            <span itemprop="name">浅析MVC</span>
+          </a>
+      </div>
 
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/2021/07/09/53/" rel="prev" title="css基础">
-                  <i class="fa fa-chevron-left"></i> css基础
-                </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/2021/07/10/50/" rel="next" title="css定位与层叠上下文">
-                  css定位与层叠上下文 <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
-    </footer>
+      
+    </header>
   </article>
-</div>
 
-
-
-
-
+    </div>
+  </div>
+  
+  
+  
 
 </div>
   </main>
