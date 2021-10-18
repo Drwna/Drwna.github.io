@@ -20,34 +20,28 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="浏览器渲染原理 步骤：  根据 HTML 构建 HTML 树（DOM） 根据 CSS 构建 CSS 树 （CSS DOM） 将两棵树合并成一颗渲染树 （render tree） Layout 布局（文档流、盒模型、计算大小和位置） Paint 绘制 （把边框颜色、文字颜色、阴影等画出来） Compose 合成（根据层叠关系展示画面）      JS三种更新样式方式  JS&#x2F;CSS &gt; 样式">
+<meta name="description" content="响应式原理数据响应式是指，在改变数据的时候，视图也会跟着更新。 当数据改变后，Vue会通知到使用该数据的代码。视图渲染中使用了数据，数据改变后，视图也会自动更新。 Vue的响应式原理依赖于 Object.defineProperty, 通过设置对象的 getter&#x2F;setter 方法来监听数据。 当你把一个普通的 JavaScript 对象传入 Vue 实例作为 data 选项，Vue 将遍历此对">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浏览器渲染原理">
-<meta property="og:url" content="http://example.com/2021/07/10/08/index.html">
+<meta property="og:title" content="vue数据响应式的理解">
+<meta property="og:url" content="http://example.com/2021/10/16/56/index.html">
 <meta property="og:site_name" content="Xiaolong&#39;s Blog">
-<meta property="og:description" content="浏览器渲染原理 步骤：  根据 HTML 构建 HTML 树（DOM） 根据 CSS 构建 CSS 树 （CSS DOM） 将两棵树合并成一颗渲染树 （render tree） Layout 布局（文档流、盒模型、计算大小和位置） Paint 绘制 （把边框颜色、文字颜色、阴影等画出来） Compose 合成（根据层叠关系展示画面）      JS三种更新样式方式  JS&#x2F;CSS &gt; 样式">
+<meta property="og:description" content="响应式原理数据响应式是指，在改变数据的时候，视图也会跟着更新。 当数据改变后，Vue会通知到使用该数据的代码。视图渲染中使用了数据，数据改变后，视图也会自动更新。 Vue的响应式原理依赖于 Object.defineProperty, 通过设置对象的 getter&#x2F;setter 方法来监听数据。 当你把一个普通的 JavaScript 对象传入 Vue 实例作为 data 选项，Vue 将遍历此对">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Drwna/image//images/render-tree-construction.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Drwna/image//images/frame-full.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Drwna/image//images/frame-no-layout.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Drwna/image//images/frame-no-layout-paint.jpg">
-<meta property="article:published_time" content="2021-07-10T08:29:08.000Z">
-<meta property="article:modified_time" content="2021-08-20T08:38:38.940Z">
+<meta property="article:published_time" content="2021-10-16T11:44:56.000Z">
+<meta property="article:modified_time" content="2021-10-18T12:35:40.272Z">
 <meta property="article:author" content="Xiaolong">
-<meta property="article:tag" content="js">
-<meta property="article:tag" content="css">
+<meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Drwna/image//images/render-tree-construction.png">
 
 
-<link rel="canonical" href="http://example.com/2021/07/10/08/">
+<link rel="canonical" href="http://example.com/2021/10/16/56/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/07/10/08/","path":"2021/07/10/08/","title":"浏览器渲染原理"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/10/16/56/","path":"2021/10/16/56/","title":"vue数据响应式的理解"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>浏览器渲染原理 | Xiaolong's Blog</title>
+<title>vue数据响应式的理解 | Xiaolong's Blog</title>
   
 
 
@@ -138,7 +132,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -151,6 +145,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">响应式原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E4%BA%8E%E5%AF%B9%E8%B1%A1"><span class="nav-number">2.</span> <span class="nav-text">对于对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E4%BA%8E%E6%95%B0%E7%BB%84"><span class="nav-number">3.</span> <span class="nav-text">对于数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%98%E6%96%B9-%E6%B7%B1%E5%85%A5%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86"><span class="nav-number">4.</span> <span class="nav-text">官方 深入响应式原理</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -220,7 +215,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/10/08/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/16/56/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/lion.jpg">
@@ -233,7 +228,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          浏览器渲染原理
+          vue数据响应式的理解
         </h1>
 
         <div class="post-meta-container">
@@ -244,7 +239,7 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2021-07-10 16:29:08" itemprop="dateCreated datePublished" datetime="2021-07-10T16:29:08+08:00">2021-07-10</time>
+      <time title="Created: 2021-10-16 19:44:56" itemprop="dateCreated datePublished" datetime="2021-10-16T19:44:56+08:00">2021-10-16</time>
     </span>
 
   
@@ -257,53 +252,28 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p><strong>浏览器渲染原理</strong></p>
-<p>步骤：</p>
-<ul>
-<li>根据 HTML 构建 HTML 树（DOM）</li>
-<li>根据 CSS 构建 CSS 树 （CSS DOM）</li>
-<li>将两棵树合并成一颗渲染树 （render tree）</li>
-<li>Layout 布局（文档流、盒模型、计算大小和位置）</li>
-<li>Paint 绘制 （把边框颜色、文字颜色、阴影等画出来）</li>
-<li>Compose 合成（根据层叠关系展示画面）</li>
-</ul>
-<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/render-tree-construction.png" alt="render-tree-construction" width="800px"></center>
+        <h3 id="响应式原理"><a href="#响应式原理" class="headerlink" title="响应式原理"></a>响应式原理</h3><p><strong>数据响应式是指，在改变数据的时候，视图也会跟着更新</strong>。</p>
+<p><strong>当数据改变后，Vue会通知到使用该数据的代码。视图渲染中使用了数据，数据改变后，视图也会自动更新。</strong></p>
+<p>Vue的响应式原理依赖于 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty"><code>Object.defineProperty</code></a>, 通过设置对象的 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Working_with_Objects#%E5%AE%9A%E4%B9%89_getters_%E4%B8%8E_setters">getter/setter</a> 方法来监听数据。</p>
+<p>当你把一个普通的 JavaScript 对象传入 Vue 实例作为 data 选项，Vue 将遍历此对象所有的 property，并使用 Object.defineProperty 把这些 property 全部转为 getter/setter.</p>
+<p>这些 getter/setter 对用户来说是不可见的，但是在内部它们让 Vue 能够追踪依赖，在 property 被访问和修改时通知变更。</p>
+<p>由于 JavaScript 的限制，Vue <strong>不能检测</strong>数组和对象的变化。</p>
+<h3 id="对于对象"><a href="#对于对象" class="headerlink" title="对于对象"></a><strong>对于对象</strong></h3><p>Vue 无法检测 property 的添加或移除。由于 Vue 会在初始化实例时对 property 执行 getter/setter 转化，所以 property 必须在 <code>data</code> 对象上存在才能让 Vue 将它转换为响应式的。例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="attr">data</span>:&#123;</span><br><span class="line">    <span class="attr">a</span>:<span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// `vm.a` 是响应式的</span></span><br><span class="line"></span><br><span class="line">vm.b = <span class="number">2</span></span><br><span class="line"><span class="comment">// `vm.b` 是非响应式的</span></span><br></pre></td></tr></table></figure>
+
+<p>对于已经创建的实例，Vue 不允许动态添加根级别的响应式 property。但是，可以使用 <code>Vue.set(object, propertyName, value)</code> 方法向嵌套对象添加响应式 property。例如，对于：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.set(vm.someObject, <span class="string">&#x27;b&#x27;</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+<p>您还可以使用 <code>vm.$set</code> 实例方法，这也是全局 <code>Vue.set</code> 方法的别名：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.$set(<span class="built_in">this</span>.someObject,<span class="string">&#x27;b&#x27;</span>,<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+<p>有时你可能需要为已有对象赋值多个新 property，比如使用 <code>Object.assign()</code> 或 <code>_.extend()</code>。但是，这样添加到对象上的新 property 不会触发更新。在这种情况下，你应该用原对象与要混合进去的对象的 property 一起创建一个新的对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 代替 `Object.assign(this.someObject, &#123; a: 1, b: 2 &#125;)`</span></span><br><span class="line"><span class="built_in">this</span>.someObject = <span class="built_in">Object</span>.assign(&#123;&#125;, <span class="built_in">this</span>.someObject, &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> &#125;)</span><br></pre></td></tr></table></figure>
 
 
 
-<p><strong>JS三种更新样式方式</strong></p>
-<ol>
-<li><p>JS/CSS &gt; 样式 &gt; 布局 &gt; 绘制 &gt; 合成</p>
-<img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/frame-full.jpg" alt="frame-full" width="800px">
-
-<p>如果修改元素的“layout”属性，也就是改变了元素的几何属性（例如宽度、高度、左侧或顶部位置等），那么浏览器将必须检查所有其他元素，然后“自动重排”页面。任何受影响的部分都需要重新绘制，而且最终绘制的元素需进行合成。</p>
-</li>
-<li><p>JS/CSS &gt; 样式 &gt; 绘制 &gt; 合成</p>
-<img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/frame-no-layout.jpg" alt="frame-no-layout" width="800px">
-
-<p>如果修改“paint only”属性（例如背景图片、文字颜色或阴影等），即不会影响页面布局的属性，则浏览器会跳过布局，但仍将执行绘制。</p>
-</li>
-<li><p>JS/CSS &gt; 样式 &gt; 合成</p>
-<img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/frame-no-layout-paint.jpg" alt="frame-no-layout-paint" width="800px">
-
-<p>如果更改一个既不要布局也不要绘制的属性，则浏览器将跳到只执行合成。</p>
-<p>对于应用程序生命周期中的高压点（例如动画或滚动），此最终版本是开销最小和最理想的。</p>
-<p>This final version is the cheapest and most desirable for high pressure points in an app’s lifecycle, like animations or scrolling.</p>
-</li>
-</ol>
-<p>例：勾选 Paint flashing查看</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="http://js.jirengu.com/jagel/1/edit?html,css,js,output">div.remove()</a> 会触发当前消失，其他元素 relayout ，再 repaint + composte</li>
-<li><a target="_blank" rel="noopener" href="http://js.jirengu.com/jidam/1/edit?html,css,js,output">change bg color</a> 直接 repaint + composite</li>
-<li><a target="_blank" rel="noopener" href="http://js.jirengu.com/wusew/1">change transform</a> 只需 composite</li>
-</ol>
-<p>查看css属性变更时触发的改变 <a target="_blank" rel="noopener" href="https://csstriggers.com/">CSSTrigers</a></p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-tree-construction">渲染树构建、布局及绘制</a></p>
-<p><a target="_blank" rel="noopener" href="https://developers.google.com/web/fundamentals/performance/rendering/">渲染性能</a></p>
-<p><a target="_blank" rel="noopener" href="https://developers.google.com/web/fundamentals/performance/rendering/stick-to-compositor-only-properties-and-manage-layer-count">使用 transform 实现动画</a></p>
-</blockquote>
-
+<h3 id="对于数组"><a href="#对于数组" class="headerlink" title="对于数组"></a><strong>对于数组</strong></h3><p>通过 vue 数组的<a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/list.html#%E6%95%B0%E7%BB%84%E6%9B%B4%E6%96%B0%E6%A3%80%E6%B5%8B">变更方法</a>来更新视图。</p>
+<h3 id="官方-深入响应式原理"><a href="#官方-深入响应式原理" class="headerlink" title="官方 深入响应式原理"></a><a target="_blank" rel="noopener" href="https://vuejs.bootcss.com/guide/reactivity.html">官方 深入响应式原理</a></h3>
     </div>
 
     
@@ -312,22 +282,18 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/js/" rel="tag"><i class="fa fa-tag"></i> js</a>
-              <a href="/tags/css/" rel="tag"><i class="fa fa-tag"></i> css</a>
+              <a href="/tags/vue/" rel="tag"><i class="fa fa-tag"></i> vue</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/07/09/53/" rel="prev" title="css基础">
-                  <i class="fa fa-chevron-left"></i> css基础
+                <a href="/2021/10/15/12/" rel="prev" title="浅析vue版本">
+                  <i class="fa fa-chevron-left"></i> 浅析vue版本
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/07/10/50/" rel="next" title="css定位与层叠上下文">
-                  css定位与层叠上下文 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>

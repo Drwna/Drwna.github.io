@@ -157,7 +157,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -201,6 +201,90 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/16/56/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lion.jpg">
+      <meta itemprop="name" content="Xiaolong">
+      <meta itemprop="description" content="Never stop learning">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xiaolong's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/10/16/56/" class="post-title-link" itemprop="url">vue数据响应式的理解</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-10-16 19:44:56" itemprop="dateCreated datePublished" datetime="2021-10-16T19:44:56+08:00">2021-10-16</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="响应式原理"><a href="#响应式原理" class="headerlink" title="响应式原理"></a>响应式原理</h3><p><strong>数据响应式是指，在改变数据的时候，视图也会跟着更新</strong>。</p>
+<p><strong>当数据改变后，Vue会通知到使用该数据的代码。视图渲染中使用了数据，数据改变后，视图也会自动更新。</strong></p>
+<p>Vue的响应式原理依赖于 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty"><code>Object.defineProperty</code></a>, 通过设置对象的 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Working_with_Objects#%E5%AE%9A%E4%B9%89_getters_%E4%B8%8E_setters">getter/setter</a> 方法来监听数据。</p>
+<p>当你把一个普通的 JavaScript 对象传入 Vue 实例作为 data 选项，Vue 将遍历此对象所有的 property，并使用 Object.defineProperty 把这些 property 全部转为 getter/setter.</p>
+<p>这些 getter/setter 对用户来说是不可见的，但是在内部它们让 Vue 能够追踪依赖，在 property 被访问和修改时通知变更。</p>
+<p>由于 JavaScript 的限制，Vue <strong>不能检测</strong>数组和对象的变化。</p>
+<h3 id="对于对象"><a href="#对于对象" class="headerlink" title="对于对象"></a><strong>对于对象</strong></h3><p>Vue 无法检测 property 的添加或移除。由于 Vue 会在初始化实例时对 property 执行 getter/setter 转化，所以 property 必须在 <code>data</code> 对象上存在才能让 Vue 将它转换为响应式的。例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="attr">data</span>:&#123;</span><br><span class="line">    <span class="attr">a</span>:<span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// `vm.a` 是响应式的</span></span><br><span class="line"></span><br><span class="line">vm.b = <span class="number">2</span></span><br><span class="line"><span class="comment">// `vm.b` 是非响应式的</span></span><br></pre></td></tr></table></figure>
+
+<p>对于已经创建的实例，Vue 不允许动态添加根级别的响应式 property。但是，可以使用 <code>Vue.set(object, propertyName, value)</code> 方法向嵌套对象添加响应式 property。例如，对于：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.set(vm.someObject, <span class="string">&#x27;b&#x27;</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+<p>您还可以使用 <code>vm.$set</code> 实例方法，这也是全局 <code>Vue.set</code> 方法的别名：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.$set(<span class="built_in">this</span>.someObject,<span class="string">&#x27;b&#x27;</span>,<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+<p>有时你可能需要为已有对象赋值多个新 property，比如使用 <code>Object.assign()</code> 或 <code>_.extend()</code>。但是，这样添加到对象上的新 property 不会触发更新。在这种情况下，你应该用原对象与要混合进去的对象的 property 一起创建一个新的对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 代替 `Object.assign(this.someObject, &#123; a: 1, b: 2 &#125;)`</span></span><br><span class="line"><span class="built_in">this</span>.someObject = <span class="built_in">Object</span>.assign(&#123;&#125;, <span class="built_in">this</span>.someObject, &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> &#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="对于数组"><a href="#对于数组" class="headerlink" title="对于数组"></a><strong>对于数组</strong></h3><p>通过 vue 数组的<a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/list.html#%E6%95%B0%E7%BB%84%E6%9B%B4%E6%96%B0%E6%A3%80%E6%B5%8B">变更方法</a>来更新视图。</p>
+<h3 id="官方-深入响应式原理"><a href="#官方-深入响应式原理" class="headerlink" title="官方 深入响应式原理"></a><a target="_blank" rel="noopener" href="https://vuejs.bootcss.com/guide/reactivity.html">官方 深入响应式原理</a></h3>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1723,113 +1807,6 @@
 <p>优质博客：</p>
 <p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000015597029">不要再问我跨域的问题了</a></p>
 <p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000009624849#comment-area">同源策略于JS跨域（JSONP，CORD）</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/07/35/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/lion.jpg">
-      <meta itemprop="name" content="Xiaolong">
-      <meta itemprop="description" content="Never stop learning">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xiaolong's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/09/07/35/" class="post-title-link" itemprop="url">JS函数的执行时机</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-09-07 23:50:35" itemprop="dateCreated datePublished" datetime="2021-09-07T23:50:35+08:00">2021-09-07</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><p>代码为什么会打印 6 个 6</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++) &#123;</span><br><span class="line">	<span class="built_in">setTimeout</span>( <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i)</span><br><span class="line">    &#125;, <span class="number">0</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>在上面代码中，for 循环是同步代码，setTimeout 是异步代码，JS 按照从上到下的执行顺序执行同步代码，而异步代码被插入到任务队列中。</p>
-<p>当执行完同步代码（for 循环），JS 会去执行异步代码（setTimeout）。</p>
-<p>在每次 for 循环中，都将异步代码（setTimeout）放入任务队列中，所以任务队列中有 6 个 setTimeout 即有 6 个 <code>console.log(i)</code>。</p>
-<p>在每次 for 循环中将 setTimeout 里的代码 <code>console.log(i)</code> 放入任务队列时，i 的值是不一样的，当 JS 引擎开始执行任务队列中代码时，会在当前作用域中找变量 i ，但当前 for 循环的作用域中没有对变量 i 的进行定义，这个时候会在创造该函数的作用域中寻找 i，找到的是 let i，这时的 i 时全局变量，并且值已经确定为 6。所以打印出 6 个 6。</p>
-<p>执行流程：</p>
-<p><code>for(i=0) ==&gt; for(i=1) ==&gt; for(i=2) ==&gt; for(i=3) ==&gt; for(i=4) ==&gt; for(i=5) ==&gt; for(i=6) ==&gt; console.log(6)x6</code></p>
-<h3 id="解决方法一-let"><a href="#解决方法一-let" class="headerlink" title="解决方法一 let"></a>解决方法一 let</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>( <span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++ )&#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>( <span class="function">()=&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>let 的作用域是块作用域，能作用到 for 循环的子块中。</p>
-<p>let 的作用于是块作用域，所以 setTimeout 被放到 任务队列的同时，<strong>let 定义的 i 值 也会跟随 setTimeout 进入队列</strong>。所以每次循环后队列里的 setTimeout 里的 i 值是不一样的。而 var 定义的 i 是无法进入的。（浅显易懂）</p>
-<p>for 循环头部的 let 不仅将 i 绑定到 for 循环中，事实上它将其重新绑定到循环体的每一次迭代中，确保上一次迭代结束的值被重新赋值。setTimeout 里面的函数属于一个新的域，通过 var 定义的变量或全局变量是无法传入到这个函数执行，通过使用 let 来声明块变量能作用于这个块，所以箭头函数就能使用 i 这个变量，所以每次的 i 值不一样。</p>
-<h3 id="解决方法二-使用立即执行函数，即闭包"><a href="#解决方法二-使用立即执行函数，即闭包" class="headerlink" title="解决方法二 使用立即执行函数，即闭包"></a>解决方法二 使用立即执行函数，即闭包</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>( i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++)&#123;</span><br><span class="line">    (<span class="function"><span class="keyword">function</span> (<span class="params">j</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>( <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(j);</span><br><span class="line">   		&#125;, <span class="number">0</span>);</span><br><span class="line">    &#125;)(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>因为 setTimeout 是异步执行，所以让它立即执行就可以了。</p>
-<p>通过闭包，将 i 的变量驻留在内存中，当输出 j 时，引用的是外部函数的变量值 i，i 的值是根据循环来的，执行 setTimeout 时已经确定了里面的的输出了。</p>
-<h3 id="解决方法三-setTimeout-第三个参数"><a href="#解决方法三-setTimeout-第三个参数" class="headerlink" title="解决方法三 setTimeout 第三个参数"></a>解决方法三 setTimeout 第三个参数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++)&#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>( <span class="function">(<span class="params">i</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;, <span class="number">0</span>, i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 将每次的 i 值传入作用域。</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="解决方法四-try-catch"><a href="#解决方法四-try-catch" class="headerlink" title="解决方法四 try catch"></a>解决方法四 try catch</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++)&#123;</span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> i</span><br><span class="line">    &#125;<span class="keyword">catch</span>(i)&#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>( <span class="function">() =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(i)</span><br><span class="line">        &#125;, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 将 i 作为异常抛出，传递给 setTimeout</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="JS执行机制"><a href="#JS执行机制" class="headerlink" title="JS执行机制"></a>JS执行机制</h2><p>首先，JS是单线程环境，代码从上到下依次执行。这种执行方这也被称作是“同步执行”。（同一时间 JS 只能执行一段代码，如果这段代码要执行很长时间，那么之后的代码只能尽情地等待它执行完才能执行）。</p>
-<p>但 JS 中引进了异步机制。于是，所有任务可以分成两种，一种是同步任务（synchronous），另一种是异步任务（asynchronous）。</p>
-<p><strong>同步任务</strong>指的是，在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务；</p>
-<p><strong>异步任务</strong>指的是，不进入主线程、而进入”任务队列”（task queue）的任务，只有主线程上的任务执行完了，才通知”任务队列”，任务队列中的任务才会进入主线程执行。</p>
-<h2 id="执行栈"><a href="#执行栈" class="headerlink" title="执行栈"></a>执行栈</h2><p>当执行某个函数、用户点击一次鼠标，Ajax完成，一个图片加载完成等事件发生时，只要指定过回调函数，这些事件发生时就会进入任务队列中，等待主线程读取,遵循先进先出原则。</p>
-<p>执行任务队列中的某个任务，这个被执行的任务就称为执行栈。</p>
-<h2 id="主线程"><a href="#主线程" class="headerlink" title="主线程"></a>主线程</h2><p>要明确的一点是，主线程跟执行栈是不同概念，主线程规定现在执行执行栈中的哪个事件。</p>
-<p>主线程循环：即主线程会不停的从执行栈中读取事件，会执行完所有栈中的同步代码。</p>
-<p>当遇到一个异步事件后，并不会一直等待异步事件返回结果，而是会将这个事件挂在与执行栈不同的队列中，我们称之为任务队列(Task Queue)。</p>
-<p><strong>当主线程将执行栈中所有的代码执行完之后，主线程将会去查看任务队列是否有任务</strong>。如果有，那么主线程会依次执行那些任务队列中的回调函数。</p>
-<h2 id="JS-异步执行的运行机制"><a href="#JS-异步执行的运行机制" class="headerlink" title="JS 异步执行的运行机制"></a>JS 异步执行的运行机制</h2><ol>
-<li>所有任务都在主线程上执行，形成一个执行栈。</li>
-<li>主线程之外，还存在一个任务队列。只要异步任务有了运行结果，就在任务队列之中放置一个事件。</li>
-<li>一旦执行栈中的所有同步任务执行完毕，系统就会读取任务队列。那些对应的异步任务，进入执行栈开始执行。</li>
-<li>主线程不断重复上面的第三步。</li>
-</ol>
 
       
     </div>
