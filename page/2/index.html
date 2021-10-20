@@ -157,7 +157,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-count">29</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -201,6 +201,221 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/12/56/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lion.jpg">
+      <meta itemprop="name" content="Xiaolong">
+      <meta itemprop="description" content="Never stop learning">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xiaolong's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/09/12/56/" class="post-title-link" itemprop="url">JS函数</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-09-12 12:30:56" itemprop="dateCreated datePublished" datetime="2021-09-12T12:30:56+08:00">2021-09-12</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="定义函数"><a href="#定义函数" class="headerlink" title="定义函数"></a>定义函数</h2><p>定义一个函数</p>
+<ul>
+<li><p>具名函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> 函数名(<span class="params">形式参数<span class="number">1</span>, 形式参数<span class="number">2</span></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> 返回值</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>匿名函数, 具名函数去掉函数名就是匿名函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 也叫函数表达式</span></span><br></pre></td></tr></table></figure></li>
+<li><p>箭头函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> f1 = <span class="function"><span class="params">x</span> =&gt;</span> x * x</span><br><span class="line"><span class="keyword">let</span> f2 = <span class="function">(<span class="params">x, y</span>) =&gt;</span> x + y <span class="comment">// 圆括号不能省</span></span><br><span class="line"><span class="keyword">let</span> f3 = <span class="function">(<span class="params">x, y</span>) =&gt;</span> &#123; <span class="keyword">return</span> x - y&#125; <span class="comment">// 花括号不能省</span></span><br><span class="line"><span class="keyword">let</span> f4 = <span class="function">(<span class="params">x, y</span>) =&gt;</span> (&#123;<span class="attr">name</span>: x, <span class="attr">age</span>: y&#125;)</span><br><span class="line"><span class="comment">// 直接返回对象 需要加个圆括号</span></span><br></pre></td></tr></table></figure></li>
+<li><p>构造函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> f = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">&#x27;x&#x27;</span>, <span class="string">&#x27;y&#x27;</span>, <span class="string">&#x27;return x + y&#x27;</span>)</span><br><span class="line"><span class="comment">// 基本没人用, 但是能让你知道函数是谁构造的</span></span><br><span class="line"><span class="comment">// 所有函数都是 Function 构造的</span></span><br><span class="line"><span class="comment">// 包括 Object、Array、Function</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="函数的要素"><a href="#函数的要素" class="headerlink" title="函数的要素"></a>函数的要素</h2><p>每个函数都拥有这些</p>
+<ul>
+<li>调用时机</li>
+<li>作用域</li>
+<li>闭包</li>
+<li>形式参数</li>
+<li>返回值</li>
+<li>调用栈</li>
+<li>函数提升</li>
+<li>arguments（除了箭头函数）</li>
+<li>this（除了箭头函数）</li>
+</ul>
+<h3 id="调用时机"><a href="#调用时机" class="headerlink" title="调用时机"></a>调用时机</h3><p>时机不同, 结果不同</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>( <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(a)</span><br><span class="line">    &#125;, <span class="number">0</span>)</span><br><span class="line">&#125;</span><br><span class="line">fn()</span><br><span class="line">a = <span class="number">2</span></span><br><span class="line"><span class="comment">// 打印结果为 2</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++)&#123;</span><br><span class="line">    setTimeoug( <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i)</span><br><span class="line">    &#125;, <span class="number">0</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 打印结果为 6个6</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++)&#123;</span><br><span class="line">    setTimeoug( <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i)</span><br><span class="line">    &#125;, <span class="number">0</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 打印结果为 0, 1, 2, 3, 4, 5</span></span><br><span class="line"><span class="comment">// 因为 JS　在　for 和 let 一起用的时候会加东西</span></span><br><span class="line"><span class="comment">// 每次循环会多创建一个 i</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><p>每个函数都会创建一个作用域</p>
+<p><a target="_blank" rel="noopener" href="https://blog.fundebug.com/2019/03/15/understand-javascript-scope/">深入理解 JS 作用域和作用域链</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 例1</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123; <span class="keyword">let</span> a = <span class="number">1</span>; &#125;</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// a 不存在</span></span><br><span class="line"><span class="comment">// 问: 是不是因为 fn 没执行导致</span></span><br><span class="line"><span class="comment">// 答: 就算 fn 执行了,也访问不到作用域里面的 a</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 例2function f1()&#123;    let a = 1;        function f2()&#123;        let a = 2;         console.log(a);    &#125;        console.log(a);    a = 3;    f2();    console.log(a)&#125;f1()// 打印结果为 /*  1 	2	3*/</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 例3function f1()&#123;    let a = 1;    function f2()&#123;        let a = 2;        function f3()&#123;            console.log(a)        &#125;        a = 22;        f3();    &#125;    console.log(a);    a = 100;    f2();&#125;f1();/* 打印机结果为122*/</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>如果多个作用域有同名变量 a</strong></p>
+<p>那么查找 a 的声明式, 就向上取最近的作用域, 简称[就近原则]</p>
+<p>查找 a 的过程与函数执行无关</p>
+<p>但 a 的值与函数执行有关</p>
+</blockquote>
+<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/22486908">JS中的闭包是什么</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;    <span class="keyword">let</span> a = <span class="number">1</span>;    <span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;        <span class="comment">//        let a = 2;        function f3()&#123;            console.log(a)        &#125;//               /*		如果一个函数用到外部的变量		那么这个函数加这个变量		就叫做 闭包		左边的 a 和 f3 组成了 闭包		*/                a = 22;        f3();    &#125;    console.log(a);    a = 100;    f2();&#125;f1();</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="形式参数"><a href="#形式参数" class="headerlink" title="形式参数"></a>形式参数</h3><p>形式参数意思式非实际参数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span> (<span class="params">x, y</span>)</span>&#123;    <span class="keyword">return</span> x + y;&#125;<span class="comment">// 其中 x 和 y 就是形参,因为并不是时机的参数add(1, 2);// 调用 add 时,1 和 2 是实际参数,会被复制给 x y// 上面代码近似等于下面代码function add()&#123;    var x = arguments[0]    var y = arguments[1]    return x + y&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>每个函数都有返回值</p>
+<p>函数执行完了后才会返回</p>
+<p>只有函数有返回值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hi</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">&#x27;hi&#x27;</span>); &#125;hi();<span class="comment">// 没写 return, 所以返回值是 undefinedfunction hi() &#123; return console.log(&#x27;hi&#x27;); &#125;hi()// 返回值为 console.log(&#x27;hi&#x27;) 的值,即 undefined</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="调用栈"><a href="#调用栈" class="headerlink" title="调用栈"></a>调用栈</h3><p>什么是调用栈</p>
+<blockquote>
+<p>JS 引擎在调用一个函数前</p>
+<p>需要把函数所在的环境 push 到一个数组里</p>
+<p>这个数组叫做调用栈</p>
+<p>等函数执行完了, 就会把环境弹 (pop) 出来</p>
+<p>然后 return 到之前的环境, 继续执行后续代码</p>
+</blockquote>
+<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-09-02_17-04-35.png" alt="Snipaste_2021-09-02_17-04-35"></center><center style="font-size:14px;color:#C0C0C0;text-decoration:underline">调用栈 图示</center> 
+
+
+
+<p>爆栈, 如果调用栈中压入的帧过多, 程序就会奔溃</p>
+<p>递归函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 阶乘function f(n) &#123;    return n !== 1 ? n * f(n - 1) : 1&#125;// 理解递归f(4)= 4 * f(3)= 4 * (3 * f(2))= 4 * (3 * (2 * f(1)))= 4 * (3 * (1))= 4 * (6)= 24// 先递进, 后回归</span></span><br></pre></td></tr></table></figure>
+
+<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-09-02_17-36-31.png" alt="Snipaste_2021-09-02_17-36-31" width='800px'></center><center style="font-size:14px;color:#C0C0C0;text-decoration:underline">递归函数调用栈 图示</center> 
+
+
+
+<p>调用栈最长有多少</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 测试调用栈长度function computeMaxCallStackSize() &#123;    try &#123;        return 1 + computeMaxCallStackSize();    &#125; catch(e) &#123;        // 报错说明 stack overflow 了        return 1    &#125;&#125;/*chrom 11409firefox 24740node 12536*/</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="函数提升"><a href="#函数提升" class="headerlink" title="函数提升"></a>函数提升</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;&#125;<span class="comment">// 不管把具名函数声明在哪里, 它都会跑到第一行</span></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/liuhe688/p/5891273.html">JS 变量提升和函数提升</a></p>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000038344251">前端面试必考-JS 变量提升和函数提升详解</a></p>
+<h3 id="arguments-和-this"><a href="#arguments-和-this" class="headerlink" title="arguments 和 this"></a>arguments 和 this</h3><p>每个函数都有 arguments 和 this ，除了箭头函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>);    <span class="built_in">console</span>.log(<span class="built_in">this</span>)&#125;fn()<span class="comment">// arguments 是包含所有参数的 伪数组// 如果不给任何条件 this 默认指向 window</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;    <span class="built_in">console</span>.log(<span class="built_in">this</span>)&#125;fn()fn.call(<span class="number">1</span>) <span class="comment">// 打印出的 数字 1 被自动转化成对象 1function fn()&#123;    &#x27;use strict&#x27;    console.log(this)&#125;fn.call(1) // 打印出 数字 1function fn()&#123;  console.log(this);  console.log(arguments)&#125;// 传入的第一个参数是 this, 其余的是 argumentsfn.call(1, 2, 4)/*打印结果Number (1)Arguments&#123;0: 2, 1: 4 ...&#125;*/</span></span><br></pre></td></tr></table></figure>
+
+<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-09-02_21-14-03.png" alt="Snipaste_2021-09-02_21-14-03" width="600px"></center><center style="font-size:14px;color:#C0C0C0;text-decoration:underline">arguments 和 this</center> 
+
+<blockquote>
+<p>this 是隐藏参数</p>
+<p>arguments 是普通参数</p>
+<p>this 是参数(个人结论)</p>
+</blockquote>
+<h4 id="假如没有-this"><a href="#假如没有-this" class="headerlink" title="假如没有 this"></a>假如没有 this</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> person = &#123;    <span class="attr">name</span>: <span class="string">&#x27;frank&#x27;</span>,    <span class="function"><span class="title">sayHi</span>(<span class="params"></span>)</span>&#123;        <span class="built_in">console</span>.log(<span class="string">&#x27;hello, i am &#x27;</span> + person.name);    &#125;&#125;person.sayHi()<span class="comment">/* 分析可以用直接保存了对象地址的 变量 获取 &#x27;name&#x27;这种办法简称为 引用*/</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="问题一"><a href="#问题一" class="headerlink" title="问题一"></a>问题一</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> sayHi = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;    <span class="built_in">console</span>.log(<span class="string">&#x27;hello, i am &#x27;</span> + <span class="comment">/* person*/</span>.name)&#125;<span class="keyword">let</span> person = &#123;    <span class="attr">name</span>: <span class="string">&#x27;frank&#x27;</span>,    <span class="string">&#x27;sayHi&#x27;</span>: sayHi.&#125;<span class="comment">/*分析person 如果改名，sayHi 函数就挂了sayHi 函数甚至有可能在另一个文件里所以我们不希望 sayHi 函数里出现 person 引用*/</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="问题二"><a href="#问题二" class="headerlink" title="问题二"></a>问题二</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Perosn</span> </span>&#123;    <span class="function"><span class="title">constructot</span>(<span class="params">name</span>)</span>&#123;        <span class="built_in">this</span>.name = name        <span class="comment">// 这里的 this 是 new 强制指定的    &#125;    sayHi()&#123;        console.log(/*????*/)    &#125;&#125;/*分析这里只有类，还没创建对象，故不可能获取对象的引用那么如何拿到对象的 name ？*//*需要一种办法拿到对象这样才能获取对象的 name 属性*/</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="一种土方法，用参数"><a href="#一种土方法，用参数" class="headerlink" title="一种土方法，用参数"></a>一种土方法，用参数</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 对象let person = &#123;    name: &#x27;frank&#x27;,    sayHi(p) &#123;        console.log(&#x27;hello, i am &#x27; + p.name)    &#125;&#125;person.sayHi(person)// 类class Person &#123;    constructor(name)&#123; this.name = name &#125;    sayHi(p) &#123;        console.log(&#x27;hello, i am &#x27; + p.name)    &#125;&#125;let person = new Person(&#x27;frank&#x27;)person.sayHi(person)</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="JS-在每个函数里加了-this"><a href="#JS-在每个函数里加了-this" class="headerlink" title="JS 在每个函数里加了 this"></a>JS 在每个函数里加了 this</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 用 this 获取那个对象let person = &#123;    name: &#x27;frank&#x27;,    sayHi(/*this*/)&#123;        console.log(&#x27;hello, i am &#x27; + this.name)    &#125;&#125;person.sayHi()/*person.sahHi()相当于 person.sayHi(person)然后 person 被传给 this 了 (person 是个地址)这样每个函数都能用 this 获取一个未知对象的引用了*/// person.sayHi() 会隐式地把 person 作为 this 传给 sayHi// 方便 sayHi 获取 person 对应的对象</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p>我们想让函数获取对象的引用</p>
+<p>但是并不想通过变量名做到</p>
+<p>Python 通过额外的 self 参数做到 </p>
+<p>JS 通过额外的 this 做到:</p>
+<p>person.sayHi() 会把person 自动传给 sayHi, sayHi 可以通过 this 引用 person</p>
+</blockquote>
+<p>其他</p>
+<ul>
+<li>注意 person.sayHi 和 person.sayHi() 的区别</li>
+<li>注意 person.sayHi() 的短句 (person.sayHi)()</li>
+</ul>
+<h4 id="call-指定-this"><a href="#call-指定-this" class="headerlink" title="call 指定 this"></a>call 指定 this</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 哪个对let person = &#123;    name: &#x27;frank&#x27;,    sayHi(/*this*/)&#123;        console.log(&#x27;hello, i am &#x27; + this.name)    &#125;&#125;person.sayHi()Person.sayHi(person)// 省略形式的反而是对的// 两种调用方式person.sayHi()// 会自动把 person 传到函数里, 作为 thisperson.sayHi.call(person)person.sayHi.call(&#123;name: &#x27;evan&#x27;&#125;)// 需要手 动把 person 传到函数里,作为 this// 推荐使用</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 例1function add(x, y) &#123;    return x + y&#125;add.call(undefined, 1, 2) // 3/*为什么要多写一个 undefined因为第一个参数要作为 this但是代码里没有用 this所以只能用 undefined 占位其实用 null 也可以*/</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 例2Array.prototype.forEach2 = function(fn)&#123;    for(let i = 0; i &lt; this.length; i++)&#123;        fn(this[i], i, this)    &#125;&#125;let arr1 = [2, 4, 5]// 两种调用方式arr1.forEach2.call(arr1, (item) = &gt; console.log(item))arr1.forEach2((item) = &gt; console.log(item))/* this 是什么由于大家使用 forEach2 的时候总是会用 arr.forEach2所以 arr1 就被自动传给 foreEach2 了*//* this 一定是数组吗不一定, 比如Array.prototype.forEach2.call(&#123;0: &#x27;a&#x27;, 1: &#x27;b&#x27;,length: 2&#125;)*/</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>this 的两种使用方法</strong></p>
+<ul>
+<li><p>隐式传递</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fn(<span class="number">1</span>, <span class="number">2</span>) <span class="comment">// 等价于 fn.call(undefined, 1, 2)obj.child.fn(1) // 等价于 obj.child.fn.call(obj.child, 1)</span></span><br></pre></td></tr></table></figure></li>
+<li><p>显示传递</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fn.call(<span class="literal">undefined</span>, <span class="number">1</span>, <span class="number">2</span>)fn.apply(<span class="literal">undefined</span>, [<span class="number">1</span>, <span class="number">2</span>]) <span class="comment">// 数组</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>**绑定 this **</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用 .bind 可以让 this 不被改变function f1(p1, p2)&#123;    console.log(this, p1, p2)&#125;let f2 = f1.bind(&#123;name: &#x27;frank&#x27;&#125;)// 那么 f2 就是 f1 绑定 this 之后的新函数f2() // 等价于 f1.call(&#123;name: &#x27;frank&#x27;&#125;)</span></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000004580525">快速理解 JS 中 this 的用法与陷阱</a></p>
+<h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h2><p><strong>没有 arguments 和 this</strong></p>
+<p>里面的 this 就是外面的 this</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">this</span>) <span class="comment">// windowlet fn = () =&gt; console.log(this)fn() // window// 就算加了 call 也没用fn.call(&#123;name: &#x27;frank&#x27;&#125;) // window</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="立即执行函数"><a href="#立即执行函数" class="headerlink" title="立即执行函数"></a>立即执行函数</h2><center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-09-03_23-05-46.png" alt="Snipaste_2021-09-03_23-05-46" width="800px"></center><center style="font-size:14px;color:#C0C0C0;text-decoration:underline">立即执行函数</center> 
+
+<p>推荐 <a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000003902899">JS 中的立即执行函数</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1885,108 +2100,6 @@
 
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes">keyframes</a>语法格式</p>
 <p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/12991164/maintaining-the-final-state-at-end-of-a-css3-animation/12991203#12991203">让动画停在最后一帧</a>  加forwards ，例 <code>animation: xxx 1.5s forwards</code>;</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/10/50/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/lion.jpg">
-      <meta itemprop="name" content="Xiaolong">
-      <meta itemprop="description" content="Never stop learning">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xiaolong's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/10/50/" class="post-title-link" itemprop="url">css定位与层叠上下文</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-07-10 16:35:50" itemprop="dateCreated datePublished" datetime="2021-07-10T16:35:50+08:00">2021-07-10</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="一个-div-的分层"><a href="#一个-div-的分层" class="headerlink" title="一个 div 的分层"></a>一个 div 的分层</h2><center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-07-12_21-36-28.png" alt="Snipaste_2021-07-12_21-36-28" width="800px"></center>
-
-<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-07-12_22-04-00.png" alt="Snipaste_2021-07-12_22-04-00" width="800px"></center>
-
-
-
-<h2 id="position"><a href="#position" class="headerlink" title="position"></a>position</h2><ol>
-<li>static，默认，待在文档流里</li>
-<li>relative，相对定位，原位置不变，显示的位置偏移<ul>
-<li>用于做位移（很少用）</li>
-<li>用于给 absolute 元素做父元素</li>
-<li>配合 z-index，z-index :auto 默认值，不创建新层叠上下文</li>
-</ul>
-</li>
-<li>absolute，绝对定位，定位基准是祖先里的非static即相对于祖先元素中最近的一个定位元素<ul>
-<li>脱离原来的位置，另起一层，<a target="_blank" rel="noopener" href="http://js.jirengu.com/hosugodegi/3/edit">比如对话框的关闭按钮</a>，祖先元素得加 relative </li>
-<li>某些浏览器不写 top / left 会位置错乱。善用 left: 100% left: 50% 加负 margin</li>
-</ul>
-</li>
-<li>fixed，固定定位，定位基准是 viewport，视口代表当前可见的计算机图形区域，transform 有bug<ul>
-<li>手机上尽量不要使用 fixed</li>
-</ul>
-</li>
-<li>sticky，粘滞定位，兼容差</li>
-</ol>
-<p>Tips：</p>
-<p>如果写了 absolute，一般都得补一个 relative</p>
-<p>如果写了 absolute 或 fixed，一定要补 top 和 left</p>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/position">position MDN</a></p>
-<h2 id="层叠上下文"><a href="#层叠上下文" class="headerlink" title="层叠上下文"></a>层叠上下文</h2><center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-07-13_21-47-35.png" alt="Snipaste_2021-07-13_21-47-35" width="800px"></center>
-
-<p>比喻：</p>
-<ul>
-<li>每个层叠上下文既是一个小世界（作用域）</li>
-<li>这个小世界里面的 z-index 跟外界无关</li>
-<li>处在同一个小世界的 z-index 才能比较</li>
-<li>负 z-index 逃不出小世界，<a target="_blank" rel="noopener" href="http://js.jirengu.com/modez/1/edit?html,css,output">例</a></li>
-</ul>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context">那些属性可以创建，查mdn</a></p>
 
       
     </div>
