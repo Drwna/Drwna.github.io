@@ -157,7 +157,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">28</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -201,6 +201,115 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/10/08/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lion.jpg">
+      <meta itemprop="name" content="Xiaolong">
+      <meta itemprop="description" content="Never stop learning">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xiaolong's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/07/10/08/" class="post-title-link" itemprop="url">浏览器渲染原理</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-07-10 16:29:08" itemprop="dateCreated datePublished" datetime="2021-07-10T16:29:08+08:00">2021-07-10</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><strong>浏览器渲染原理</strong></p>
+<p>步骤：</p>
+<ul>
+<li>根据 HTML 构建 HTML 树（DOM）</li>
+<li>根据 CSS 构建 CSS 树 （CSS DOM）</li>
+<li>将两棵树合并成一颗渲染树 （render tree）</li>
+<li>Layout 布局（文档流、盒模型、计算大小和位置）</li>
+<li>Paint 绘制 （把边框颜色、文字颜色、阴影等画出来）</li>
+<li>Compose 合成（根据层叠关系展示画面）</li>
+</ul>
+<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/render-tree-construction.png" alt="render-tree-construction" width="800px"></center>
+
+
+
+<p><strong>JS三种更新样式方式</strong></p>
+<ol>
+<li><p>JS/CSS &gt; 样式 &gt; 布局 &gt; 绘制 &gt; 合成</p>
+<img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/frame-full.jpg" alt="frame-full" width="800px">
+
+<p>如果修改元素的“layout”属性，也就是改变了元素的几何属性（例如宽度、高度、左侧或顶部位置等），那么浏览器将必须检查所有其他元素，然后“自动重排”页面。任何受影响的部分都需要重新绘制，而且最终绘制的元素需进行合成。</p>
+</li>
+<li><p>JS/CSS &gt; 样式 &gt; 绘制 &gt; 合成</p>
+<img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/frame-no-layout.jpg" alt="frame-no-layout" width="800px">
+
+<p>如果修改“paint only”属性（例如背景图片、文字颜色或阴影等），即不会影响页面布局的属性，则浏览器会跳过布局，但仍将执行绘制。</p>
+</li>
+<li><p>JS/CSS &gt; 样式 &gt; 合成</p>
+<img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/frame-no-layout-paint.jpg" alt="frame-no-layout-paint" width="800px">
+
+<p>如果更改一个既不要布局也不要绘制的属性，则浏览器将跳到只执行合成。</p>
+<p>对于应用程序生命周期中的高压点（例如动画或滚动），此最终版本是开销最小和最理想的。</p>
+<p>This final version is the cheapest and most desirable for high pressure points in an app’s lifecycle, like animations or scrolling.</p>
+</li>
+</ol>
+<p>例：勾选 Paint flashing查看</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="http://js.jirengu.com/jagel/1/edit?html,css,js,output">div.remove()</a> 会触发当前消失，其他元素 relayout ，再 repaint + composte</li>
+<li><a target="_blank" rel="noopener" href="http://js.jirengu.com/jidam/1/edit?html,css,js,output">change bg color</a> 直接 repaint + composite</li>
+<li><a target="_blank" rel="noopener" href="http://js.jirengu.com/wusew/1">change transform</a> 只需 composite</li>
+</ol>
+<p>查看css属性变更时触发的改变 <a target="_blank" rel="noopener" href="https://csstriggers.com/">CSSTrigers</a></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-tree-construction">渲染树构建、布局及绘制</a></p>
+<p><a target="_blank" rel="noopener" href="https://developers.google.com/web/fundamentals/performance/rendering/">渲染性能</a></p>
+<p><a target="_blank" rel="noopener" href="https://developers.google.com/web/fundamentals/performance/rendering/stick-to-compositor-only-properties-and-manage-layer-count">使用 transform 实现动画</a></p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 

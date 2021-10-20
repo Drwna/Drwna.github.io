@@ -157,7 +157,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">28</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -201,6 +201,196 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/18/31/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lion.jpg">
+      <meta itemprop="name" content="Xiaolong">
+      <meta itemprop="description" content="Never stop learning">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xiaolong's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/10/18/31/" class="post-title-link" itemprop="url">vue构造选项</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-10-18 12:29:31" itemprop="dateCreated datePublished" datetime="2021-10-18T12:29:31+08:00">2021-10-18</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="options"><a href="#options" class="headerlink" title="options"></a>options</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(option)</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/api/#%E9%80%89%E9%A1%B9-%E6%95%B0%E6%8D%AE">options 的五类属性</a></p>
+<p>数据：data、props、propsData、computed、methods、watch</p>
+<p>DOM：el、template、render、renderError</p>
+<p>生命周期钩子 ：beforeCreate、created、before Mount、mounted、beforeUpdate、updated、activated、deactivated、beforeDestroy、destroyed、errorCaptured</p>
+<p>资源：directives、filters、components</p>
+<p>组合：parent、mixins、extends、provide、inject</p>
+<p>其他：暂且不表</p>
+<h2 id="入门属性"><a href="#入门属性" class="headerlink" title="入门属性"></a>入门属性</h2><ul>
+<li>el - 挂载点：与 $mount 有替换关系</li>
+<li>data - 内部数据：支持对象和函数，优先用函数</li>
+<li>methods - 方法： 事件处理函数或者是普通函数</li>
+<li>components :  使用 Vue 组件，注意大小写</li>
+<li>四个钩子<ul>
+<li>created - 实力出现在内存中</li>
+<li>mounted - 实力出现在页面中</li>
+<li>updated - 示例更新了</li>
+<li>destroyed - 实例消亡了</li>
+</ul>
+</li>
+<li>props - 外部属性</li>
+</ul>
+<h3 id="components-三种引入方式"><a href="#components-三种引入方式" class="headerlink" title="components 三种引入方式"></a>components 三种引入方式</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1 优先使用</span></span><br><span class="line"><span class="keyword">import</span> Demo <span class="keyword">from</span> <span class="string">&quot;./Demo.vue&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">	<span class="attr">components</span>:&#123;</span><br><span class="line">        <span class="attr">Frank1</span>: Demo</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">template</span>:<span class="string">`</span></span><br><span class="line"><span class="string">		&lt;div&gt;</span></span><br><span class="line"><span class="string">			...</span></span><br><span class="line"><span class="string">			&lt;Frank/&gt;</span></span><br><span class="line"><span class="string">			...	</span></span><br><span class="line"><span class="string">		&lt;/div&gt;</span></span><br><span class="line"><span class="string">	`</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 2</span></span><br><span class="line">Vue.component(<span class="string">&#x27;Frank2&#x27;</span>,&#123;</span><br><span class="line">    <span class="attr">template</span>:<span class="string">`</span></span><br><span class="line"><span class="string">        &lt;div&gt;demo022&lt;/div&gt;</span></span><br><span class="line"><span class="string">    `</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    <span class="attr">template</span>:<span class="string">`</span></span><br><span class="line"><span class="string">		&lt;div&gt;</span></span><br><span class="line"><span class="string">			...</span></span><br><span class="line"><span class="string">			&lt;Frank2/&gt;</span></span><br><span class="line"><span class="string">			...	</span></span><br><span class="line"><span class="string">		&lt;/div&gt;</span></span><br><span class="line"><span class="string">	`</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 3</span></span><br><span class="line"><span class="keyword">const</span> x = &#123;</span><br><span class="line">    <span class="attr">template</span>: <span class="string">`</span></span><br><span class="line"><span class="string">        &lt;div&gt;demo333&lt;/div&gt;</span></span><br><span class="line"><span class="string">    `</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">	<span class="attr">components</span>:&#123;</span><br><span class="line">        <span class="attr">Frank3</span>: x</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">template</span>:<span class="string">`</span></span><br><span class="line"><span class="string">		&lt;div&gt;</span></span><br><span class="line"><span class="string">			...</span></span><br><span class="line"><span class="string">			&lt;Frank3/&gt;</span></span><br><span class="line"><span class="string">			...	</span></span><br><span class="line"><span class="string">		&lt;/div&gt;</span></span><br><span class="line"><span class="string">	`</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="四个钩子"><a href="#四个钩子" class="headerlink" title="四个钩子"></a>四个钩子</h3><p><a target="_blank" rel="noopener" href="https://github.com/Drwna/vue-demo-1/commit/15f8c17930d82109031b7989cc1ea3b3331f55b8#diff-96123f97c22061907b1e0fb96cd06f9bea16682eb3df0bfbfa3192036e0a08c9R18">demo</a></p>
+<p>created - 实例出现在内存中</p>
+<p>mounted - 实例出现在页面中</p>
+<p>updated - 实例更新了</p>
+<p>destroyed - 实例从页面和内存中消亡了</p>
+<h3 id="props"><a href="#props" class="headerlink" title="props"></a>props</h3><p>也叫属性</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">message=<span class="string">&quot;n&quot;</span>  <span class="comment">// 传入字符串</span></span><br><span class="line">:message=<span class="string">&quot;n&quot;</span> <span class="comment">// 传入 this.n</span></span><br><span class="line">:fn=<span class="string">&quot;add&quot;</span> <span class="comment">// 传入 this.add 函数</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// Demo.vue</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    ”这是 demo 的内部“,</span><br><span class="line">    n = &#123;&#123; message &#125;&#125;</span><br><span class="line">    &lt;button @click=&quot;fn&quot;&gt;call back&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  props: [&#x27;message&#x27;, &#x27;fn&#x27;]</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">import</span> Demo <span class="keyword">from</span> <span class="string">&#x27;./Demo.vue&#x27;</span></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    <span class="attr">components</span>: &#123;Demo&#125;,</span><br><span class="line">    <span class="function"><span class="title">data</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="attr">n</span>: <span class="number">5</span>&#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">template</span>: <span class="string">`</span></span><br><span class="line"><span class="string">      &lt;div&gt;</span></span><br><span class="line"><span class="string">      &#123;&#123; n &#125;&#125;</span></span><br><span class="line"><span class="string">      &lt;Demo :message=&quot;n&quot; :fn=&quot;add&quot;/&gt;</span></span><br><span class="line"><span class="string">      &lt;/div&gt;</span></span><br><span class="line"><span class="string">    `</span>,</span><br><span class="line">    <span class="attr">methods</span>: &#123;</span><br><span class="line">        <span class="function"><span class="title">add</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">            <span class="built_in">this</span>.n += <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;).$mount(<span class="string">&#x27;#app2&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="进阶属性"><a href="#进阶属性" class="headerlink" title="进阶属性"></a>进阶属性</h2><h3 id="computed-计算属性"><a href="#computed-计算属性" class="headerlink" title="computed - 计算属性"></a>computed - <a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/api/#computed">计算属性</a></h3><p>被计算出来的属性就是<strong>计算属性</strong>。</p>
+<ul>
+<li>当其依赖的属性的值发生变化的时，计算属性会重新计算。</li>
+<li>如果依赖的属性没有变化，就不会重新计算，使用<strong>缓存</strong>中的属性值。</li>
+</ul>
+<p>computed 比较适合对多个变量或者对象进行处理后返回一个结果值，也就是数多个变量中的某一个值发生了变化则我们监控的这个值也就会发生变化。</p>
+<h4 id="例1-getter-setter-demo"><a href="#例1-getter-setter-demo" class="headerlink" title="例1. getter / setter -demo"></a>例1. getter / setter -demo</h4><p><a target="_blank" rel="noopener" href="https://codesandbox.io/s/compassionate-lake-xyjkw">用户名展示</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 需引用完整版 vue</span></span><br><span class="line">Vue.config.productionTip = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="attr">user</span>: &#123;</span><br><span class="line">      <span class="attr">email</span>: <span class="string">&quot;fangyinghang@qq.com&quot;</span>,</span><br><span class="line">      <span class="attr">nickname</span>: <span class="string">&quot;方方&quot;</span>,</span><br><span class="line">      <span class="attr">phone</span>: <span class="string">&quot;13812312312&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">computed</span>: &#123;</span><br><span class="line">    <span class="attr">displayName</span>: &#123;</span><br><span class="line">      <span class="function"><span class="title">get</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> user = <span class="built_in">this</span>.user;</span><br><span class="line">        <span class="keyword">return</span> user.nickname || user.email || user.phone;</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="function"><span class="title">set</span>(<span class="params">value</span>)</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(value);</span><br><span class="line">        <span class="built_in">this</span>.user.nickname = value;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">template</span>: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;div&gt;</span></span><br><span class="line"><span class="string">      &#123;&#123;displayName&#125;&#125;</span></span><br><span class="line"><span class="string">      &lt;div&gt;</span></span><br><span class="line"><span class="string">      &#123;&#123;displayName&#125;&#125;</span></span><br><span class="line"><span class="string">      &lt;button @click=&quot;add&quot;&gt;set&lt;/button&gt;</span></span><br><span class="line"><span class="string">      &lt;/div&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">  `</span>,</span><br><span class="line">  <span class="attr">methods</span>: &#123;</span><br><span class="line">    <span class="function"><span class="title">add</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&quot;add&quot;</span>);</span><br><span class="line">      <span class="built_in">this</span>.displayName = <span class="string">&quot;圆圆&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;).$mount(<span class="string">&quot;#app&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="例2-使用-computed-demo"><a href="#例2-使用-computed-demo" class="headerlink" title="例2 使用 computed - demo"></a>例2 使用 computed - demo</h4><p><a target="_blank" rel="noopener" href="https://codesandbox.io/s/little-breeze-hdx44">用 computed 筛选男女</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">Vue.config.productionTip = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> id = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">const</span> createUser = <span class="function">(<span class="params">name, gender</span>) =&gt;</span> &#123;</span><br><span class="line">  id += <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">return</span> &#123; <span class="attr">id</span>: id, <span class="attr">name</span>: name, <span class="attr">gender</span>: gender &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="function"><span class="title">data</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      <span class="attr">users</span>: [</span><br><span class="line">        createUser(<span class="string">&quot;方方&quot;</span>, <span class="string">&quot;男&quot;</span>),</span><br><span class="line">        createUser(<span class="string">&quot;圆圆&quot;</span>, <span class="string">&quot;女&quot;</span>),</span><br><span class="line">        createUser(<span class="string">&quot;小新&quot;</span>, <span class="string">&quot;男&quot;</span>),</span><br><span class="line">        createUser(<span class="string">&quot;小葵&quot;</span>, <span class="string">&quot;女&quot;</span>)</span><br><span class="line">      ],</span><br><span class="line">      <span class="attr">displayUsers</span>: []</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function"><span class="title">created</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.displayUsers = <span class="built_in">this</span>.users;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">methods</span>: &#123;</span><br><span class="line">    <span class="function"><span class="title">showMale</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="built_in">this</span>.displayUsers = <span class="built_in">this</span>.users.filter(<span class="function"><span class="params">u</span> =&gt;</span> u.gender === <span class="string">&quot;男&quot;</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="title">showFemale</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="built_in">this</span>.displayUsers = <span class="built_in">this</span>.users.filter(<span class="function"><span class="params">u</span> =&gt;</span> u.gender === <span class="string">&quot;女&quot;</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="title">showAll</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="built_in">this</span>.displayUsers = <span class="built_in">this</span>.users;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="attr">template</span>: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;div&gt;</span></span><br><span class="line"><span class="string">      &lt;div&gt;</span></span><br><span class="line"><span class="string">      &lt;button @click=&quot;showAll&quot;&gt;全部&lt;/button&gt;</span></span><br><span class="line"><span class="string">      &lt;button @click=&quot;showMale&quot;&gt;男&lt;/button&gt;</span></span><br><span class="line"><span class="string">      &lt;button @click=&quot;showFemale&quot;&gt;女&lt;/button&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="string">      &lt;ul&gt;</span></span><br><span class="line"><span class="string">        &lt;li v-for=&quot;(u,index) in displayUsers&quot; :key=&quot;index&quot;&gt;&#123;&#123;u.name&#125;&#125; - &#123;&#123;u.gender&#125;&#125;&lt;/li&gt;</span></span><br><span class="line"><span class="string">      &lt;/ul&gt;</span></span><br><span class="line"><span class="string">      </span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">&#125;).$mount(<span class="string">&quot;#app&quot;</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="例2-1不使用-computed-demo"><a href="#例2-1不使用-computed-demo" class="headerlink" title="例2.1不使用 computed - demo"></a>例2.1不使用 computed - demo</h4><p><a target="_blank" rel="noopener" href="https://codesandbox.io/s/modest-matsumoto-pd03w">不用 computed 筛选男女</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">Vue.config.productionTip = <span class="literal">false</span>;</span><br><span class="line"><span class="keyword">let</span> id = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">const</span> createUser = <span class="function">(<span class="params">name, gender</span>) =&gt;</span> &#123;</span><br><span class="line">  id += <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="attr">id</span>: id,</span><br><span class="line">    <span class="attr">name</span>: name,</span><br><span class="line">    <span class="attr">gender</span>: gender,</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="function"><span class="title">data</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      <span class="attr">users</span>: [</span><br><span class="line">        createUser(<span class="string">&quot;方方&quot;</span>, <span class="string">&quot;男&quot;</span>),</span><br><span class="line">        createUser(<span class="string">&quot;圆圆&quot;</span>, <span class="string">&quot;女&quot;</span>),</span><br><span class="line">        createUser(<span class="string">&quot;小新&quot;</span>, <span class="string">&quot;男&quot;</span>),</span><br><span class="line">        createUser(<span class="string">&quot;小葵&quot;</span>, <span class="string">&quot;女&quot;</span>),</span><br><span class="line">      ],</span><br><span class="line">      <span class="attr">gender</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">computed</span>: &#123;</span><br><span class="line">    <span class="function"><span class="title">displayUsers</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> hash = &#123;</span><br><span class="line">        <span class="attr">male</span>: <span class="string">&quot;男&quot;</span>,</span><br><span class="line">        <span class="attr">female</span>: <span class="string">&quot;女&quot;</span>,</span><br><span class="line">      &#125;;</span><br><span class="line">      <span class="keyword">const</span> &#123; users, gender &#125; = <span class="built_in">this</span>;</span><br><span class="line">      <span class="keyword">if</span> (gender === <span class="string">&quot;&quot;</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> users;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> gender === <span class="string">&quot;string&quot;</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> users.filter(<span class="function">(<span class="params">u</span>) =&gt;</span> u.gender === hash[gender]);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">&quot;gender 的值是意外的值&quot;</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">methods</span>: &#123;</span><br><span class="line">    <span class="function"><span class="title">setGender</span>(<span class="params">string</span>)</span> &#123;</span><br><span class="line">      <span class="built_in">this</span>.gender = string;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="attr">template</span>: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;div&gt;</span></span><br><span class="line"><span class="string">      &lt;div&gt;</span></span><br><span class="line"><span class="string">      &lt;button @click=&quot;setGender(&#x27;&#x27;) &quot;&gt;全部&lt;/button&gt;</span></span><br><span class="line"><span class="string">      &lt;button @click=&quot;setGender(&#x27;male&#x27;)&quot;&gt;男&lt;/button&gt;</span></span><br><span class="line"><span class="string">      &lt;button @click=&quot;setGender(&#x27;female&#x27;)&quot;&gt;女&lt;/button&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="string">      &lt;ul&gt;</span></span><br><span class="line"><span class="string">        &lt;li v-for=&quot;(u,index) in displayUsers&quot; :key=&quot;index&quot;&gt;&#123;&#123;u.name&#125;&#125; - &#123;&#123;u.gender&#125;&#125;&lt;/li&gt;</span></span><br><span class="line"><span class="string">      &lt;/ul&gt;</span></span><br><span class="line"><span class="string">      </span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">  `</span>,</span><br><span class="line">&#125;).$mount(<span class="string">&quot;#app&quot;</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<p><a target="_blank" rel="noopener" href="https://v3.cn.vuejs.org/guide/computed.html#%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E5%92%8C%E4%BE%A6%E5%90%AC%E5%99%A8">官方 计算属性和侦听器</a></p>
+<h3 id="watch-侦听器"><a href="#watch-侦听器" class="headerlink" title="watch - 侦听器"></a>watch - <a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/api/#watch">侦听器</a></h3><ul>
+<li>使用watch来响应数据的变化，也就是当数据变化时，执行一个函数。</li>
+<li>一般用于异步或者开销较大的操作</li>
+<li>watch 中的属性 一定是 data 中 已经存在的数据 </li>
+<li><strong>当需要监听一个对象的改变时，普通的 watch 方法无法监听到对象内部属性的改变，只有 data 中的数据才能够监听到变化，此时就需要 deep 属性对对象进行深度监听</strong></li>
+</ul>
+<h4 id="选项：deep"><a href="#选项：deep" class="headerlink" title="选项：deep"></a>选项：deep</h4><p>为了发现对象内部值的变化，可以在选项参数中指定 <code>deep: true</code>。注意监听数组的变更不需要这么做。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vm.$watch(<span class="string">&#x27;someObject&#x27;</span>, callback, &#123;</span><br><span class="line">  <span class="attr">deep</span>: <span class="literal">true</span></span><br><span class="line">&#125;)</span><br><span class="line">vm.someObject.nestedValue = <span class="number">123</span></span><br><span class="line"><span class="comment">// callback is fired</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="选项：immediate"><a href="#选项：immediate" class="headerlink" title="选项：immediate"></a>选项：immediate</h4><p>在选项参数中指定 <code>immediate: true</code> 将立即以表达式的当前值触发回调：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vm.$watch(<span class="string">&#x27;a&#x27;</span>, callback, &#123;</span><br><span class="line">  <span class="attr">immediate</span>: <span class="literal">true</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 立即以 `a` 的当前值触发回调</span></span><br></pre></td></tr></table></figure>
+
+<p>注意在带有 <code>immediate</code> 选项时，你不能在第一次回调时取消侦听给定的 property。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这会导致报错</span></span><br><span class="line"><span class="keyword">var</span> unwatch = vm.$watch(</span><br><span class="line">  <span class="string">&#x27;value&#x27;</span>,</span><br><span class="line">  <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    doSomething()</span><br><span class="line">    unwatch()</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123; <span class="attr">immediate</span>: <span class="literal">true</span> &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>如果你仍然希望在回调内部调用一个取消侦听的函数，你应该先检查其函数的可用性：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> unwatch = vm.$watch(</span><br><span class="line">  <span class="string">&#x27;value&#x27;</span>,</span><br><span class="line">  <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    doSomething()</span><br><span class="line">    <span class="keyword">if</span> (unwatch) &#123;</span><br><span class="line">      unwatch()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123; <span class="attr">immediate</span>: <span class="literal">true</span> &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="vm-watch"><a href="#vm-watch" class="headerlink" title="vm.$watch"></a><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/api/#vm-watch">vm.$watch</a></h4><h4 id="例1-撤销-demo"><a href="#例1-撤销-demo" class="headerlink" title="例1. 撤销-demo"></a>例1. 撤销-demo</h4><p><a target="_blank" rel="noopener" href="https://codesandbox.io/s/lucid-shamir-cpcw3">https://codesandbox.io/s/lucid-shamir-cpcw3</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">Vue.config.productionTip = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="attr">n</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">history</span>: [],</span><br><span class="line">    <span class="attr">inUndoMode</span>: <span class="literal">false</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">watch</span>: &#123;</span><br><span class="line">    <span class="attr">n</span>: <span class="function"><span class="keyword">function</span> (<span class="params">newValue, oldValue</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="built_in">this</span>.inUndoMode);</span><br><span class="line">      <span class="keyword">if</span> (!<span class="built_in">this</span>.inUndoMode) &#123;</span><br><span class="line">        <span class="built_in">this</span>.history.push(&#123; <span class="attr">from</span>: oldValue, <span class="attr">to</span>: newValue &#125;);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 不如用 computed 来计算 displayName</span></span><br><span class="line">  <span class="attr">template</span>: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;div&gt;</span></span><br><span class="line"><span class="string">      &#123;&#123;n&#125;&#125;</span></span><br><span class="line"><span class="string">      &lt;hr /&gt;</span></span><br><span class="line"><span class="string">      &lt;button @click=&quot;add1&quot;&gt;+1&lt;/button&gt;</span></span><br><span class="line"><span class="string">      &lt;button @click=&quot;add2&quot;&gt;+2&lt;/button&gt;</span></span><br><span class="line"><span class="string">      &lt;button @click=&quot;minus1&quot;&gt;-1&lt;/button&gt;</span></span><br><span class="line"><span class="string">      &lt;button @click=&quot;minus2&quot;&gt;-2&lt;/button&gt;</span></span><br><span class="line"><span class="string">      &lt;hr/&gt;</span></span><br><span class="line"><span class="string">      &lt;button @click=&quot;undo&quot;&gt;撤销&lt;/button&gt;</span></span><br><span class="line"><span class="string">      &lt;hr/&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">      &#123;&#123;history&#125;&#125;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">  `</span>,</span><br><span class="line">  <span class="attr">methods</span>: &#123;</span><br><span class="line">    <span class="function"><span class="title">add1</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="built_in">this</span>.n += <span class="number">1</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="title">add2</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="built_in">this</span>.n += <span class="number">2</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="title">minus1</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="built_in">this</span>.n -= <span class="number">1</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="title">minus2</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="built_in">this</span>.n -= <span class="number">2</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="title">undo</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> last = <span class="built_in">this</span>.history.pop();</span><br><span class="line">      <span class="built_in">this</span>.inUndoMode = <span class="literal">true</span>;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&quot;ha&quot;</span> + <span class="built_in">this</span>.inUndoMode);</span><br><span class="line">      <span class="keyword">const</span> old = last.from;</span><br><span class="line">      <span class="built_in">this</span>.n = old; <span class="comment">// watch n 的函数会异步调用</span></span><br><span class="line">      <span class="built_in">this</span>.$nextTick(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.inUndoMode = <span class="literal">false</span>;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;).$mount(<span class="string">&quot;#app&quot;</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="例2-模拟-computed-demo"><a href="#例2-模拟-computed-demo" class="headerlink" title="例2. 模拟 computed-demo"></a>例2. <a target="_blank" rel="noopener" href="https://codesandbox.io/s/objective-star-vu2h3">模拟 computed-demo</a></h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引用完整版 Vue，方便讲解</span></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&quot;vue/dist/vue.js&quot;</span>;</span><br><span class="line"></span><br><span class="line">Vue.config.productionTip = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="attr">user</span>: &#123;</span><br><span class="line">      <span class="attr">email</span>: <span class="string">&quot;fangfang@qq.com&quot;</span>,</span><br><span class="line">      <span class="attr">nickname</span>: <span class="string">&quot;方方&quot;</span>,</span><br><span class="line">      <span class="attr">phone</span>: <span class="string">&quot;13812312312&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">displayName</span>: <span class="string">&quot;&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">watch</span>: &#123;</span><br><span class="line">    <span class="string">&quot;user.email&quot;</span>: &#123;</span><br><span class="line">      <span class="attr">handler</span>: <span class="string">&quot;changed&quot;</span>,</span><br><span class="line">      <span class="attr">immediate</span>: <span class="literal">true</span> <span class="comment">// 第一次渲染是也触发 watch</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;user.nickname&quot;</span>: &#123;</span><br><span class="line">      <span class="attr">handler</span>: <span class="string">&quot;changed&quot;</span>,</span><br><span class="line">      <span class="attr">immediate</span>: <span class="literal">true</span> <span class="comment">// 第一次渲染是也触发 watch</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;user.phone&quot;</span>: &#123;</span><br><span class="line">      <span class="attr">handler</span>: <span class="string">&quot;changed&quot;</span>,</span><br><span class="line">      <span class="attr">immediate</span>: <span class="literal">true</span> <span class="comment">// 第一次渲染是也触发 watch</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 不如用 computed 来计算 displayName</span></span><br><span class="line">  <span class="attr">template</span>: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;div&gt;</span></span><br><span class="line"><span class="string">       &#123;&#123;displayName&#125;&#125;</span></span><br><span class="line"><span class="string">       &lt;button @click=&quot;user.nickname=undefined&quot;&gt;remove nickname&lt;/button&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">  `</span>,</span><br><span class="line">  <span class="attr">methods</span>: &#123;</span><br><span class="line">    <span class="function"><span class="title">changed</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="built_in">arguments</span>);</span><br><span class="line">      <span class="keyword">const</span> user = <span class="built_in">this</span>.user;</span><br><span class="line">      <span class="built_in">this</span>.displayName = user.nickname || user.email || user.phone;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;).$mount(<span class="string">&quot;#app&quot;</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="directives-指令"><a href="#directives-指令" class="headerlink" title="directives - 指令"></a>directives - 指令</h3><ul>
+<li>内置指令 v-if / v-for / v-bind / v-on</li>
+<li>自定义指令</li>
+<li>指令是为了减少重复的 dom 操作</li>
+</ul>
+<h3 id="mixin-混入"><a href="#mixin-混入" class="headerlink" title="mixin - 混入"></a>mixin - 混入</h3><ul>
+<li>重复三次之后的出路</li>
+<li>混入 V.S. 全局混入</li>
+<li>选项自动合并</li>
+<li>混入就是为了减少重复的构造选项</li>
+</ul>
+<h3 id="extends-继承"><a href="#extends-继承" class="headerlink" title="extends - 继承"></a>extends - 继承</h3><ul>
+<li>先了解一下 Vue.extend</li>
+<li>你觉得用了 mixin 还是重复</li>
+<li>于是你自己写了一个 View, 他继承 Vue</li>
+<li>你还可以预先定义其他构造选项</li>
+<li>继承就是为了减少重复的构造选项</li>
+<li>那为什么不用 ES6 的extends 呢？</li>
+</ul>
+<h3 id="provide-inject"><a href="#provide-inject" class="headerlink" title="provide / inject"></a>provide / inject</h3><ul>
+<li>爷爷想和孙子讲话怎么办</li>
+<li>祖宗想跟他的所有后代讲话怎么办</li>
+<li>答案是全局变量，但是全局变量太 low</li>
+<li>所以我们需要 局部的全局变量</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1552,261 +1742,6 @@
 <h2 id="立即执行函数"><a href="#立即执行函数" class="headerlink" title="立即执行函数"></a>立即执行函数</h2><center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-09-03_23-05-46.png" alt="Snipaste_2021-09-03_23-05-46" width="800px"></center><center style="font-size:14px;color:#C0C0C0;text-decoration:underline">立即执行函数</center> 
 
 <p>推荐 <a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000003902899">JS 中的立即执行函数</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/08/14/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/lion.jpg">
-      <meta itemprop="name" content="Xiaolong">
-      <meta itemprop="description" content="Never stop learning">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xiaolong's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/09/08/14/" class="post-title-link" itemprop="url">跨域</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-09-08 12:26:14" itemprop="dateCreated datePublished" datetime="2021-09-08T12:26:14+08:00">2021-09-08</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>跨域关键知识：</p>
-<ul>
-<li>同源策略。浏览器故意设计的一个功能限制</li>
-<li>CORS。突破浏览器限制的一个方法</li>
-<li>JSONP。IE 时代的妥协</li>
-</ul>
-<h2 id="同源"><a href="#同源" class="headerlink" title="同源"></a>同源</h2><p>源 = 协议 + 域名 + 端口号</p>
-<p><code>window.origin</code> 或 <code>location.origin</code> 可以得到当前源。</p>
-<p>如果两个 url 的<strong>协议、域名、端口号完全一致</strong>，那么这两个 url 就是同源。</p>
-<p>例：<code>https://qq.com</code> 和 <code>https://www.baidu.com</code>     不同源</p>
-<p><code>https://baidu.com</code> 和 <code>https:www.baidu.com</code>     同源</p>
-<p>完全一致才算同源</p>
-<p>下表给出了与 URL <code>http://store.company.com/dir/page.html</code> 的源进行对比的示例:</p>
-<table>
-<thead>
-<tr>
-<th align="left">URL</th>
-<th align="left">结果</th>
-<th align="left">原因</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><code>http://store.company.com/dir2/other.html</code></td>
-<td align="left">同源</td>
-<td align="left">只有路径不同</td>
-</tr>
-<tr>
-<td align="left"><code>http://store.company.com/dir/inner/another.html</code></td>
-<td align="left">同源</td>
-<td align="left">只有路径不同</td>
-</tr>
-<tr>
-<td align="left"><code>https://store.company.com/secure.html</code></td>
-<td align="left">失败</td>
-<td align="left">协议不同</td>
-</tr>
-<tr>
-<td align="left"><code>http://store.company.com:81/dir/etc.html</code></td>
-<td align="left">失败</td>
-<td align="left">端口不同 ( <code>http://</code> 默认端口是80)</td>
-</tr>
-<tr>
-<td align="left"><code>http://news.company.com/dir/other.html</code></td>
-<td align="left">失败</td>
-<td align="left">主机不同</td>
-</tr>
-</tbody></table>
-<h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><p>Ajax 最大的限制是同源策略（Same-origin policy），它限制了不同源之间的交互，一个源的文档或脚本不能与另一个源的资源进行交互。<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy">浏览器的同源策略 MDN</a></p>
-<ul>
-<li><p>浏览器规定</p>
-<p>如果 JS 运行在源 A 里，那么就只能获取源 A 的数据</p>
-<p>不能获取源 B 的数据，即==不允许跨域==</p>
-</li>
-<li><p>例如（省略 http 协议）</p>
-<p>假设 frank.com/index.html 引用了 cdn.com/1.js</p>
-<p>那么就说 1.js 运行在源 frank.com 里</p>
-<p>注意 这跟 cdn.com 没有关系，虽然 1.js 从它哪下载</p>
-<p>所以 1.js 就只能获取 frank.com 的数据</p>
-<p>不能获取 1.frank.com 或者 qq.com 的数据</p>
-</li>
-<li><p>这是浏览器的功能</p>
-<p>浏览器故意要这样设计的</p>
-<p>目的：==保护用户隐私==</p>
-</li>
-</ul>
-<h2 id="如果没有同源策略"><a href="#如果没有同源策略" class="headerlink" title="如果没有同源策略"></a>如果没有同源策略</h2><p>以 qq 空间为例</p>
-<p>源为 <code>https://user.qzone.qq.com</code>，假设，当前用户已登录（cookie），假设 AJAX 请求 /friends.json 可获取到用户好友列表。</p>
-<p>黑客来了，假设有人给你分享 <code>https://qzone-qq.com </code> 给你，实际上是个钓鱼网站，你点开后，这个网页会请求你的好友列表 <code>https://user.qzone.qq.com/friends.json</code>。这样好友列表就能被黑客访问到。</p>
-<p><strong>问题根源：</strong></p>
-<ul>
-<li><p>无法区分发送者</p>
-<p>qq 空间页面的 JS 和黑客网页里的 JS 发送的请求几乎没有区别（referrer 有区别）</p>
-<p>如果后台开发者没有检查 referrer，那么就完全没有区别</p>
-<p>所以，没有同源策略，任何页面都能偷 qq 空间的数据</p>
-</li>
-<li><p>那检查 referrer 不就好了</p>
-<p>安全原则：安全链条的强度取决于最弱的一环</p>
-<p>万一这个网站的后端开发工程师就是没有检查 referrer</p>
-<p>所以浏览器应该主动预防这种偷数据的行为</p>
-<p>总之，浏览器为了用户隐私，设置了严格的同源策略</p>
-</li>
-</ul>
-<h2 id="演示"><a href="#演示" class="headerlink" title="演示"></a>演示</h2><ol>
-<li><p>创建目录</p>
-<p>qq-com 里新建 server.js，用来模拟 qq空间</p>
-<p>frank-com 里新建 server.js，用来模拟黑客网站</p>
-</li>
-<li><p>qq-com</p>
-<p>public 目录下新建 index.html 首页</p>
-<p>qq.js 是 JS 脚本文件</p>
-<p>friends.json 是模拟的好友数据</p>
-<p>端口监听为 8888，访问 <code>http://127.0.0.1:8888</code></p>
-</li>
-<li><p>hacker-com</p>
-<p>public 目录下新建 index.html 首页</p>
-<p>frank.js 是 JS 脚本文件</p>
-<p>端口监听为 9999，范问 <code>http://127.0.0.1:9999</code></p>
-</li>
-</ol>
-<p>跨域 AJAX</p>
-<ul>
-<li><p>正常使用 AJAX</p>
-<p>在 qq.com:8888 里运行的 JS 可以访问 /friends.json</p>
-<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-09-27_01-44-31.png" alt="Snipaste_2021-09-27_01-44-31" width="800px"></center><center style="font-size:14px;color:#C0C0C0;text-decoration:underline">能够访问</center> </li>
-<li><p>黑客偷数据</p>
-<p>在 hacker.com:9999 里运行的 JS不能访问</p>
-<p>浏览器需要==CORS==</p>
-</li>
-</ul>
-<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-09-27_01-44-56.png" alt="Snipaste_2021-09-27_01-44-56" width="800px"></center><center style="font-size:14px;color:#C0C0C0;text-decoration:underline">不能访问</center> 
-
-<ul>
-<li><p>提问</p>
-<p>黑客的请求成功了没：</p>
-<p>答：成功了，因为 qq.com 后台有 log。</p>
-<p>黑客拿到响应了没与？</p>
-<p>答：没有，因为浏览器不给数据。</p>
-</li>
-</ul>
-<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-09-27_01-53-35.png" alt="Snipaste_2021-09-27_01-53-35" width="800px"></center>
-
-
-
-<h2 id="如何跨域"><a href="#如何跨域" class="headerlink" title="如何跨域"></a>如何跨域</h2><h3 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h3><p>CORS 是一个 W3C 标准，全称是”跨域资源共享”（Cross-origin resource sharing）。</p>
-<ul>
-<li><p>问题根源</p>
-<p>浏览器默认不同源之间不能互相访问数据</p>
-<p>但是 qq.com 和 hacker.com 都是自己的网站，需要互相访问</p>
-</li>
-<li><p>用 CORS</p>
-<p>浏览器说，如果要共享数据，需要提前声明！</p>
-<p>qq.com 在响应头里写 hacker.com 可以访问</p>
-<p>语法：<code>Access-Control-Allow-Origin: http://hacker.com:9999</code></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CORS#%E7%AE%80%E5%8D%95%E8%AF%B7%E6%B1%82">MDN 文档</a></p>
-</li>
-</ul>
-<p>CORS 不兼容 ie 6789</p>
-<h3 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h3><p><strong>什么是 JSONP？</strong></p>
-<p>跨域时，由于当前浏览器不支持 CORS 或因为某些条件不支持 CORS，我们必须使用另外一种方式来跨域。</p>
-<p>于是，请求一个 JS 文件，这个 JS 文件会执行事先定义好的回调，这个回调里就有我们需要的数据。</p>
-<p><strong>优点：</strong></p>
-<ul>
-<li>支持 IE </li>
-</ul>
-<p><strong>缺点：</strong></p>
-<ul>
-<li>由于是 script 标签，获取不到响应状态</li>
-<li>不支持 POST</li>
-</ul>
-<hr>
-<p>演示：hacker.com 访问 qq.com</p>
-<ul>
-<li>qq.com 将数据写到 /friends.js</li>
-<li>frank.com 用 script 标签引用 /friends.js</li>
-<li>hacker.com 执行 事先定义好的 window.xxx 函数</li>
-<li>/friends.js 执行 window.xxx({friend: […]})</li>
-<li>然后 hacker.com 就通过 window.xxx 获取到数据了</li>
-<li>window.xxx 就是一个回调！！</li>
-</ul>
-<p>JSONP 的实现原理演示：</p>
-<p>hacker-com 里的 hacker.js</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.xxx = <span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> script = <span class="built_in">document</span>.createElement(<span class="string">&#x27;script&#x27;</span>);</span><br><span class="line">script.src = <span class="string">&#x27;http://qq.com:8888/friends.js&#x27;</span>;</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(script);</span><br></pre></td></tr></table></figure>
-
-<p>qq-com public目录下新建 friends.js 内容为 <code>window.xxx ( &#123;&#123; data &#125;&#125; )</code></p>
-<p>qq-com 的 server.js 添加如下路由</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (path === <span class="string">&#x27;/friends.js&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (request.headers[<span class="string">&#x27;referer&#x27;</span>].indexOf(<span class="string">&#x27;http://hacker.com:9999&#x27;</span>) === <span class="number">0</span>) &#123;</span><br><span class="line">            response.statusCode = <span class="number">200</span></span><br><span class="line">            response.setHeader(<span class="string">&#x27;Content-Type&#x27;</span>, <span class="string">&#x27;text/javascript;charset=utf-8&#x27;</span>)</span><br><span class="line">            <span class="keyword">const</span> string = fs.readFileSync(<span class="string">&#x27;./public/friends.js&#x27;</span>).toString()</span><br><span class="line">            <span class="keyword">const</span> data = fs.readFileSync(<span class="string">&#x27;./public/friends.json&#x27;</span>).toString()</span><br><span class="line">            response.write(string.replace(<span class="string">&#x27;&#123;&#123; data &#125;&#125;&#x27;</span>, data))</span><br><span class="line">            response.end()</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            response.statusCode = <span class="number">404</span>;</span><br><span class="line">            response.end();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">// 控制台 window.xxx</span></span><br><span class="line"><span class="comment">// hacker 拿到了 friends.js 的数据</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p>优化：</p>
-<p>window.xxx 能不能改其他名字？</p>
-<p>其实名字不重要，只要 hacker.com 定义的函数名和 qq.com/friends.js 执行的函数名是同一个即可。</p>
-<p>将名字穿给 /friends.js</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// hacker.js</span></span><br><span class="line"><span class="keyword">const</span> random = <span class="string">`hackerJSONPCallback`</span> + <span class="built_in">Math</span>.random();</span><br><span class="line"><span class="built_in">console</span>.log(random);</span><br><span class="line"><span class="built_in">window</span>[random] = <span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> script = <span class="built_in">document</span>.createElement(<span class="string">&#x27;script&#x27;</span>);</span><br><span class="line">script.src = <span class="string">`http://qq.com:8888/friends.js?functionName=<span class="subst">$&#123;random&#125;</span>`</span>;</span><br><span class="line">script.onload = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    script.remove();</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(script);</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// server.js</span></span><br><span class="line"> <span class="keyword">else</span> <span class="keyword">if</span> (path === <span class="string">&#x27;/friends.js&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (request.headers[<span class="string">&#x27;referer&#x27;</span>].indexOf(<span class="string">&#x27;http://hacker.com:9999&#x27;</span>) === <span class="number">0</span>) &#123;</span><br><span class="line">            response.statusCode = <span class="number">200</span></span><br><span class="line">            <span class="built_in">console</span>.log(query.functionName);</span><br><span class="line">            response.setHeader(<span class="string">&#x27;Content-Type&#x27;</span>, <span class="string">&#x27;text/javascript;charset=utf-8&#x27;</span>)</span><br><span class="line">            <span class="keyword">const</span> string = fs.readFileSync(<span class="string">&#x27;./public/friends.js&#x27;</span>).toString()</span><br><span class="line">            <span class="keyword">const</span> data = fs.readFileSync(<span class="string">&#x27;./public/friends.json&#x27;</span>).toString()</span><br><span class="line">            response.write(string.replace(<span class="string">&#x27;&#123;&#123; data &#125;&#125;&#x27;</span>, data).replace(<span class="string">`&#123;&#123; xxx &#125;&#125;`</span>, query.functionName))</span><br><span class="line">            response.end()</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            response.statusCode = <span class="number">404</span>;</span><br><span class="line">            response.end();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// friends.js</span></span><br><span class="line"><span class="built_in">window</span>[<span class="string">`&#123;&#123; xxx &#125;&#125;`</span>]( &#123;&#123; data &#125;&#125; )</span><br></pre></td></tr></table></figure>
-
-
-
-<p>进一步优化</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// hacker.js</span></span><br><span class="line"><span class="comment">// 封装 JSONP</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">jsonp</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> random = <span class="string">`hackerJSONPCallback`</span> + <span class="built_in">Math</span>.random();</span><br><span class="line">        <span class="built_in">console</span>.log(random);</span><br><span class="line">        <span class="built_in">window</span>[random] = <span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">            resolve(data)</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">const</span> script = <span class="built_in">document</span>.createElement(<span class="string">&#x27;script&#x27;</span>);</span><br><span class="line">        script.src = <span class="string">`<span class="subst">$&#123;url&#125;</span>?callback=<span class="subst">$&#123;random&#125;</span>`</span>;</span><br><span class="line">        script.onload = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">            script.remove();</span><br><span class="line">        &#125;;</span><br><span class="line">        script.onerror = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">            reject();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">document</span>.body.appendChild(script);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">jsonp(<span class="string">&#x27;http://qq.com:8888/friends.js&#x27;</span>)</span><br><span class="line">    .then(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(data);</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// server.js</span></span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (path === <span class="string">&#x27;/friends.js&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (request.headers[<span class="string">&#x27;referer&#x27;</span>].indexOf(<span class="string">&#x27;http://hacker.com:9999&#x27;</span>) === <span class="number">0</span>) &#123;</span><br><span class="line">            response.statusCode = <span class="number">200</span></span><br><span class="line">            <span class="built_in">console</span>.log(query.functionName);</span><br><span class="line">            response.setHeader(<span class="string">&#x27;Content-Type&#x27;</span>, <span class="string">&#x27;text/javascript;charset=utf-8&#x27;</span>)</span><br><span class="line">            <span class="keyword">const</span> string = <span class="string">`window[&#x27;&#123;&#123; xxx &#125;&#125;&#x27;]( &#123;&#123; data &#125;&#125; )`</span></span><br><span class="line">            <span class="keyword">const</span> data = fs.readFileSync(<span class="string">&#x27;./public/friends.json&#x27;</span>).toString()</span><br><span class="line">            response.write(string.replace(<span class="string">&#x27;&#123;&#123; data &#125;&#125;&#x27;</span>, data).replace(<span class="string">`&#123;&#123; xxx &#125;&#125;`</span>, query.callback))</span><br><span class="line">            response.end()</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            response.statusCode = <span class="number">404</span>;</span><br><span class="line">            response.end();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>JSONP 的本质是前后端的协作，即前端把想要的资源以及后续的处理都告诉后台，后台封装好返回给前端执行。</p>
-<p>优质博客：</p>
-<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000015597029">不要再问我跨域的问题了</a></p>
-<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000009624849#comment-area">同源策略于JS跨域（JSONP，CORD）</a></p>
 
       
     </div>
