@@ -28,7 +28,7 @@
 <meta property="og:description" content="options1const vm &#x3D; new Vue(option)  options 的五类属性 数据：data、props、propsData、computed、methods、watch DOM：el、template、render、renderError 生命周期钩子 ：beforeCreate、created、before Mount、mounted、beforeUpdate、updat">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-10-18T04:29:31.000Z">
-<meta property="article:modified_time" content="2021-10-20T16:25:51.450Z">
+<meta property="article:modified_time" content="2021-10-22T13:52:13.797Z">
 <meta property="article:author" content="Xiaolong">
 <meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
@@ -365,6 +365,17 @@
 <li>选项自动合并</li>
 <li>混入就是为了减少重复的构造选项</li>
 </ul>
+<p>还是使用上一个例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> MyVue = Vue.extend(&#123;</span><br><span class="line">    <span class="function"><span class="title">data</span>(<span class="params"></span>)</span>&#123; <span class="keyword">return</span> &#123;<span class="attr">name</span>:<span class="string">&#x27;&#x27;</span>, <span class="attr">time</span>: <span class="literal">undefined</span>&#125; &#125;,</span><br><span class="line">    <span class="function"><span class="title">created</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!<span class="built_in">this</span>.name)&#123; <span class="built_in">console</span>.erroe(<span class="string">&#x27;no name!&#x27;</span>) &#125;</span><br><span class="line">        <span class="built_in">this</span>.time = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="title">beforeDestroy</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">const</span> duration = (<span class="keyword">new</span> <span class="built_in">Date</span>()) - <span class="built_in">this</span>.time</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;<span class="built_in">this</span>.time&#125;</span> 存活时间 <span class="subst">$&#123;duration&#125;</span>`</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
 <h3 id="extends-继承"><a href="#extends-继承" class="headerlink" title="extends - 继承"></a>extends - 继承</h3><ul>
 <li>先了解一下 Vue.extend</li>
 <li>你觉得用了 mixin 还是重复</li>
