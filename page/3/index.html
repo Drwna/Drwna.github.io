@@ -157,7 +157,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-count">30</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -201,6 +201,185 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/10/31/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lion.jpg">
+      <meta itemprop="name" content="Xiaolong">
+      <meta itemprop="description" content="Never stop learning">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xiaolong's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/07/10/31/" class="post-title-link" itemprop="url">css总结</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-07-10 18:11:31" itemprop="dateCreated datePublished" datetime="2021-07-10T18:11:31+08:00">2021-07-10</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>.群组选择器  如：<span class="selector-tag">p</span>, <span class="selector-tag">body</span>, <span class="selector-tag">img</span>, <span class="selector-tag">div</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>.兄弟选择器  如：<span class="selector-tag">p</span> + <span class="selector-tag">p</span> &#123; <span class="attribute">color</span>:<span class="number">#f00</span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>.属性选择器  如： <span class="selector-tag">p</span><span class="selector-attr">[title]</span> &#123; <span class="attribute">color</span>:<span class="number">#f00</span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>.包含（后代）选择器  如：<span class="selector-tag">body</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="number">5</span>.子元素选择器 如：<span class="selector-tag">div</span> &gt; <span class="selector-tag">p</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="number">6</span><span class="selector-class">.ID</span>选择器  如：<span class="selector-id">#myDiv</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="number">7</span>.类选择器  如：<span class="selector-class">.class1</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="number">8</span>.伪元素选择器  如：E<span class="selector-pseudo">:first</span>-line，E:before</span><br><span class="line"></span><br><span class="line"><span class="number">9</span>.伪类选择器  如：E:first-child ，E:visited，E:focus，E:enabled</span><br><span class="line"></span><br><span class="line"><span class="number">10</span>.标签选择器  如：p &#123; font-size:<span class="number">1em</span>; &#125;</span><br><span class="line"></span><br><span class="line">优先级： !important &gt; 行内样式 &gt; ID选择器 &gt; class选择器 &gt; 标签 &gt; 通配符 &gt; 继承 </span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="定位（position）"><a href="#定位（position）" class="headerlink" title="定位（position）"></a>定位（position）</h2><ol>
+<li>static，默认，待在文档流里</li>
+<li>relative，相对定位，原位置不变，显示的位置偏移<ul>
+<li>用于做位移（很少用）</li>
+<li>用于给 absolute 元素做父元素</li>
+<li>配合 z-index，z-index :auto 默认值，不创建新层叠上下文</li>
+</ul>
+</li>
+<li>absolute，绝对定位，定位基准是祖先里的非static即相对于祖先元素中最近的一个定位元素<ul>
+<li>脱离原来的位置，另起一层，<a target="_blank" rel="noopener" href="http://js.jirengu.com/hosugodegi/3/edit">比如对话框的关闭按钮</a>，祖先元素得加 relative </li>
+<li>某些浏览器不写 top / left 会位置错乱。善用 left: 100% left: 50% 加负 margin</li>
+</ul>
+</li>
+<li>fixed，固定定位，定位基准是 viewport，视口代表当前可见的计算机图形区域，transform 有bug<ul>
+<li>手机上尽量不要使用 fixed</li>
+</ul>
+</li>
+<li>sticky，粘滞定位，兼容差</li>
+</ol>
+<p>Tips：</p>
+<ul>
+<li><p>如果写了 absolute，一般都得补一个 relative</p>
+</li>
+<li><p>如果写了 absolute 或 fixed，一定要补 top 和 left</p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/position">position MDN</a></p>
+<h2 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h2><center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/20180324150509906.jpg" alt="20180324150509906" width="800px"></center>
+
+
+
+<ol>
+<li>content-box 内容就是盒子的边界<ul>
+<li>content-box width = 内容宽度</li>
+</ul>
+</li>
+<li>border-box 边框才是盒子的边界 （推荐使用）<ul>
+<li>border-box width = 内容宽度 + padding + border</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">box-sizing</span>: border-box | content-box;</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Building_blocks/The_box_model">CSS 基础框盒模型介绍  MDN</a></p>
+<h2 id="float-布局"><a href="#float-布局" class="headerlink" title="float 布局"></a>float 布局</h2><p>步骤：</p>
+<ol>
+<li>子元素加上 float: left 和 width</li>
+<li>在父元素上加 .clearfix</li>
+</ol>
+<p>经验:</p>
+<ul>
+<li>有经验者会留一些空间或者最后有一个不设 width</li>
+<li>不需要响应式，因为手机上没有 IE，而这个布局是专门为 IE准备的</li>
+</ul>
+<p>IE 6/7 存在双倍 margin bug, 两个解决办法（基本不用）：</p>
+<ol>
+<li>针对 IE 6/7 把 margin 减半</li>
+<li>加一个 display: inline-block </li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span>:after &#123;</span><br><span class="line">    /* 清除浮动 */</span><br><span class="line">    content: <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">    <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">IE bug</span><br><span class="line"><span class="comment">/* margin 减半 &amp;&amp; inline-block */</span></span><br><span class="line"><span class="selector-class">.class</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">10px</span>;</span><br><span class="line">    _margin-<span class="attribute">left</span>: <span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://www.php.cn/css-tutorial-412744.html">为什么要清除浮动</a></p>
+<p><a target="_blank" rel="noopener" href="http://js.jirengu.com/wiwuh/3/edit?html,css,output">float demo</a></p>
+<p>Tips：</p>
+<ul>
+<li>border 有时候会干扰尺寸，可以改成 outline</li>
+<li>用 float 做平均布局时，可以在布局中增加一个x图层，其多余的右边距可以用 <strong>负的 margin</strong> 来改善布局</li>
+</ul>
+<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-08-20_08-33-25.png" alt="Snipaste_2021-08-20_08-33-25" width="800px"></center>
+
+
+
+<h2 id="浏览器渲染原理"><a href="#浏览器渲染原理" class="headerlink" title="浏览器渲染原理"></a>浏览器渲染原理</h2><ul>
+<li>根据 HTML 构建 HTML 树（DOM）</li>
+<li>根据 CSS 构建 CSS 树 （CSS DOM）</li>
+<li>将两棵树合并成一颗渲染树 （render tree）</li>
+<li>Layout 布局（文档流、盒模型、计算大小和位置）</li>
+<li>Paint 绘制 （把边框颜色、文字颜色、阴影等画出来）</li>
+<li>Compose 合成（根据层叠关系展示画面）</li>
+</ul>
+<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/render-tree-construction.png" alt="render-tree-construction" width="800px"></center>
+
+<p><a target="_blank" rel="noopener" href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-tree-construction">渲染树构建、布局及绘制</a></p>
+<h2 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h2><p><strong>transition</strong></p>
+<p>css中的transition允许css的属性值在一定的时间区间内平滑地过渡。这种效果可以在鼠标单击、获得焦点、被点击或对元素任何改变中触发，并圆滑的以动画效果改变css的属性值。</p>
+<p>transition属性是个复合属性 <code>transition: property name | duration | timing function | delay;</code>，包括以下几个子属性：</p>
+<ul>
+<li>transition-property ：规定设置过渡效果的css属性名称<ul>
+<li><code>transition-property: none |all |property</code></li>
+</ul>
+</li>
+<li>transition-duration ：规定完成过渡效果需要多少秒或毫秒<ul>
+<li><code>transition-duration: time</code></li>
+</ul>
+</li>
+<li>transition-timing-function ：指定过渡函数，规定速度效果的速度曲线<ul>
+<li><code>transition-timing-function：linear| ease| ease-in| ease-out| ease-in-out| cubic-bezier(n,n,n,n);</code></li>
+</ul>
+</li>
+<li>transition-delay ：指定开始出现的延迟时间<ul>
+<li><code>transition-delay: time</code></li>
+</ul>
+</li>
+</ul>
+<p><strong>animation</strong></p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/animation">animation</a></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">animation</span>: 时长|过渡方式|延迟|次数|方向|填充模式|是否暂停|动画名；</span><br><span class="line"></span><br><span class="line">方向：reverse | alternate | alternate—reverse</span><br><span class="line">填充模式：forwards | none | backwards | both</span><br><span class="line">暂停：paused | running</span><br></pre></td></tr></table></figure>
+
+
+
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes">keyframes</a>语法格式</p>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/12991164/maintaining-the-final-state-at-end-of-a-css3-animation/12991203#12991203">让动画停在最后一帧</a>  加forwards ，例 <code>animation: xxx 1.5s forwards</code>;</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
