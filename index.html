@@ -157,13 +157,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -201,6 +201,84 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/22/34/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lion.jpg">
+      <meta itemprop="name" content="Xiaolong">
+      <meta itemprop="description" content="Never stop learning">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xiaolong's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/11/22/34/" class="post-title-link" itemprop="url">react 组件</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-11-22 08:00:34" itemprop="dateCreated datePublished" datetime="2021-11-22T08:00:34+08:00">2021-11-22</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Element-V-S-Component"><a href="#Element-V-S-Component" class="headerlink" title="Element V.S. Component"></a>Element V.S. Component</h2><p>元素与组件</p>
+<ul>
+<li><code>const div = React.createElement(&#39;div&#39;,...)</code></li>
+<li>这是一个 React <strong>元素</strong>（d 小写）</li>
+<li><code>const Div = () =&gt; React.createElement(&#39;div&#39;,...)</code></li>
+<li>这是一个 React <strong>组件</strong>（D 大写）</li>
+</ul>
+<br />
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/11/22/34/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1322,247 +1400,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/17/37/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/lion.jpg">
-      <meta itemprop="name" content="Xiaolong">
-      <meta itemprop="description" content="Never stop learning">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xiaolong's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/09/17/37/" class="post-title-link" itemprop="url">JS对象分类</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-09-17 12:27:37" itemprop="dateCreated datePublished" datetime="2021-09-17T12:27:37+08:00">2021-09-17</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="一个小程序，输出各种形状的面积和周长"><a href="#一个小程序，输出各种形状的面积和周长" class="headerlink" title="一个小程序，输出各种形状的面积和周长"></a>一个小程序，输出各种形状的面积和周长</h2><h3 id="一"><a href="#一" class="headerlink" title="一"></a>一</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 正方形 边长、面积、周长</span></span><br><span class="line"><span class="keyword">let</span> square = &#123;</span><br><span class="line">    <span class="attr">width</span>: <span class="number">5</span>,</span><br><span class="line">    <span class="function"><span class="title">getArea</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.width * <span class="built_in">this</span>.width;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="title">getLength</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.wdith * <span class="number">4</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="二，生成12个正方形"><a href="#二，生成12个正方形" class="headerlink" title="二，生成12个正方形"></a>二，生成12个正方形</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> squareList = []</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i&lt;<span class="number">12</span>; i++)&#123;</span><br><span class="line">    squareList[i] = &#123;</span><br><span class="line">        <span class="attr">width</span>: <span class="number">5</span>,</span><br><span class="line">        <span class="function"><span class="title">getArea</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">this</span>.width * <span class="built_in">this</span>.width</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="function"><span class="title">getLength</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">this</span>.width * <span class="number">4</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="三，width-是-5-和-6相间"><a href="#三，width-是-5-和-6相间" class="headerlink" title="三，width 是 5 和 6相间"></a>三，width 是 5 和 6相间</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> squareList = []</span><br><span class="line"><span class="keyword">let</span> widthList = [<span class="number">5</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i&lt;<span class="number">12</span>; i++)&#123;</span><br><span class="line">    squareList[i] = &#123;</span><br><span class="line">        <span class="attr">width</span>: widthList[i],</span><br><span class="line">        <span class="function"><span class="title">getArea</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">this</span>.width * <span class="built_in">this</span>.width;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="function"><span class="title">getLength</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">this</span>.widht * <span class="number">4</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="三，垃圾代码，浪费太多内存，画内存图"><a href="#三，垃圾代码，浪费太多内存，画内存图" class="headerlink" title="三，垃圾代码，浪费太多内存，画内存图"></a>三，垃圾代码，浪费太多内存，画内存图</h3><center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/squareMemory.png" alt="squareMemory" "></center>
-
-
-
-<h3 id="四，借助原型，将12个对象的共有属性放到原型里"><a href="#四，借助原型，将12个对象的共有属性放到原型里" class="headerlink" title="四，借助原型，将12个对象的共有属性放到原型里"></a>四，借助原型，将12个对象的共有属性放到原型里</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> squareList = []</span><br><span class="line"><span class="keyword">let</span> widthList = [<span class="number">5</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line"><span class="keyword">let</span> squarePrototype = &#123;</span><br><span class="line">    <span class="function"><span class="title">getArea</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.width * <span class="built_in">this</span>.width;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="title">getLength</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.width * <span class="number">4</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i&lt;<span class="number">12</span>; i++)&#123;</span><br><span class="line">    squareList[i] = <span class="built_in">Object</span>.create(squarePrototype);</span><br><span class="line">    squareList[i].width = widthList[i];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 还是垃圾代码，创建 square 的代码太分散了</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="五，把代码抽离到一个函数里，然后调用函数"><a href="#五，把代码抽离到一个函数里，然后调用函数" class="headerlink" title="五，把代码抽离到一个函数里，然后调用函数"></a>五，把代码抽离到一个函数里，然后调用函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> squareList = []</span><br><span class="line"><span class="keyword">let</span> widthList = [<span class="number">5</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createSquare</span>(<span class="params">width</span>)</span>&#123; <span class="comment">// 此函数为叫做构造函数</span></span><br><span class="line">    <span class="keyword">let</span> obj = <span class="built_in">Object</span>.create(squarePrototype);</span><br><span class="line">    <span class="comment">// 以 squarePrototype 为原型创建空对象</span></span><br><span class="line">    obj.width = width;</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> squarePrototype = &#123;</span><br><span class="line">    <span class="function"><span class="title">getArea</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.width * <span class="built_in">this</span>.width;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="title">getLength</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.width * <span class="number">4</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i&lt;<span class="number">12</span>; i++)&#123;</span><br><span class="line">    squareList[i] = createSquare(widthList[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="六，函数和原型的结合"><a href="#六，函数和原型的结合" class="headerlink" title="六，函数和原型的结合"></a>六，函数和原型的结合</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这段代码 几乎完美</span></span><br><span class="line"><span class="keyword">let</span> squareList = []</span><br><span class="line"><span class="keyword">let</span> widthList = [<span class="number">5</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createSquare</span>(<span class="params">width</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> obj = <span class="built_in">Object</span>.create(createSquare.squarePrototype);</span><br><span class="line">    obj.width = width;</span><br><span class="line">    <span class="keyword">return</span> obj</span><br><span class="line">&#125;</span><br><span class="line">createSquare.squarePrototype = &#123; <span class="comment">//把原型放到函数上</span></span><br><span class="line">    <span class="function"><span class="title">getArea</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.width * <span class="built_in">this</span>.width;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="title">getLength</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">this</span>.width * <span class="number">4</span>;  </span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">constructor</span>: createSquare <span class="comment">// 互相引用方便通过原型找到构造函数</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i&lt;<span class="number">12</span>; i++)&#123;</span><br><span class="line">    squareList[i] = createSquare(widthList[i]);</span><br><span class="line">    <span class="built_in">console</span>.log(squareList[i].constructor);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="七，函数和原型（重写）"><a href="#七，函数和原型（重写）" class="headerlink" title="七，函数和原型（重写）"></a>七，函数和原型（重写）</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> squareList = []</span><br><span class="line"><span class="keyword">let</span> widthList =  [<span class="number">5</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Square</span>(<span class="params">width</span>)</span>&#123; <span class="comment">// 构造函数</span></span><br><span class="line">    <span class="built_in">this</span>.width = width;</span><br><span class="line">&#125;</span><br><span class="line">Square.prototype.getArea = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.width * <span class="built_in">this</span>.width;</span><br><span class="line">&#125;</span><br><span class="line">Square.prototype.getLength = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.width * <span class="number">4</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i&gt;<span class="number">12</span>; i++)&#123;</span><br><span class="line">    squareList[i] = <span class="keyword">new</span> Square(widthList[i]);</span><br><span class="line">    <span class="built_in">console</span>.log(squareList[i].constructor);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 完美</span></span><br></pre></td></tr></table></figure>
-
-<p>代码六七对比</p>
-<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-08-31_12-16-01.png" alt="Snipaste_2021-08-31_12-16-01"></center>
-
-
-
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
-<li><strong>new X()</strong><ul>
-<li>自动创建空对象</li>
-<li>自动为空对象关联原型，原型地址指定为 X.prototype</li>
-<li>自动将空对象作为 this 关键字运行构造函数</li>
-<li>自动 return this</li>
-</ul>
-</li>
-<li><strong>构造函数 X</strong><ul>
-<li>X 函数本身负责给对象本身添加属性</li>
-<li>X.prototype 对想负责保存对象那个的公用属性</li>
-</ul>
-</li>
-</ul>
-<p>题外话 代码规范：</p>
-<ul>
-<li><p>大小写</p>
-<ul>
-<li> 所有构造函数（专门用于创建对象的函数）首字母大写</li>
-<li> 所有被构造出来的对象，首字母小写</li>
-</ul>
-</li>
-<li><p>词性</p>
-<ul>
-<li>new 后面的函数，使用名词形式</li>
-<li>如 new Person()、new Object()</li>
-<li>其他函数，一般使用动词开头</li>
-<li>如 createSquare(5)、createElement(‘div’)</li>
-<li>…</li>
-</ul>
-</li>
-</ul>
-<p>原型公式：**<font color='yellow'>对象._<em>proto</em>_  === 其构造函数.protorype</font>**</p>
-<h3 id="Square-最终版（存疑）"><a href="#Square-最终版（存疑）" class="headerlink" title="Square 最终版（存疑）"></a>Square 最终版（存疑）</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Square</span>(<span class="params">width</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.width = width;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Square.prototype.getArea = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.width * <span class="built_in">this</span>.width;</span><br><span class="line">&#125;</span><br><span class="line">Square.prototype.getLenth = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.width * <span class="number">4</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> square = <span class="keyword">new</span> Square(<span class="number">5</span>);</span><br><span class="line">square.width;</span><br><span class="line">square.getArea();</span><br><span class="line">square.getLength();</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 圆形</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Circle</span>(<span class="params">radius</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.radius = radius;</span><br><span class="line">&#125;</span><br><span class="line">Circle.prototype.getArea = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.radius * <span class="number">2</span> * <span class="built_in">Math</span>.PI;</span><br><span class="line">&#125;</span><br><span class="line">Circle.prototype.getLength = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.pow(<span class="built_in">this</span>.radius, <span class="number">2</span>) * <span class="built_in">Math</span>.PI;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> c1 = <span class="keyword">new</span> Circle(<span class="number">10</span>);</span><br><span class="line">c1.getArea();</span><br><span class="line">c1.getLength();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 长方形</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Rect</span>(<span class="params">width, height</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.width = width;</span><br><span class="line">    <span class="built_in">this</span>.height = height</span><br><span class="line">&#125;</span><br><span class="line">Rect.prototype.getArea = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">this</span>.width * <span class="built_in">this</span>.height</span><br><span class="line">&#125;</span><br><span class="line">Rect.prototype.getLength = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (<span class="built_in">this</span>.width + <span class="built_in">this</span>.height) * <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> r1 = <span class="keyword">new</span> Rect(<span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">r1.getArea()</span><br><span class="line">r1.getLength()</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="对象分类"><a href="#对象分类" class="headerlink" title="对象分类"></a>对象分类</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul>
-<li>理由一<ul>
-<li>有很多对象拥有一样的属性和行为</li>
-<li>需要把他们分为同一类</li>
-<li>如 square 和 square1</li>
-<li>这样创建类似对象的时候就很方便</li>
-</ul>
-</li>
-<li>理由二<ul>
-<li>但是还有很多对象拥有其他的属性和行为</li>
-<li>所以就需要不同的分类</li>
-<li>比如 Square / Circle / Rect 就是不同的分类</li>
-<li>Array / Function 也是不同的分类</li>
-<li>而 Object 创建出来的对象，是最没有特点的对象</li>
-</ul>
-</li>
-</ul>
-<p><strong>类型和类</strong></p>
-<p>类型</p>
-<blockquote>
-<p>类型 JS 数据的分类，有七种</p>
-<p>四基两空一对象，String，number，bool，symbol，null，undefined，Object</p>
-</blockquote>
-<p>类</p>
-<blockquote>
-<p>类是针对对象的分类, 有无数种</p>
-<p>常见的有 Array、Function、Date、RegExp 等</p>
-</blockquote>
-<h3 id="数组对象"><a href="#数组对象" class="headerlink" title="数组对象"></a>数组对象</h3><p>定义一个数组</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="keyword">let</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>) <span class="comment">//元素为 1，2，3</span></span><br><span class="line"><span class="keyword">let</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">3</span>) <span class="comment">//长度为3</span></span><br></pre></td></tr></table></figure>
-
-<p>数组对象自身的属性</p>
-<ul>
-<li><p>‘0’ / ‘1’ / ‘2’ / ‘length’</p>
-</li>
-<li><p>注意，属性名没有数字，只有字符串</p>
-</li>
-</ul>
-<p>数组对象的共用属性</p>
-<p>‘push’ / ‘pop’ / ‘shift’ / ‘unshift’ / ‘join’  等</p>
-<h3 id="函数对象"><a href="#函数对象" class="headerlink" title="函数对象"></a>函数对象</h3><p>定义一个函数</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">x, y</span>)</span>&#123;<span class="keyword">return</span> x + y;&#125;</span><br><span class="line"><span class="keyword">let</span> fn2 = <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">x, y</span>) </span>&#123;<span class="keyword">return</span> x + y&#125;</span><br><span class="line"><span class="keyword">let</span> fn = <span class="function">(<span class="params">x, y</span>) =&gt;</span> x+y</span><br><span class="line"><span class="keyword">let</span> fn = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">&#x27;x&#x27;</span>, <span class="string">&#x27;y&#x27;</span>,<span class="string">&#x27;return x+y&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>函数对象自身属性</p>
-<p>‘name’ / ‘length’</p>
-<p>函数对象共用属性</p>
-<p>‘call’ / ‘apply’ / ‘bind’ 等</p>
-<h3 id="JS-终极一问"><a href="#JS-终极一问" class="headerlink" title="JS 终极一问"></a>JS 终极一问</h3><p>window 是谁构造的</p>
-<blockquote>
-<p>Window</p>
-<p>可以通过 constructor 属性看出构造者</p>
-<p>验证：window.constructor</p>
-<p>window._<em>proto</em>_ === Windows.prototype</p>
-</blockquote>
-<p>window.Object 是谁构造的</p>
-<blockquote>
-<p>window.Funcion</p>
-<p>因为所有函数都是 window.Function 构造的</p>
-<p>验证：window.Object.constructor === window.Function</p>
-</blockquote>
-<p>window.Function 是谁构造的</p>
-<blockquote>
-<p>window.Function</p>
-<p>因为所有函数都是 window.Function 构造的</p>
-<p>自己构造的自己？不是这样的，这是『上帝』的安排</p>
-<p>浏览器构造了 Function，然后指定它的构造者是自己</p>
-<p>验证：window.Function.constructor === window.Function</p>
-</blockquote>
-<h2 id="class"><a href="#class" class="headerlink" title="class"></a>class</h2><p>类是用于创建对象的模板。他们用代码封装数据以处理该数据。 ES6新语法</p>
-<p>学习<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes">class</a>、<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Object_initializer#ECMAScript_6%E6%96%B0%E6%A0%87%E8%AE%B0">对象初始化</a>、<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">解构赋值</a></p>
-<p><code>constructor</code> 是一种用于创建和初始化 class 创建的对象的特殊方法. </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Square</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params">width</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.width = width;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">getArea</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.width * <span class="built_in">this</span>.width;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">getLength</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.width * <span class="number">4</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>class 引入更多概念</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Square</span></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> x = <span class="number">1</span>; <span class="comment">// 静态</span></span><br><span class="line">	width = <span class="number">0</span>;</span><br><span class="line">	<span class="function"><span class="title">constructor</span>(<span class="params">width</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.width = width;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="function"><span class="title">getArea</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.width * <span class="built_in">this</span>.width;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="function"><span class="title">getLength</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.width * <span class="number">4</span>;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="keyword">get</span> <span class="title">area2</span>()&#123; <span class="comment">// 只读属性</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.width * <span class="built_in">this</span>.width;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>class 重写</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 重写 Circle</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Circle</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params">radius</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.radius = radius;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">getArea</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Math</span>.pow(<span class="built_in">this</span>.radius,<span class="number">2</span>) * <span class="built_in">Math</span>.PI;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">getLength</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.radius * <span class="number">2</span> * <span class="built_in">Math</span>.PI;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> c2 = <span class="keyword">new</span> Circle(<span class="number">5</span>);</span><br><span class="line">c2.radius;</span><br><span class="line">c2.getArea();</span><br><span class="line">c2.getLength();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 重写 Rect</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rect</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params">width, height</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.width = width;</span><br><span class="line">        <span class="built_in">this</span>.height = height;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">getArea</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.width * <span class="built_in">this</span>.height;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">getLength</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (<span class="built_in">this</span>.width + <span class="built_in">this</span>.height) * <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> r2 = <span class="keyword">new</span> Rect(<span class="number">3</span>, <span class="number">4</span>);</span><br><span class="line">r2.width;</span><br><span class="line">r2.height;</span><br><span class="line">r2.getArea();</span><br><span class="line">r2.getLength();</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>class 中两种函数写法的区别</strong></p>
-<p>这两种写法的意思完全不一样：</p>
-<p>语法1：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="title">sayHi</span>(<span class="params">name</span>)</span>&#123;&#125;</span><br><span class="line">    <span class="comment">// 等价于</span></span><br><span class="line">    <span class="attr">sayHi</span>: <span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;&#125; </span><br><span class="line">    <span class="comment">// 注意，一般我们不在这个语法里使用箭头函数</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//等价于</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">Person.prototype.sayHi = <span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
-
-<p>语法2：注意冒号变成了等于号</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">  sayHi = <span class="function">(<span class="params">name</span>)=&gt;</span>&#123;&#125; <span class="comment">// 注意，一般我们不在这个语法里使用普通函数，多用箭头函数</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 等价于</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.sayHi = <span class="function">(<span class="params">name</span>)=&gt;</span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<p>推荐阅读</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/35279244">方应杭：你可以不会 class，但是一定要学会 prototype</a></li>
-<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/23987456">方应杭：JS 的 new 到底是干什么的？</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/56770432/answer/315342130">方应杭：JS 中 <strong>proto</strong> 和 prototype 存在的意义是什么？</a></li>
-<li><a target="_blank" rel="noopener" href="http://frankfang.github.io/es-6-tutorials/">饥人谷整理的 ES6 所有新特性</a></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 </div>

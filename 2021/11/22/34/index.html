@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="Element V.S. Component元素与组件  const div &#x3D; React.createElement(&#39;div&#39;,...) 这是一个 React 元素（d 小写） const Div &#x3D; () &#x3D;&gt; React.createElement(&#39;div&#39;,...) 这是一个 React 组件（D 大写）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react 组件">
+<meta property="og:url" content="http://example.com/2021/11/22/34/index.html">
+<meta property="og:site_name" content="Xiaolong&#39;s Blog">
+<meta property="og:description" content="Element V.S. Component元素与组件  const div &#x3D; React.createElement(&#39;div&#39;,...) 这是一个 React 元素（d 小写） const Div &#x3D; () &#x3D;&gt; React.createElement(&#39;div&#39;,...) 这是一个 React 组件（D 大写）">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-11-21_15-51-23.png">
+<meta property="article:published_time" content="2021-11-22T00:00:34.000Z">
+<meta property="article:modified_time" content="2021-11-22T00:02:18.442Z">
+<meta property="article:author" content="Xiaolong">
+<meta property="article:tag" content="react">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-11-21_15-51-23.png">
+
+
+<link rel="canonical" href="http://example.com/2021/11/22/34/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/11/22/34/","path":"2021/11/22/34/","title":"react 组件"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>react 组件 | Xiaolong's Blog</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Xiaolong's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Element-V-S-Component"><span class="nav-number">1.</span> <span class="nav-text">Element V.S. Component</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E7%BB%84%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">函数组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E7%BB%84%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">类组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lt-Welcome-gt"><span class="nav-number">4.</span> <span class="nav-text">&lt;Welcome &#x2F;&gt;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#props-%EF%BC%88%E5%A4%96%E9%83%A8%E6%95%B0%E6%8D%AE%EF%BC%89"><span class="nav-number">5.</span> <span class="nav-text">props （外部数据）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#state-%E5%86%85%E9%83%A8%E6%95%B0%E6%8D%AE"><span class="nav-number">6.</span> <span class="nav-text">state (内部数据)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E7%BB%84%E4%BB%B6%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">7.</span> <span class="nav-text">类组件注意事项</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#this-state-n-1-%E6%97%A0%E6%95%88%EF%BC%9F"><span class="nav-number">7.0.1.</span> <span class="nav-text">this.state.n +&#x3D; 1 无效？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setState-%E4%BC%9A%E5%BC%82%E6%AD%A5%E6%9B%B4%E6%96%B0-UI"><span class="nav-number">7.0.2.</span> <span class="nav-text">setState 会异步更新 UI</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#this-setState-this-state-%E4%B8%8D%E6%8E%A8%E8%8D%90"><span class="nav-number">7.0.3.</span> <span class="nav-text">this.setState(this.state)不推荐</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">7.0.4.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E7%BB%84%E4%BB%B6%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">8.</span> <span class="nav-text">函数组件注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82-state"><span class="nav-number">9.</span> <span class="nav-text">复杂 state {}</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E7%BB%84%E4%BB%B6%E9%87%8C%E6%9C%89-n-%E5%92%8C-m"><span class="nav-number">9.1.</span> <span class="nav-text">类组件里有 n 和 m</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E7%BB%84%E4%BB%B6%E9%87%8C%E6%9C%89-n-%E5%92%8C-m"><span class="nav-number">9.2.</span> <span class="nav-text">函数组件里有 n 和 m</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93-1"><span class="nav-number">9.3.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%B1%BB%E7%BB%84%E4%BB%B6%E7%9A%84-setState-%E4%BC%9A%E8%87%AA%E5%8A%A8%E5%90%88%E5%B9%B6%E7%AC%AC%E4%B8%80%E5%B1%82%E5%B1%9E%E6%80%A7"><span class="nav-number">9.3.0.1.</span> <span class="nav-text">类组件的 setState 会自动合并第一层属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%86%E6%98%AF%E5%B9%B6%E4%B8%8D%E4%BC%9A%E5%90%88%E5%B9%B6%E7%AC%AC%E4%BA%8C%E5%B1%82%E5%B1%9E%E6%80%A7-demo"><span class="nav-number">9.3.0.2.</span> <span class="nav-text">但是并不会合并第二层属性 demo</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-Object-assign-demo-%E6%88%96%E8%80%85-%E6%93%8D%E4%BD%9C%E7%AC%A6-demo"><span class="nav-number">9.3.0.3.</span> <span class="nav-text">使用 Object.assign demo 或者 ...操作符 demo</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E7%BB%84%E4%BB%B6%E7%9A%84-setX-%E5%88%99%E5%AE%8C%E5%85%A8%E4%B8%8D%E4%BC%9A%E5%90%88%E5%B9%B6%EF%BC%8C%E9%9C%80%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%90%88%E5%B9%B6"><span class="nav-number">9.3.0.4.</span> <span class="nav-text">函数组件的 setX 则完全不会合并，需操作符合并</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A"><span class="nav-number">10.</span> <span class="nav-text">事件绑定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A"><span class="nav-number">10.1.</span> <span class="nav-text">类组件的事件绑定</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-V-S-Vue"><span class="nav-number">11.</span> <span class="nav-text">React V.S Vue</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B8%E5%90%8C%E7%82%B9%EF%BC%9A"><span class="nav-number">11.1.</span> <span class="nav-text">相同点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E5%90%8C%E7%82%B9%EF%BC%9A"><span class="nav-number">11.2.</span> <span class="nav-text">不同点：</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Xiaolong"
+      src="/images/lion.jpg">
+  <p class="site-author-name" itemprop="name">Xiaolong</p>
+  <div class="site-description" itemprop="description">Never stop learning</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/drwna" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;drwna" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+          </div>
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Drwna" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/22/34/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lion.jpg">
+      <meta itemprop="name" content="Xiaolong">
+      <meta itemprop="description" content="Never stop learning">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xiaolong's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          react 组件
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-11-22 08:00:34" itemprop="dateCreated datePublished" datetime="2021-11-22T08:00:34+08:00">2021-11-22</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="Element-V-S-Component"><a href="#Element-V-S-Component" class="headerlink" title="Element V.S. Component"></a>Element V.S. Component</h2><p>元素与组件</p>
+<ul>
+<li><code>const div = React.createElement(&#39;div&#39;,...)</code></li>
+<li>这是一个 React <strong>元素</strong>（d 小写）</li>
+<li><code>const Div = () =&gt; React.createElement(&#39;div&#39;,...)</code></li>
+<li>这是一个 React <strong>组件</strong>（D 大写）</li>
+</ul>
+<br />
+
+<span id="more"></span>
+
+<h2 id="函数组件"><a href="#函数组件" class="headerlink" title="函数组件"></a>函数组件</h2><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Welcome</span>(<span class="params">props</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, &#123;props.name&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用方法：<code>&lt;Weclome name=&quot;react&quot; /&gt;</code></p>
+<h2 id="类组件"><a href="#类组件" class="headerlink" title="类组件"></a>类组件</h2><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Welcome</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="title">render</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, &#123;this.props.name&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用发放：<code>&lt;Welcom name=&quot;react&quot; /&gt;</code></p>
+<h2 id="lt-Welcome-gt"><a href="#lt-Welcome-gt" class="headerlink" title="&lt;Welcome /&gt;"></a><code>&lt;Welcome /&gt;</code></h2><p><strong>会被翻译成什么</strong></p>
+<ul>
+<li><p><code>&lt;div /&gt;</code> 会被翻译为 <code>React.createElement(‘div’)</code></p>
+</li>
+<li><p><code>&lt;Welcome /&gt;</code> 会被翻译为 <code>React.createElement(Welcome)</code></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://babeljs.io/en/repl#?browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=DwEwlgbgBAxgNgQwM5IHIILYFMC8AiAJyxDwD4oA7KYAenAlIChGAzAVwpgBcwB7KgOpY4MXtgAUASgDeAX2bAhIsVijYUCAOa48ACzBkAYgQQUA1rSWjs5IA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=7.7.7&externalPlugins=">演示</a></p>
+<img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-11-21_15-51-23.png" alt="Snipaste_2021-11-21_15-51-23"></li>
+</ul>
+<p><strong><code>React.createElement </code>的逻辑</strong></p>
+<ul>
+<li>如果 传入一个 <strong>字符串</strong> ‘div’，则会创建一个 div（虚拟 DOM 对象）</li>
+<li>如果 传入一个 <strong>函数 <strong>，则会调用该函数，</strong>获取其返回值</strong></li>
+<li>如果 传入一个 <strong>类</strong>，则在类前面加一个 <strong>new</strong>（这会导致执行 <code>constructor</code>），获取一个组件<strong>对象</strong>，然后调用对象的 <strong><code>render()</code> 方法，获取其返回值</strong></li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://codesandbox.io/s/react-component-sddsx?file=/src/index.js">demo</a></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;App&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">      爸爸</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">Son</span> /&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Son</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="built_in">super</span>();</span><br><span class="line">    <span class="built_in">this</span>.state = &#123;</span><br><span class="line">      <span class="attr">n</span>: <span class="number">0</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="title">add</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.setState(&#123; <span class="attr">n</span>: <span class="built_in">this</span>.state.n + <span class="number">1</span> &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="title">render</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;Son&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">        儿子 n: &#123;this.state.n&#125;</span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> this.add()&#125;&gt;+1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">Grandson</span> /&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Grandson = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> [n, setN] = React.useState(<span class="number">0</span>);</span><br><span class="line">  <span class="comment">/* 等价于</span></span><br><span class="line"><span class="comment">  const array = React.useState(0);</span></span><br><span class="line"><span class="comment">  const n = array[0];</span></span><br><span class="line"><span class="comment">  const setN = array[1];</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;Grandson&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">      孙子： n: &#123;n&#125;</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> setN(n + 1)&#125;&gt;+1!!! <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> rootElement = <span class="built_in">document</span>.getElementById(<span class="string">&quot;root&quot;</span>);</span><br><span class="line">ReactDOM.render(<span class="xml"><span class="tag">&lt;<span class="name">App</span> /&gt;</span></span>, rootElement);</span><br></pre></td></tr></table></figure>
+
+<br />
+
+<h2 id="props-（外部数据）"><a href="#props-（外部数据）" class="headerlink" title="props （外部数据）"></a>props （外部数据）</h2><p><strong>类组件</strong> 直接读取 属性 <code>this.props.xxx</code></p>
+<p><strong>函数组件</strong> 直接读取 参数 <code>props.xxx</code></p>
+<p><a target="_blank" rel="noopener" href="https://codesandbox.io/s/react-demo-props-84i08">demo</a></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;App&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">      爸爸</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">Son</span> <span class="attr">messageForSon</span>=<span class="string">&quot;儿砸你好&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Son</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">render</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;Son&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">        我是儿子，我爸对我说「&#123;this.props.messageForSon&#125;」</span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">Grandson</span> <span class="attr">messageForGrandson</span>=<span class="string">&quot;孙贼你好&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Grandson = <span class="function">(<span class="params">props</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;Grandson&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">      我是孙子，爷爷对我说「&#123;props.messageForGrandson&#125;」</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<br />
+
+<h2 id="state-内部数据"><a href="#state-内部数据" class="headerlink" title="state (内部数据)"></a>state (内部数据)</h2><p><strong>类组件</strong> 用 <code>this.state</code> 读，<code>this.setState </code>(异步更新) 写</p>
+<p><strong>函数组件</strong> 用<code>useState</code> 返回数组，第一项读，第二项写</p>
+<p><a target="_blank" rel="noopener" href="https://codesandbox.io/s/react-demo-state-iybvm">demo</a></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Son</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="built_in">super</span>();</span><br><span class="line">    <span class="built_in">this</span>.state = &#123;</span><br><span class="line">      <span class="attr">n</span>: <span class="number">0</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="title">add</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="comment">// this.setState(&#123; n: this.state.n + 1 &#125;);</span></span><br><span class="line">    <span class="comment">// 推荐使用 函数</span></span><br><span class="line">    <span class="built_in">this</span>.setState(<span class="function"><span class="params">state</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="comment">// const n = state.n + 1</span></span><br><span class="line">        <span class="comment">// console.log(n)</span></span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="attr">n</span>: state.n + <span class="number">1</span>&#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="title">render</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;Son&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">        儿子 n: &#123;this.state.n&#125;</span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> this.add()&#125;&gt;+1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">Grandson</span> /&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Grandson = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> [n, setN] = React.useState(<span class="number">0</span>);</span><br><span class="line">  <span class="comment">/* 等价于</span></span><br><span class="line"><span class="comment">  const array = React.useState(0);</span></span><br><span class="line"><span class="comment">  const n = array[0];</span></span><br><span class="line"><span class="comment">  const setN = array[1];</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;Grandson&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">      孙子： n: &#123;n&#125;</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;</span> () =&gt;</span> setN(n + 1) &#125;&gt; +1!!! <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="类组件注意事项"><a href="#类组件注意事项" class="headerlink" title="类组件注意事项"></a>类组件注意事项</h2><h4 id="this-state-n-1-无效？"><a href="#this-state-n-1-无效？" class="headerlink" title="this.state.n += 1 无效？"></a><code>this.state.n += 1 </code>无效？</h4><ul>
+<li>其实 n  已经改变了，只不过 UI 不会自动更新而已</li>
+<li>调用 setState 才会触发 UI 更新（异步更新）</li>
+<li>因为 React 没有像 Vue 监听 data 一样监听 state</li>
+</ul>
+<h4 id="setState-会异步更新-UI"><a href="#setState-会异步更新-UI" class="headerlink" title="setState 会异步更新 UI"></a>setState 会异步更新 UI</h4><ul>
+<li>setState 之后，state 不会马上改变，立即 读取 state 会失败</li>
+<li>推荐使用 setState(函数)</li>
+</ul>
+<h4 id="this-setState-this-state-不推荐"><a href="#this-setState-this-state-不推荐" class="headerlink" title="this.setState(this.state)不推荐"></a><code>this.setState(this.state)</code>不推荐</h4><ul>
+<li>React 不希望我们修改 旧的 state （<strong>不可变数据</strong>）</li>
+<li>常用代码：<code>setState(&#123;n: state.n + 1&#125;)</code>（用新的 state）</li>
+</ul>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>这是一种理念（<strong>函数式</strong>）</p>
+<br />
+
+
+
+<h2 id="函数组件注意事项"><a href="#函数组件注意事项" class="headerlink" title="函数组件注意事项"></a>函数组件注意事项</h2><p>和类组件类似的地方：也要通过 setX(新值) 来更新 UI</p>
+<p>不同点：<strong>没有 this</strong>，一律使用 参数 和 变量。</p>
+<h2 id="复杂-state"><a href="#复杂-state" class="headerlink" title="复杂 state {}"></a>复杂 state {}</h2><p>state 里不止有一个 n : </p>
+<h3 id="类组件里有-n-和-m"><a href="#类组件里有-n-和-m" class="headerlink" title="类组件里有 n 和 m"></a>类组件里有 n 和 m</h3><p><a target="_blank" rel="noopener" href="https://codesandbox.io/s/react-demo-classstate-gjwsx">demo</a></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Son</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="built_in">super</span>();</span><br><span class="line">    <span class="built_in">this</span>.state = &#123;</span><br><span class="line">      <span class="attr">n</span>: <span class="number">0</span>,</span><br><span class="line">      <span class="attr">m</span>: <span class="number">0</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="title">addN</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.setState(&#123; <span class="attr">n</span>: <span class="built_in">this</span>.state.n + <span class="number">1</span> &#125;);</span><br><span class="line">    <span class="comment">// m 会被覆盖为 undefined 吗？</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="title">addM</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.setState(&#123; <span class="attr">m</span>: <span class="built_in">this</span>.state.m + <span class="number">1</span> &#125;);</span><br><span class="line">    <span class="comment">// n 会被覆盖为 undefined 吗？</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="title">render</span>(<span class="params"></span>)</span> &#123; <span class="keyword">return</span> (...);&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="函数组件里有-n-和-m"><a href="#函数组件里有-n-和-m" class="headerlink" title="函数组件里有 n 和 m"></a>函数组件里有 n 和 m</h3><p>demo</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Grandson = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> [n, setN] = React.useState(<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">const</span> [m, setM] = React.useState(<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;Grandson&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">      孙子 n:&#123;n&#125;</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> setN(n + 1)&#125;&gt;n+1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="xml">      m:&#123;m&#125;</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> setM(m + 1)&#125;&gt;m+1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>or</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Grandson = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> [state, setState] = React.useState(&#123;</span><br><span class="line">    <span class="attr">n</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">m</span>: <span class="number">0</span></span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;Grandson&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">      孙子 n:&#123;state.n&#125;</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> setState(&#123;...state, n: state.n + 1&#125;)&#125;&gt;n+1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="xml">      m:&#123;state.m&#125;</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> setState(&#123;...state, m: state.m + 1&#125;)&#125;&gt;m+1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<br />
+
+<h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h3><h5 id="类组件的-setState-会自动合并第一层属性"><a href="#类组件的-setState-会自动合并第一层属性" class="headerlink" title="类组件的 setState 会自动合并第一层属性"></a>类组件的 setState 会自动合并第一层属性</h5><h5 id="但是并不会合并第二层属性-demo"><a href="#但是并不会合并第二层属性-demo" class="headerlink" title="但是并不会合并第二层属性 demo"></a>但是并不会合并第二层属性 <a target="_blank" rel="noopener" href="https://codesandbox.io/s/restless-river-i8zes?file=/src/index.js">demo</a></h5><h5 id="使用-Object-assign-demo-或者-操作符-demo"><a href="#使用-Object-assign-demo-或者-操作符-demo" class="headerlink" title="使用 Object.assign demo 或者 ...操作符 demo"></a>使用 <code>Object.assign</code> <a target="_blank" rel="noopener" href="https://codesandbox.io/s/zen-margulis-gjr7t">demo</a> 或者 <code>...操作符</code> <a target="_blank" rel="noopener" href="https://codesandbox.io/s/dawn-sound-rwyxv">demo</a></h5><h5 id="函数组件的-setX-则完全不会合并，需操作符合并"><a href="#函数组件的-setX-则完全不会合并，需操作符合并" class="headerlink" title="函数组件的 setX 则完全不会合并，需操作符合并"></a>函数组件的 setX 则完全不会合并，需操作符合并</h5><br />
+
+
+
+<h2 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h2><h3 id="类组件的事件绑定"><a href="#类组件的事件绑定" class="headerlink" title="类组件的事件绑定"></a>类组件的事件绑定</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onClick=&#123; <span class="function">()=&gt;</span><span class="built_in">this</span>.addN() &#125; &gt;n+<span class="number">1</span>&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+
+<p>传一个函数给 onClick 即可，C 大写。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onClick=&#123; <span class="built_in">this</span>.addN &#125; &gt;n+<span class="number">1</span>&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这样写有问题！会使得 this.addN 里的 this 变成 window。（原因：点击 button后 <code>button.onClick.call(null, event)</code>）</p>
+<p>还有一种写法：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onClick=&#123;<span class="built_in">this</span>.addN.bind(<span class="built_in">this</span>)&#125; &gt;n+<span class="number">1</span>&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这样写也是可以的，因为它返回一个<strong>绑定了当前 this</strong> 的新<strong>函数</strong></p>
+<p>第一种写法，可用 <code>this._addN = () =&gt; this.addN()</code></p>
+<p>给箭头函数取个名字，然后写成：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onClick=&#123; <span class="built_in">this</span>._addN &#125; &gt;n+<span class="number">1</span>&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+
+<p>再改写：需要写在 constructor 里</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">constructor</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="built_in">this</span>.addN = <span class="function">() =&gt;</span> <span class="built_in">this</span>.setState(&#123;<span class="attr">n</span>: <span class="built_in">this</span>.state.n + <span class="number">1</span>&#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">render</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;</span> <span class="attr">this.addN</span> &#125;&gt;</span>n+1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>最终：</strong></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 写在 constructor w</span></span><br><span class="line">addN = <span class="function">() =&gt;</span> <span class="built_in">this</span>.setState(&#123;<span class="attr">n</span>: <span class="built_in">this</span>.state.n + <span class="number">1</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<br />
+
+
+
+<h2 id="React-V-S-Vue"><a href="#React-V-S-Vue" class="headerlink" title="React V.S Vue"></a>React V.S Vue</h2><h3 id="相同点："><a href="#相同点：" class="headerlink" title="相同点："></a>相同点：</h3><p>都是对视图的封装，React 是用类和函数表示的一个组件，而 Vue 是通过构造选项构造一个组件。</p>
+<p>都是提供的 <code>createElement</code> 的 XML 简写，React 提供的是 JSX 语法，而 Vue 是提供的模板语法（语法巨多）。</p>
+<h3 id="不同点："><a href="#不同点：" class="headerlink" title="不同点："></a>不同点：</h3><p>React 是把 HTML 放在 JS 里写（HTML in JS），而 Vue 是把 JS 放在 HTML 里写（JS in HTML）。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/react/" rel="tag"><i class="fa fa-tag"></i> react</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/10/22/47/" rel="prev" title="router-demo">
+                  <i class="fa fa-chevron-left"></i> router-demo
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaolong</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
