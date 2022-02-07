@@ -157,13 +157,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -201,6 +201,138 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/15/12/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lion.jpg">
+      <meta itemprop="name" content="Xiaolong">
+      <meta itemprop="description" content="Never stop learning">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xiaolong's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/10/15/12/" class="post-title-link" itemprop="url">浅析vue版本</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-10-15 09:57:12" itemprop="dateCreated datePublished" datetime="2021-10-15T09:57:12+08:00">2021-10-15</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>##vue 版本</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Vue 完整版</th>
+<th>Vue 非完整版</th>
+<th>评价</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>特点</td>
+<td>有 compiler</td>
+<td>无 compiler</td>
+<td>compiler 占 30% 体积</td>
+</tr>
+<tr>
+<td>视图</td>
+<td>写在 HTML 里或者写在 template 中</td>
+<td>写在 render 函数里 用 h 来创建把标签</td>
+<td>h 是尤雨溪写好穿给 render 的</td>
+</tr>
+<tr>
+<td>cdn 引入</td>
+<td>vue.js</td>
+<td>vue.runtime.js</td>
+<td>文件名不同，生成文件后缀为 .min.js</td>
+</tr>
+<tr>
+<td>webpack 引入</td>
+<td>需要配置 alias</td>
+<td>默认使用此版</td>
+<td>尤雨溪配置的</td>
+</tr>
+<tr>
+<td>@vue/cli 引入</td>
+<td>需要额外配置</td>
+<td>默认使用此版</td>
+<td>尤雨溪、蒋豪群配置的</td>
+</tr>
+</tbody></table>
+<p><strong>最佳实践：</strong> 总是使用非完整版，然后配合 vue-loader 和 vue 文件</p>
+<ol>
+<li> 保证用户体验，用户下载的 JS 文件体积更小，但<strong>只支持 h 函数</strong></li>
+<li> 保证开发体验，开发者可直接在 vue 文件里写 HTML 标签，而<strong>不写 h 函数</strong></li>
+<li> 让 loader 去做，vue-loader 会把 vue 文件中的 HTML <strong>转为 h 函数</strong>，这样既保证了用户体验，也顾及到了开发体验。</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/installation.html#%E8%BF%90%E8%A1%8C%E6%97%B6-%E7%BC%96%E8%AF%91%E5%99%A8-vs-%E5%8F%AA%E5%8C%85%E5%90%AB%E8%BF%90%E8%A1%8C%E6%97%B6">官方文档</a></p>
+<h2 id="template-render"><a href="#template-render" class="headerlink" title="template render"></a>template render</h2><h3 id="完整版-template"><a href="#完整版-template" class="headerlink" title="完整版 template"></a>完整版 template</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">&#x27;app&#x27;</span>&gt;</span><br><span class="line">	&#123;&#123;n&#125;&#125;</span><br><span class="line">    &lt;button @click=<span class="string">&quot;add&quot;</span>&gt;+ <span class="number">1</span>&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span></span><br><span class="line"><span class="javascript"><span class="xml"> 	<span class="keyword">new</span> Vue(&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="attr">el</span>: <span class="string">&#x27;#app&#x27;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="attr">data</span>: &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="attr">n</span>: <span class="number">9</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">        &#125;,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="attr">methods</span>: &#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="function"><span class="title">add</span>(<span class="params"></span>)</span>&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">                <span class="built_in">this</span>.n += <span class="number">1</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">            &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">    &#125;)</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">template : <span class="string">`</span></span><br><span class="line"><span class="string">	&lt;div id=&quot;app&quot;&gt;</span></span><br><span class="line"><span class="string">		&#123;&#123;n&#125;&#125;</span></span><br><span class="line"><span class="string">        &lt;button @click=&quot;add&quot;&gt;+1&lt;/button&gt;</span></span><br><span class="line"><span class="string">	&lt;/div&gt;`</span> </span><br><span class="line"></span><br><span class="line"><span class="comment">// </span></span><br><span class="line">&lt;template&gt;</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;#app&quot;</span>&gt;</span>      </span></span><br><span class="line"><span class="xml">        &#123;&#123;n&#125;&#125;</span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;add&quot;</span>&gt;</span>+1<span class="tag">&lt;/<span class="name">button</span>&gt;</span>   </span></span><br><span class="line"><span class="xml">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span> </span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="非完整版-render"><a href="#非完整版-render" class="headerlink" title="非完整版 render"></a>非完整版 render</h3><center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-10-18_00-50-35-1.png" alt="Snipaste_2021-10-18_00-50-35-1" width="800px"></center>
+
+
+
+<h2 id="使用-codesandbox-io-创建-vue项目"><a href="#使用-codesandbox-io-创建-vue项目" class="headerlink" title="使用 codesandbox.io 创建 vue项目"></a>使用 codesandbox.io 创建 vue项目</h2><ol>
+<li>打开 <a target="_blank" rel="noopener" href="https://codesandbox.io/">codesandbox</a> </li>
+<li>创建 vue 项目</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-10-17_20-20-10.png" alt="Snipaste_2021-10-17_20-20-10" width="400px" float="right"><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-10-17_20-20-51.png" alt="Snipaste_2021-10-17_20-20-51" width="500px" float="left"></p>
+<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-10-17_20-21-58.png" alt="Snipaste_2021-10-17_20-21-58" width="800px"></center><center style="font-size:14px;color:#C0C0C0;text-decoration:underline">创建成功</center> 
+
+<p><strong>导出到本地：</strong></p>
+<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-10-17_20-22-26.png" alt="Snipaste_2021-10-17_20-22-26" width="600px"></center>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1698,245 +1830,6 @@
 <li>一旦执行栈中的所有同步任务执行完毕，系统就会读取任务队列。那些对应的异步任务，进入执行栈开始执行。</li>
 <li>主线程不断重复上面的第三步。</li>
 </ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/07/36/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/lion.jpg">
-      <meta itemprop="name" content="Xiaolong">
-      <meta itemprop="description" content="Never stop learning">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xiaolong's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/09/07/36/" class="post-title-link" itemprop="url">异步与Promise</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-09-07 12:24:36" itemprop="dateCreated datePublished" datetime="2021-09-07T12:24:36+08:00">2021-09-07</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h2><ul>
-<li><p><strong>如果能直接拿到将结果</strong></p>
-<p>那就是同步</p>
-<p>比如你在医院挂号，你拿到号才会离开窗口</p>
-<p>同步任务可能消耗 10 毫秒，也可能需要 3 秒</p>
-<p>总之不拿到结果你是不会离开的，这就是同步</p>
-</li>
-<li><p><strong>如果不能直接拿到结果</strong></p>
-<p>那就异步</p>
-<p>比如你在餐厅门口等位，你拿到号后可以去干别的事比如逛街</p>
-<p>你可以每 10 分钟取餐厅问一下排到自己了没（轮询）</p>
-<p>也可以扫码用微信接受通知（回调）</p>
-</li>
-</ul>
-<h2 id="异步举例"><a href="#异步举例" class="headerlink" title="异步举例"></a>异步举例</h2><ul>
-<li><p><strong>以 AJAX 为例</strong></p>
-<p><code>request.send()</code> 之后，并不能直接得到 response</p>
-<p>用 <code>console.log(request.response)</code> 试试</p>
-<p>必须等到 readyState 变为 4 后，浏览器才会<strong>回头调用</strong> <code>request.onreadystatechange</code> 函数</p>
-<p>我们才能得到 <code>request.response</code></p>
-<p>这就跟餐厅给你发微信提醒的过程类似</p>
-</li>
-<li><p><strong>回调 callback</strong></p>
-<p>你写给自己用的函数，不是回调</p>
-<p>你写给别人用的函数，就是回调</p>
-<p><code>request.onreadystatechange</code> 就是写个浏览器调用的</p>
-<p>意思是你（浏览器）回头调用一下这个函数</p>
-</li>
-<li><p>简单来理解就是：同步按你的代码顺序执行，异步不按照代码顺序执行，异步的执行效率更高。</p>
-</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">getJSON.onclick = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> request = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    request.open(<span class="string">&#x27;GET&#x27;</span>, <span class="string">&#x27;/5.json&#x27;</span>);</span><br><span class="line">    request.onreadystatechange = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (request.readyState === <span class="number">4</span> &amp;&amp; request.status === <span class="number">200</span>) &#123;</span><br><span class="line">            <span class="keyword">const</span> object = <span class="built_in">JSON</span>.parse(request.response);</span><br><span class="line">            myName.textContent = object.name;</span><br><span class="line">	        <span class="built_in">console</span>.log(request.response);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    request.send();</span><br><span class="line">    <span class="comment">// console.log(request.resopne)</span></span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(request.response);</span><br><span class="line">        <span class="comment">// 或者将 放在 request.onreadystatechange 函数中</span></span><br><span class="line">    &#125;, <span class="number">2000</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// request.send()执行完，再执行 request.onreadystatechange 函数</span></span><br><span class="line"><span class="comment">// 执行顺序为 response.open() =&gt; respone.send() =&gt; request.onreadystatechange</span></span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/kis_wuyan/article/details/116231729">onreadystatechange 执行两次</a></p>
-<h2 id="回调"><a href="#回调" class="headerlink" title="回调"></a>回调</h2><p>写了却不调用，给别人调用的函数，就是回调。需自行意会</p>
-<p>函数例子：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params">fn</span>) </span>&#123;</span><br><span class="line">    fn()</span><br><span class="line">&#125;</span><br><span class="line">f2(f1)</span><br></pre></td></tr></table></figure>
-
-<p>分析：</p>
-<ol>
-<li>我调用 f1 没有？</li>
-<li>我把 f1 传给 f2 （别人）了没有？</li>
-<li>f2 调用 f1 了没有？</li>
-</ol>
-<p>答：1. 调用了。2.穿了。3.f2 调用了 f1。</p>
-<p>那么，f1 是不是我写给 f2 调用的函数？ 是。</p>
-<p>所以，f1 是回调。</p>
-<hr>
-
-
-<p>例子2：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(x)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params">fn</span>)</span>&#123;</span><br><span class="line">    fn(<span class="string">&#x27;hello&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line">f2(f1)</span><br><span class="line"><span class="comment">// hello</span></span><br></pre></td></tr></table></figure>
-
-<p>fn(‘hello’) 中的 fn 就是 f1 。</p>
-<p>fn(’hello‘) 中的 ’hello’ 会被赋值给参数 x 。</p>
-<p>所以 x 就是 ‘hello’。</p>
-<h2 id="异步和回调的关系"><a href="#异步和回调的关系" class="headerlink" title="异步和回调的关系"></a>异步和回调的关系</h2><ul>
-<li><p><strong>关联</strong></p>
-<p>异步任务需要再得到结果时通知 JS 来拿结果</p>
-<p>怎么通知？</p>
-<p>可以让 JS 留一个函数地址给浏览器（电话号码）</p>
-<p>异步任务完成时浏览器调用该函数即可（拨打电话）</p>
-<p>同时把任务作为参数传给该函数（通知）</p>
-<p>这个函数是我写给浏览器调用的，所以是回调函数</p>
-</li>
-<li><p><strong>区别</strong></p>
-<p>异步任务需要用到回调函数来通知结果</p>
-<p>但回调函数不一定只用在异步任务里</p>
-<p>回调可以用到同步任务里</p>
-<p><code>array.forEach(n=&gt;console.log(n))</code> 就是同步回调</p>
-</li>
-</ul>
-<h2 id="判断同步异步"><a href="#判断同步异步" class="headerlink" title="判断同步异步"></a>判断同步异步</h2><p>如果一个函数的返回值处于</p>
-<ul>
-<li>setTimeout</li>
-<li>AJAX（即 XMLHttpRequest）</li>
-<li>AddEventListener</li>
-</ul>
-<p>这三个东西内部中，那么这个函数就是异步函数</p>
-<p>还有其他 API 是异步的，遇到再说。</p>
-<p>举例说明：</p>
-<p>摇骰子, 随机打印出1-6 中的一个数</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> 摇骰子(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>( <span class="function">() =&gt;</span> &#123; <span class="comment">// 箭头函数</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random() * <span class="number">6</span>) + <span class="number">1</span>;</span><br><span class="line">  &#125;, <span class="number">1000</span>)</span><br><span class="line">  <span class="comment">// return undefined</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>分析：</p>
-<p><code> 摇骰子（）</code> 里没有写 return，那就是 return undefined</p>
-<p>箭头函数里有 return，返回真正结果</p>
-<p>所以这是一个异步函数/异步任务。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> n = 摇骰子();</span><br><span class="line"><span class="built_in">console</span>.log(n)</span><br></pre></td></tr></table></figure>
-
-<p>如何拿到异步结果？</p>
-<p>用回调，写个函数，然后把函数地址给他</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 然后要求 摇骰子函数 得到结果后 把结果作为参数 传给f1</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> 摇骰子(<span class="params">fn</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>( <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        fn(<span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random() * <span class="number">6</span>) + <span class="number">1</span>)</span><br><span class="line">    &#125;, <span class="number">1000</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">摇骰子(f1); <span class="comment">// 结果</span></span><br></pre></td></tr></table></figure>
-
-<p>简化为箭头函数</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params">x</span>) </span>&#123; </span><br><span class="line">    <span class="built_in">console</span>.log(x);</span><br><span class="line">&#125;</span><br><span class="line">摇骰子(f1);</span><br><span class="line"><span class="comment">// 改为</span></span><br><span class="line">摇骰子(<span class="function"><span class="params">x</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(x);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 再简化为</span></span><br><span class="line">摇骰子(<span class="built_in">console</span>.log);</span><br><span class="line"><span class="comment">// 如果参数个数不一致就不能这样简化，有个相关面试题</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 面试题</span></span><br><span class="line"><span class="keyword">const</span> array = [<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;3&#x27;</span>].map(<span class="built_in">parseInt</span>);</span><br><span class="line"><span class="built_in">console</span>.log(array);</span><br><span class="line"><span class="comment">// 结果为 [1, NaN, NaN]</span></span><br><span class="line"><span class="comment">// parseInt(&#x27;1&#x27;, 0, arr) =&gt; 1</span></span><br><span class="line"><span class="comment">// parseInt(&#x27;2&#x27;, 1, arr) =&gt; NaN</span></span><br><span class="line"><span class="comment">// parseInt(&#x27;3&#x27;, 2, arr) =&gt; NaN</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> array = [<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;2&#x27;</span> , <span class="string">&#x27;3&#x27;</span>].map(<span class="function">(<span class="params">item, i , arr</span>) =&gt;</span> &#123;</span><br><span class="line">   <span class="keyword">return</span> <span class="built_in">parseInt</span>(item)</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(array)</span><br><span class="line"><span class="comment">// 正确结果 [1, 2, 3]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 简写 永远使用箭头函数</span></span><br><span class="line"><span class="keyword">const</span> array = [<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;3&#x27;</span>].map(<span class="function">(<span class="params">item</span>) =&gt;</span> <span class="built_in">parseInt</span>(item));</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="异步总结"><a href="#异步总结" class="headerlink" title="异步总结"></a>异步总结</h2><ul>
-<li>异步任务不能拿到结果</li>
-<li>于是我们传一个回调给异步任务</li>
-<li>异步任务完成时调用回调</li>
-<li>调用的时候把结果作为参数</li>
-</ul>
-<h2 id="异步任务两个结果，成功或失败"><a href="#异步任务两个结果，成功或失败" class="headerlink" title="异步任务两个结果，成功或失败"></a>异步任务两个结果，成功或失败</h2><h3 id="两个方法解决"><a href="#两个方法解决" class="headerlink" title="两个方法解决"></a>两个方法解决</h3><p><strong>方法一：回调接受两个参数</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.readFile(<span class="string">&#x27;./1.txt&#x27;</span>, <span class="function">(<span class="params">error, data</span>) =&gt;</span> &#123;    <span class="keyword">if</span>(error)&#123;        <span class="built_in">console</span>.log(<span class="string">&#x27;失败&#x27;</span>); <span class="keyword">return</span>;    &#125;    <span class="built_in">console</span>.log(data.toString()) <span class="comment">// 成功&#125;)</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>方法二：两个回调</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ajax(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;/1.json&#x27;</span>, <span class="function"><span class="params">data</span> =&gt;</span> &#123;<span class="comment">/*成功回调*/</span>&#125;, <span class="function"><span class="params">error</span> =&gt;</span> &#123;<span class="comment">/*失败回调*/</span>&#125;)ajax(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;/1.json&#x27;</span>,&#123;    <span class="attr">success</span>: <span class="function">() =&gt;</span> &#123;&#125;,    <span class="attr">fail</span>: <span class="function">() =&gt;</span> &#123;&#125;&#125;)<span class="comment">// 接受一个对象，对象有两个 key 表示成功和失败</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="这些方法的不足"><a href="#这些方法的不足" class="headerlink" title="这些方法的不足"></a>这些方法的不足</h3><p>不管方法一还是方法二，都有问题</p>
-<ol>
-<li>不规范，名称五花八门，有人用 success + error，有人用 success + fail，done + fail</li>
-<li>容易出现==回调地狱== ，代码变得看不懂</li>
-<li>很难进行错无处理</li>
-</ol>
-<p><strong>回调地狱举例</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getUser( <span class="function"><span class="params">user</span> =&gt;</span> &#123;    getGroups(user, <span class="function">(<span class="params">groups</span>) =&gt;</span> &#123;        groups.forEach( <span class="function">(<span class="params">g</span>) =&gt;</span> &#123;            g.filter(<span class="function"><span class="params">x</span> =&gt;</span> x.ownerId === user.id)            .forEach(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(x))        &#125;)    &#125;)&#125;)<span class="comment">// 仅示例，这只是四层，二十层呢，代码会很难读</span></span><br></pre></td></tr></table></figure>
-
-<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-09-25_22-12-10.png" alt="Snipaste_2021-09-25_22-12-10" width="800px"></center><center style="font-size:14px;color:#C0C0C0;text-decoration:underline"> 吐槽回调地狱 来源网络</center> 
-
-
-
-<h3 id="如何解决回调问题，用-Promise"><a href="#如何解决回调问题，用-Promise" class="headerlink" title="如何解决回调问题，用 Promise"></a>如何解决回调问题，用 Promise</h3><p>有什么办法能解决这三个问题：</p>
-<ul>
-<li>会犯回调的名字或顺序</li>
-<li>拒绝回调地狱，让代码可读性更强</li>
-<li>很方便地捕获错误</li>
-</ul>
-<blockquote>
-<p>1976年，Daniel P.Friedman 和 David Wis 俩人提出 Promise 思想</p>
-<p>后人基于此发明了 Future、Delay、Deferred等</p>
-<p>前端结合 Promise 和 JS，制定了 <a target="_blank" rel="noopener" href="https://www.ituring.com.cn/article/66566">Promise/A+规范</a></p>
-<p>该规范详细描述了 Promise 的原理和使用方法。</p>
-</blockquote>
-<h2 id="以-AJAX-的封装为例，来解释-Promise"><a href="#以-AJAX-的封装为例，来解释-Promise" class="headerlink" title="以 AJAX 的封装为例，来解释 Promise"></a>以 AJAX 的封装为例，来解释 Promise</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise MDN</a></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 示例ajax = (method, url, options) =&gt; &#123;    const &#123;success, fail&#125; = option; // 析构赋值    // const succes = option.success;    // const fail = option.fail;    const request = new XMLHttpRequest();    request.open(method, url);    request.onreadystatechange = () =&gt; &#123;        if (request.readyState === 4) &#123;            // 成功就调用 success，失败 fail            if (request.status &lt; 400) &#123;                success.call(null, request.response);            &#125;else if (request.status &gt;= 400) &#123;                fail.call(null, request, request.status);            &#125;        &#125;    &#125;    request.rend();&#125;ajax(&#x27;get&#x27;, &#x27;/xxx&#x27;, &#123;    success(response)&#123;&#125;, // function 缩写    // success: function(response)&#123;&#125;    fail: (request, status) =&gt; &#123;&#125;&#125;)</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p>Promise 写法：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 先改一下调用姿势ajax(&#x27;get&#x27;, &#x27;/xxx&#x27;, &#123;    success(response)&#123;&#125;,    fail: (request, status) =&gt; &#123;&#125;&#125;)// 上面用到了两个回调，还使用了 success 和 fail// 改成 Promise 写法ajax(&#x27;get&#x27;, &#x27;/xxx&#x27;)    .then((response)=&gt;&#123;&#125;, (request, status)=&gt;&#123;&#125; )// 虽然也是回调// 但是不需要经济 success 和 fail 了// then 的第一个参数就是 success// then 的第二个参数就是 fail</span></span><br></pre></td></tr></table></figure>
-
-<p>请问 ajax() 返回了个啥 ？</p>
-<p>返回了一个含有 .then() 方法的对象呗。</p>
-<p>那么再请问如何得到这个含有 .then() 的对象呢 ？</p>
-<p>那就要改造 ajax 的源码了。</p>
-<p><code>return new Promise((resolve, reject) =&gt; &#123;&#125;)</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 修改 ajaxajax = (method, url, option) =&gt; &#123;    return new Promise((resolve, reject) =&gt; &#123;        const &#123;success, fail&#125; = option;        const request = new XMLHttpRequest();        request.open(methon, url);        request.onreadystatechange = () =&gt; &#123;            if(request.readyState === 4) &#123;                if(request.status &lt; 400) &#123;                    // 成功                    resolve.call(null, request.response);                &#125;else if(request.status &gt;= 400) &#123;                    // s                    reject.call(null, request);                &#125;            &#125;        &#125;        request.send();    &#125;);&#125;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>小结</strong></p>
-<p>第一步：</p>
-<ul>
-<li><code>retrun new Promise((resolve, reject) =&gt; &#123;...&#125;)</code></li>
-<li>任务成功则调用 <code>resolve(result)</code></li>
-<li>任务失败则调用 <code>reject(error)</code></li>
-<li>resolve 和 reject 会再去调用成功和失败函数</li>
-</ul>
-<p>第二步：</p>
-<ul>
-<li>使用 <code>.then(success, fail)</code>传入成功函数和失败函数</li>
-</ul>
-<hr>
-<p>我们自己封装的 ajax 的缺点:</p>
-<p>post 无法上传数据。request.send(这里可以上传数据)</p>
-<p>不能设置请求头。request.setRequestHeader(key, value)</p>
-<p>使用：</p>
-<p> <a target="_blank" rel="noopener" href="https://www.jquery123.com/jQuery.ajax/">Jquery.ajax</a></p>
-<p><a target="_blank" rel="noopener" href="http://www.axios-js.com/zh-cn/docs/">axios</a>(推荐)</p>
 
       
     </div>

@@ -157,13 +157,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -201,6 +201,114 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/09/28/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lion.jpg">
+      <meta itemprop="name" content="Xiaolong">
+      <meta itemprop="description" content="Never stop learning">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xiaolong's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/07/09/28/" class="post-title-link" itemprop="url">grid布局</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-07-09 15:55:28" itemprop="dateCreated datePublished" datetime="2021-07-09T15:55:28+08:00">2021-07-09</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>采用网格布局的区域，称为“容器（container）”。容器内部的采用网格定位的子元素称为“项目（item）”</p>
+<h2 id="container"><a href="#container" class="headerlink" title="container"></a>container</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="comment">/* 指定一个容器为 */</span> </span><br><span class="line">   <span class="attribute">display</span>: grid | inline-grid;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="columns-row"><a href="#columns-row" class="headerlink" title="columns row"></a>columns row</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    grid-template-<span class="attribute">columns</span>: <span class="number">40px</span> <span class="number">50px</span> auto <span class="number">50px</span> <span class="number">40px</span>;</span><br><span class="line">    grid-template-rows: <span class="number">25%</span> <span class="number">100px</span> auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-07-10_23-02-04.png" alt="Snipaste_2021-07-10_23-02-04" width="600px"></center>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grid-template-<span class="attribute">columns</span>: <span class="built_in">repeat</span>(<span class="number">4</span>,<span class="number">1</span>fr); // 宽度平均分成四等份 </span><br><span class="line">grid-template-<span class="attribute">columns</span>: <span class="number">1</span>fr <span class="number">2</span>fr <span class="number">3</span>fr;   // 列宽这样是分成<span class="number">6</span>份各占 <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> 份</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="grid-template-areas"><a href="#grid-template-areas" class="headerlink" title="grid-template-areas"></a>grid-template-areas</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item-a</span> &#123;</span><br><span class="line">  grid-area: header;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item-b</span> &#123;</span><br><span class="line">  grid-area: main;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item-c</span> &#123;</span><br><span class="line">  grid-area: sidebar;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item-d</span> &#123;</span><br><span class="line">  grid-area: footer;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  grid-template-<span class="attribute">columns</span>: <span class="number">50px</span> <span class="number">50px</span> <span class="number">50px</span> <span class="number">50px</span>;</span><br><span class="line">  grid-template-rows: auto;</span><br><span class="line">  grid-template-areas: </span><br><span class="line">    <span class="string">&quot;header header header header&quot;</span></span><br><span class="line">    <span class="string">&quot;main main . sidebar&quot;</span></span><br><span class="line">    <span class="string">&quot;footer footer footer footer&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-08-20_12-33-29.png" alt="Snipaste_2021-08-20_12-33-29" width="600px"></center>
+
+
+
+<h2 id="gap"><a href="#gap" class="headerlink" title="gap"></a>gap</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  grid-template-<span class="attribute">columns</span>: <span class="number">100px</span> <span class="number">50px</span> <span class="number">100px</span>;</span><br><span class="line">  grid-template-rows: <span class="number">80px</span> auto <span class="number">80px</span>; </span><br><span class="line">  <span class="attribute">column-gap</span>: <span class="number">10px</span>;</span><br><span class="line">  row-gap: <span class="number">15px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    grid-gap: &lt;grid-row-gap&gt; &lt;grid-column-gap&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-08-20_13-02-30.png" alt="Snipaste_2021-08-20_13-02-30" width="600px"></center>
+
+
+
+<h2 id="item"><a href="#item" class="headerlink" title="item"></a>item</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item-a</span> &#123;</span><br><span class="line">  grid-column-start: <span class="number">2</span>;</span><br><span class="line">  grid-column-end: five;</span><br><span class="line">  grid-row-start: row1-start;</span><br><span class="line">  grid-row-end: <span class="number">3</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-08-20_13-18-20.png" alt="Snipaste_2021-08-20_13-18-20" width="600px"></center>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item-b</span> &#123;</span><br><span class="line">  grid-column-start: <span class="number">1</span>;</span><br><span class="line">  grid-column-end: span col4-start;</span><br><span class="line">  grid-row-start: <span class="number">2</span>;</span><br><span class="line">  grid-row-end: span <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-08-20_13-33-02.png" alt="Snipaste_2021-08-20_13-33-02" width="600px"></center>
+
+
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item-c</span> &#123;</span><br><span class="line">  grid-column: <span class="number">3</span> / span <span class="number">2</span>;</span><br><span class="line">  grid-row: third-line / <span class="number">4</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-08-20_13-23-08.png" alt="Snipaste_2021-08-20_13-23-08" width="600px"></center>
+
+
+
+<p><a target="_blank" rel="noopener" href="https://cssgridgarden.com/#zh-cn">grid 游戏</a></p>
+<p>参照 <a target="_blank" rel="noopener" href="https://css-tricks.com/snippets/css/complete-guide-grid/#introduction">A Complete Guide to Grid</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
