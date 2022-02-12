@@ -157,13 +157,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -201,6 +201,108 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/10/50/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lion.jpg">
+      <meta itemprop="name" content="Xiaolong">
+      <meta itemprop="description" content="Never stop learning">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xiaolong's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/07/10/50/" class="post-title-link" itemprop="url">css定位与层叠上下文</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-07-10 16:35:50" itemprop="dateCreated datePublished" datetime="2021-07-10T16:35:50+08:00">2021-07-10</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="一个-div-的分层"><a href="#一个-div-的分层" class="headerlink" title="一个 div 的分层"></a>一个 div 的分层</h2><center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-07-12_21-36-28.png" alt="Snipaste_2021-07-12_21-36-28" width="800px"></center>
+
+<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-07-12_22-04-00.png" alt="Snipaste_2021-07-12_22-04-00" width="800px"></center>
+
+
+
+<h2 id="position"><a href="#position" class="headerlink" title="position"></a>position</h2><ol>
+<li>static，默认，待在文档流里</li>
+<li>relative，相对定位，原位置不变，显示的位置偏移<ul>
+<li>用于做位移（很少用）</li>
+<li>用于给 absolute 元素做父元素</li>
+<li>配合 z-index，z-index :auto 默认值，不创建新层叠上下文</li>
+</ul>
+</li>
+<li>absolute，绝对定位，定位基准是祖先里的非static即相对于祖先元素中最近的一个定位元素<ul>
+<li>脱离原来的位置，另起一层，<a target="_blank" rel="noopener" href="http://js.jirengu.com/hosugodegi/3/edit">比如对话框的关闭按钮</a>，祖先元素得加 relative </li>
+<li>某些浏览器不写 top / left 会位置错乱。善用 left: 100% left: 50% 加负 margin</li>
+</ul>
+</li>
+<li>fixed，固定定位，定位基准是 viewport，视口代表当前可见的计算机图形区域，transform 有bug<ul>
+<li>手机上尽量不要使用 fixed</li>
+</ul>
+</li>
+<li>sticky，粘滞定位，兼容差</li>
+</ol>
+<p>Tips：</p>
+<p>如果写了 absolute，一般都得补一个 relative</p>
+<p>如果写了 absolute 或 fixed，一定要补 top 和 left</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/position">position MDN</a></p>
+<h2 id="层叠上下文"><a href="#层叠上下文" class="headerlink" title="层叠上下文"></a>层叠上下文</h2><center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/Snipaste_2021-07-13_21-47-35.png" alt="Snipaste_2021-07-13_21-47-35" width="800px"></center>
+
+<p>比喻：</p>
+<ul>
+<li>每个层叠上下文既是一个小世界（作用域）</li>
+<li>这个小世界里面的 z-index 跟外界无关</li>
+<li>处在同一个小世界的 z-index 才能比较</li>
+<li>负 z-index 逃不出小世界，<a target="_blank" rel="noopener" href="http://js.jirengu.com/modez/1/edit?html,css,output">例</a></li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context">那些属性可以创建，查mdn</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
