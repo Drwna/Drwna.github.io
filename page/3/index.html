@@ -157,7 +157,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-count">41</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -201,114 +201,6 @@
 
 
     <div class="main-inner index posts-expand">
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/19/48/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/lion.jpg">
-      <meta itemprop="name" content="Xiaolong">
-      <meta itemprop="description" content="Never stop learning">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xiaolong's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/09/19/48/" class="post-title-link" itemprop="url">浅析MVC</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-09-19 22:54:48" itemprop="dateCreated datePublished" datetime="2021-09-19T22:54:48+08:00">2021-09-19</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="MVC是什么"><a href="#MVC是什么" class="headerlink" title="MVC是什么"></a>MVC是什么</h2><p>MVC 是一种设计模式，他将应用分为三个部分：</p>
-<p>M 是 Model，数据模型，负责数据相关的任务</p>
-<p>V 是 View，视图，负责用户界面</p>
-<p>C 是 Controller，控制器，负责监听用户事件，然后调用 M 和 V 更新数据和视图</p>
-<h2 id="伪代码实现-MVC"><a href="#伪代码实现-MVC" class="headerlink" title="伪代码实现 MVC"></a>伪代码实现 MVC</h2><p>M</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">M = &#123;</span><br><span class="line">    <span class="attr">data</span>: &#123; 程序需要操作的数据或信息 &#125;，</span><br><span class="line">    <span class="attr">create</span>: &#123; 增数据 &#125;,</span><br><span class="line">    <span class="attr">delete</span>: &#123; 删数据 &#125;,</span><br><span class="line">    <span class="title function_">update</span>(<span class="params">data</span>) &#123; </span><br><span class="line">       <span class="title class_">Object</span>.<span class="title function_">assign</span>(m.<span class="property">data</span>, data) <span class="comment">// 使用新数据替换旧数据</span></span><br><span class="line">       eventBus.<span class="title function_">trigger</span>(<span class="string">&#x27;m:upate&#x27;</span>) <span class="comment">// eventBus 触发&#x27;m:update&#x27;信息, 通知 View 刷新 </span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">get</span>:&#123; 获取数据 &#125; </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>V</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">V = &#123;</span><br><span class="line">    <span class="attr">el</span>: 需要刷新的元素,</span><br><span class="line">    <span class="attr">html</span>: <span class="string">`显示在页面上的内容`</span></span><br><span class="line">    <span class="title function_">init</span>(<span class="params"></span>)&#123;</span><br><span class="line">        v.<span class="property">el</span>: 需要刷新的元素</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="title function_">render</span>(<span class="params"></span>)&#123; 刷新页面 &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>C</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">C = &#123;</span><br><span class="line">    <span class="title function_">init</span>(<span class="params"></span>)&#123;</span><br><span class="line">        v.<span class="title function_">init</span>() <span class="comment">//初始化 V</span></span><br><span class="line">        v.<span class="title function_">render</span>() <span class="comment">// 第一次渲染页面</span></span><br><span class="line">        c.<span class="title function_">autoBindEvents</span>() <span class="comment">// 自动的事件绑定</span></span><br><span class="line">        eventBus.<span class="title function_">on</span>(<span class="string">&#x27;m:update&#x27;</span>,<span class="function">()=&gt;</span>&#123;v.<span class="title function_">render</span>()&#125; <span class="comment">// 当 enentsBus 触发 &#x27;m:update&#x27; 时 V 刷新</span></span><br><span class="line">    &#125;，</span><br><span class="line">    <span class="attr">events</span>:&#123;事件以哈希表的方式记录存储&#125;,</span><br><span class="line">    <span class="title function_">method</span>(<span class="params"></span>)&#123;</span><br><span class="line">        data = 新数据</span><br><span class="line">        m.<span class="title function_">update</span>(data)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="title function_">autoBindEvents</span>(<span class="params"></span>)&#123;自动绑定事件&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://github.com/Drwna/MVC-demo">mvc-demo</a></p>
-<h2 id="EventBus"><a href="#EventBus" class="headerlink" title="EventBus"></a>EventBus</h2><p>EventBus 又称为事件总线,可以用来进行组件之间的监听和通信。</p>
-<p>比如说当 Model 模块中的数据发生更新，触发了 EventBus 上的某个事件，而 Controller 恰好在监听这个事件，当这个事件触发时，Controller 就知道 Model 中的数据发生了更新了，从而做出一些反应</p>
-<p>常用 API</p>
-<ul>
-<li>EventBus.on() 监听事件</li>
-<li>EventBus.trigger() 触发事件</li>
-<li>EventBus.off() 解绑事件</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">EventBus</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">_eventBus</span> = $(<span class="variable language_">window</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="title function_">on</span>(<span class="params">eventName, fn</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">_eventBus</span>.<span class="title function_">on</span>(eventName, fn)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="title function_">trigger</span>(<span class="params">eventName, data</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">_eventBus</span>.<span class="title function_">trigger</span>(eventName, data)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="title function_">off</span>(<span class="params">eventName, fn</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">_eventBus</span>.<span class="title function_">off</span>(eventName, fn)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="表驱动编程"><a href="#表驱动编程" class="headerlink" title="表驱动编程"></a>表驱动编程</h2><p>《代码大全》对表驱动编程的描述：</p>
-<blockquote>
-<p>表驱动方法是一种使你可以在表中查找信息，而不必用逻辑语句（if 或 case）来把他们找出来的方法。事实上，任何信息都可以通过表来挑选。在简单的情况下，逻辑语句往往更简单而且更直接。但随着逻辑链的复杂，表就变得越来越富于吸引力了。</p>
-</blockquote>
-<p>表驱动编程的意义在于<strong>逻辑与数据的分离</strong>（类似于事件委托）</p>
-<p>例如：if else</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">translate</span>(<span class="params">term</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (term === <span class="string">&#x27;1&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;一&#x27;</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (term === <span class="string">&#x27;2&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;二&#x27;</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (term === <span class="string">&#x27;3&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;三&#x27;</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;？？？&#x27;</span>  </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果想添加一个新的名词翻译，需要再添加一个if-else逻辑，例如：</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">translate</span>(<span class="params">term</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (term === <span class="string">&#x27;1&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;一&#x27;</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (term === <span class="string">&#x27;2&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;二&#x27;</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (term === <span class="string">&#x27;3&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;三&#x27;</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (term === <span class="string">&#x27;4&#x27;</span>) &#123;   </span><br><span class="line">        <span class="comment">// 此处添加了一个新的名词翻译</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;四&#x27;</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;？？？&#x27;</span>  </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<p>改为表驱动</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">translate</span>(<span class="params">term</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> terms = &#123;</span><br><span class="line">        <span class="string">&#x27;1&#x27;</span>: <span class="string">&#x27;一&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;2&#x27;</span>: <span class="string">&#x27;二&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;3&#x27;</span>: <span class="string">&#x27;三&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> terms[term];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果想添加一个新的名词翻译，只需要在 terms 中添加一个新的表项，不需要修改整个逻辑</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">translate</span>(<span class="params">term</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> terms = &#123;</span><br><span class="line">        <span class="string">&#x27;1&#x27;</span>: <span class="string">&#x27;一&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;2&#x27;</span>: <span class="string">&#x27;二&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;3&#x27;</span>: <span class="string">&#x27;三&#x27;</span></span><br><span class="line">        <span class="string">&#x27;4&#x27;</span>: <span class="string">&#x27;四&#x27;</span>   <span class="comment">// 添加一个新的名词翻译</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> terms[term];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 示例二</span></span><br><span class="line">c = &#123;</span><br><span class="line">     <span class="attr">events</span>:&#123;</span><br><span class="line">         <span class="string">&#x27;click #add1&#x27;</span>:<span class="string">&#x27;add&#x27;</span>,</span><br><span class="line">         <span class="string">&#x27;click #minus1&#x27;</span>:<span class="string">&#x27;minus&#x27;</span>,</span><br><span class="line">         <span class="string">&#x27;click #mul2&#x27;</span>:<span class="string">&#x27;mul&#x27;</span>,</span><br><span class="line">         <span class="string">&#x27;click #divide2&#x27;</span>:<span class="string">&#x27;div&#x27;</span></span><br><span class="line">     &#125;,</span><br><span class="line">     <span class="title function_">autoBindEvents</span>(<span class="params"></span>)&#123;</span><br><span class="line">         <span class="keyword">for</span>(<span class="keyword">let</span> key <span class="keyword">in</span> c.<span class="property">events</span>)&#123;</span><br><span class="line">             <span class="keyword">const</span> value = c[c.<span class="property">events</span>[key]]</span><br><span class="line">             <span class="keyword">const</span> spaceIndex = key.<span class="title function_">indexOf</span>(<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">             <span class="keyword">const</span> part1 = key.<span class="title function_">slice</span>(<span class="number">0</span>, spaceIndex)</span><br><span class="line">             <span class="keyword">const</span> part2 = key.<span class="title function_">slice</span>(spaceIndex + <span class="number">1</span>)</span><br><span class="line">             v.<span class="property">el</span>.<span class="title function_">on</span>(part1,part2,value)</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-<p>转自<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/259806449">表驱动编程</a></p>
-<h2 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Modules">JavaScript modules 模块 MDN</a></p>
-<p>模块就是实现特定功能的一组方法,而模块化是将模块的代码创造自己的作用域，只向外部暴露公开的方法和变量，而这些方法之间高度解耦。</p>
-<p>一个应用的不同的功能分离成几个模块，需要什么功能就加载相应的模块。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
 
     
 
@@ -2030,6 +1922,167 @@
 
 
 <p>参考自<a target="_blank" rel="noopener" href="https://wangdoc.com/javascript/basic/grammar.html#%E8%AF%AD%E5%8F%A5">网道 JavaScript教程</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/22/39/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lion.jpg">
+      <meta itemprop="name" content="Xiaolong">
+      <meta itemprop="description" content="Never stop learning">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xiaolong's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/22/39/" class="post-title-link" itemprop="url">JavaScript的诞生</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-22 21:11:39" itemprop="dateCreated datePublished" datetime="2021-08-22T21:11:39+08:00">2021-08-22</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="JavaScript的历史"><a href="#JavaScript的历史" class="headerlink" title="JavaScript的历史"></a>JavaScript的历史</h2><p>JavaScript（简称“JS”）  是一种具有函数优先的轻量级，解释型或即时编译型的编程语言。虽然它是作为开发 Web 页面的脚本语言而出名的，但是它也被用到了很多非浏览器环境中，JavaScript 基于原型编程、多范式的动态脚本语言，并且支持面向对象、命令式和声明式（如函数式编程）风格。</p>
+<p>1995年由于网景公司需要做出一款比 Java 还要简单的脚本语言，但是还要于Java相似。这时刚入职没多久的 <strong>Brendan Eich</strong> 就被安排了这项任务。</p>
+<p><strong>1995年5月</strong>，<strong>Brendan Eich</strong>只用了10天，就设计完成了这种语言的第一版。</p>
+<center><img src="https://ss2.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/baike/w%3D249/sign=5801118fad51f3dec3b2be60adeef0ec/838ba61ea8d3fd1f84237b7f324e251f95ca5f49.jpg"></center>
+
+<p>1996年11月，网景正式向 ECMA（欧洲计算机制造商协会）提交语言标准。1997年6月，ECMA以JavaScript语言为基础制定了ECMAScript 标准规范ECMA-262。JavaScript成为了ECMAScript最著名的实现之一。除此之外，ActionScript 和 JScript 也都是ECMAScript 规范的实现语言。尽管JavaScript作为给非程序人员的脚本语言，而非作为给程序人员的脚本语言来推广和宣传，但是 JavaScript 具有非常丰富的特性。</p>
+<h2 id="JavaScrip-特点"><a href="#JavaScrip-特点" class="headerlink" title="JavaScrip 特点"></a>JavaScrip 特点</h2><p>一般来说，完整的 JavaScript 包括以下几个部分:</p>
+<ul>
+<li>ECMAScript，描述了该语言的语法和基本对象</li>
+<li>文档对象模型 DOM，描述处理<strong>网页内容</strong>的方法和接口</li>
+<li>浏览器对象模型 BOM 浏览器对象模型，描述与<strong>浏览器</strong>进行交互的方法和接口</li>
+</ul>
+<p>JavaScript的基本特点如下:</p>
+<ul>
+<li>是一种解释性脚本语言（代码不进行预编译）。</li>
+<li>主要用来向HTML页面添加<strong>交互行为</strong>。</li>
+<li>可以直接嵌入HTML页面，但写成单独的js文件有利于结构和行为的分离。</li>
+</ul>
+<p>JavaScript常用来完成以下任务:</p>
+<ul>
+<li>嵌入动态文本于HTML页面</li>
+<li>对浏览器事件作出响应</li>
+<li>读写HTML元素</li>
+<li>在数据被提交到服务器之前验证数据</li>
+<li>检测访客的浏览器信息</li>
+<li>控制 cookie，包括创建和修改等</li>
+</ul>
+<p>JavaScript 语法有多个来源：</p>
+<ul>
+<li>基本语法：借鉴 C语言和 Java 语言。</li>
+<li>数据机构：借鉴 Java语言，包括将值分为原始值和对象两大类。</li>
+<li>函数的用发：借鉴 Scheme语言 （Smalltalk的一种变种）。</li>
+<li>正则表达式：借鉴 Perl语言。</li>
+<li>字符串和数组处理：借鉴 Python语言。</li>
+</ul>
+<p>为了保持简单，这种脚本语言缺少一些关键的功能，比如块级作用域、模块、子类型（subtyping）等等，但是可以利用现有功能找出解决办法。这种功能的不足，直接导致了后来JavaScript的一个显著特点：对于其他语言，你需要学习语言的各种功能，而对于JavaScript，你常常需要学习各种解决问题的模式。而且由于来源多样，从一开始就注定，JavaScript的编程风格是函数式编程和面向对象编程的一种混合体。</p>
+<h2 id="JavaScript的缺陷"><a href="#JavaScript的缺陷" class="headerlink" title="JavaScript的缺陷"></a>JavaScript的缺陷</h2><ol>
+<li><p><strong>不适合开发大型程序</strong></p>
+<blockquote>
+<p>Javascript没有名称空间（namespace），很难模块化；没有如何将代码分布在多个文件的规范；允许同名函数的重复定义，后面的定义可以覆盖前面的定义，很不利于模块化加载。</p>
+</blockquote>
+</li>
+<li><p><strong>非常小的标准库</strong></p>
+<blockquote>
+<p>Javascript提供的标准函数库非常小，只能完成一些基本操作，很多功能都不具备。</p>
+</blockquote>
+</li>
+<li><p><strong>null 和 undefined</strong></p>
+<blockquote>
+<p>null属于对象（object）的一种，意思是该对象为空；undefined则是一种数据类型，表示未定义。</p>
+</blockquote>
+</li>
+<li><p><strong>全局变量难以控制</strong></p>
+<blockquote>
+<p>Javascript的全局变量，在所有模块中都是可见的；任何一个函数内部都可以生成全局变量，这大大加剧了程序的复杂性。</p>
+</blockquote>
+</li>
+<li><p><strong>自动插入行尾分号</strong></p>
+<blockquote>
+<p>Javascript的所有语句，都必须以分号结尾。但是，如果你忘记加分号，解释器并不报错，而是为你自动加上分号。有时候，这会导致一些难以发现的错误。</p>
+</blockquote>
+</li>
+<li><p><strong>加号运算符</strong></p>
+<blockquote>
+<p>+号作为运算符，有两个含义，可以表示数字与数字的和，也可以表示字符与字符的连接。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">alert</span>(<span class="number">1</span>+<span class="number">10</span>); <span class="comment">// 11</span></span><br><span class="line"><span class="title function_">alert</span>(<span class="string">&quot;1&quot;</span>+<span class="string">&quot;10&quot;</span>); <span class="comment">// 110</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如果一个操作项是字符，另一个是数字，则数字自动转化为字符</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">alert</span>(<span class="number">1</span>+<span class="string">&quot;10&quot;</span>) <span class="comment">// 110</span></span><br><span class="line"><span class="title function_">alert</span>(<span class="string">&quot;10&quot;</span>+<span class="number">1</span>) <span class="comment">// 101</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>NaN</strong></p>
+<blockquote>
+<p>NaN是一种数字，表示超出了解释器的极限。</p>
+</blockquote>
+</li>
+<li><p><strong>数组和对象的区分</strong></p>
+<blockquote>
+<p>由于Javascript的数组也属于对象（object），所以要区分一个对象到底是不是数组，相当麻烦</p>
+</blockquote>
+</li>
+<li><p><strong>== 和 ===</strong></p>
+<blockquote>
+<p>==用来判断两个值是否相等。当两个值类型不同时，会发生自动转换，得到的结果非常不符合直觉。</p>
+<p>推荐任何时候都是用 “===”</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;</span> == <span class="string">&quot;0&quot;</span>  <span class="comment">// false</span></span><br><span class="line"><span class="number">0</span> == <span class="string">&quot;&quot;</span>  <span class="comment">// true</span></span><br><span class="line"><span class="number">0</span> == <span class="string">&quot;0&quot;</span>  <span class="comment">// frue</span></span><br><span class="line"><span class="literal">false</span> == <span class="string">&quot;false&quot;</span>  <span class="comment">// false</span></span><br><span class="line"><span class="literal">false</span> == <span class="literal">undefined</span>  <span class="comment">// false</span></span><br><span class="line"><span class="literal">false</span> == <span class="literal">null</span>  <span class="comment">// false</span></span><br><span class="line"><span class="literal">null</span> == <span class="literal">undefined</span>  <span class="comment">// true</span></span><br><span class="line"><span class="string">&quot; \t\r\n&quot;</span> == <span class="number">0</span>  <span class="comment">// ture</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>基本类型的包装对象</strong></p>
+<blockquote>
+<p>Javascript有三种基本数据类型：字符串、数字和布尔值。它们都有相应的建构函数，可以生成字符串对象、数字对象和布尔值对象。</p>
+</blockquote>
+</li>
+</ol>
+<p>资料连接：</p>
+<p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/JavaScript#%E5%8E%86%E5%8F%B2">JavaScript 的历史</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2011/06/birth_of_javascript.html">JavaScript 诞生记</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2011/06/10_design_defects_in_javascript.html">JavaScript 的10个设计缺陷</a></p>
 
       
     </div>
