@@ -157,13 +157,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-count">44</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -201,6 +201,148 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/01/26/00/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lion.jpg">
+      <meta itemprop="name" content="Xiaolong">
+      <meta itemprop="description" content="Never stop learning">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xiaolong's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/01/26/00/" class="post-title-link" itemprop="url">Uniapp 开发记录</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-01-26 00:00:00" itemprop="dateCreated datePublished" datetime="2023-01-26T00:00:00+08:00">2023-01-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Uniapp-开发记录"><a href="#Uniapp-开发记录" class="headerlink" title="Uniapp 开发记录"></a><strong>Uniapp</strong> 开发记录</h1><h2 id="使用-Vue3-的-setup-语法糖"><a href="#使用-Vue3-的-setup-语法糖" class="headerlink" title="使用 Vue3 的 setup 语法糖"></a>使用 Vue3 的 setup 语法糖</h2><h2 id="配置跨域代理"><a href="#配置跨域代理" class="headerlink" title="配置跨域代理"></a>配置跨域代理</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/01/26/00/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/12/01/00/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lion.jpg">
+      <meta itemprop="name" content="Xiaolong">
+      <meta itemprop="description" content="Never stop learning">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xiaolong's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/12/01/00/" class="post-title-link" itemprop="url">Canvas</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-12-01 00:00:00" itemprop="dateCreated datePublished" datetime="2022-12-01T00:00:00+08:00">2022-12-01</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="canvas"><a href="#canvas" class="headerlink" title="canvas"></a>canvas</h1><h2 id="创建高清的-canvas"><a href="#创建高清的-canvas" class="headerlink" title="创建高清的 canvas"></a>创建高清的 canvas</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> createHDCanvas = (w, h) = &gt;&#123;</span><br><span class="line">    <span class="keyword">const</span> canvas = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&quot;canvas&quot;</span>);</span><br><span class="line">    <span class="keyword">const</span> ratio = <span class="variable language_">window</span>.<span class="property">devicePixelRatio</span> || <span class="number">1</span>;</span><br><span class="line">    canvas.<span class="property">width</span> = w * ratio; <span class="comment">// 实际渲染像素</span></span><br><span class="line">    canvas.<span class="property">height</span> = h * ratio; <span class="comment">// 实际渲染像素</span></span><br><span class="line">    canvas.<span class="property">style</span>.<span class="property">width</span> = <span class="string">`<span class="subst">$&#123;w&#125;</span>px`</span>; <span class="comment">// 控制显示大小</span></span><br><span class="line">    canvas.<span class="property">style</span>.<span class="property">height</span> = <span class="string">`<span class="subst">$&#123;h&#125;</span>px`</span>; <span class="comment">// 控制显示大小</span></span><br><span class="line">    <span class="keyword">const</span> ctx = canvas.<span class="title function_">getContext</span>(<span class="string">&quot;2d&quot;</span>);</span><br><span class="line">    ctx.<span class="title function_">scale</span>(ratio, ratio);</span><br><span class="line">    <span class="comment">// canvas 绘制</span></span><br><span class="line">    <span class="keyword">return</span> canvas;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/12/01/00/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1123,156 +1265,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/24/39/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/lion.jpg">
-      <meta itemprop="name" content="Xiaolong">
-      <meta itemprop="description" content="Never stop learning">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xiaolong's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/11/24/39/" class="post-title-link" itemprop="url">react类组件</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-11-24 20:27:39" itemprop="dateCreated datePublished" datetime="2021-11-24T20:27:39+08:00">2021-11-24</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="创建-Class-组件"><a href="#创建-Class-组件" class="headerlink" title="创建 Class 组件"></a>创建 Class 组件</h2><ol>
-<li><p>ES6 方式</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B</span> <span class="keyword">extends</span> <span class="title class_ inherited__">React.Component</span>&#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">props</span>)&#123;</span><br><span class="line">        <span class="variable language_">super</span>(props)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">render</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> (<span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>hi<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> B</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/11/24/39/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/24/51/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/lion.jpg">
-      <meta itemprop="name" content="Xiaolong">
-      <meta itemprop="description" content="Never stop learning">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xiaolong's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/11/24/51/" class="post-title-link" itemprop="url">react函数组件</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-11-24 20:18:51" itemprop="dateCreated datePublished" datetime="2021-11-24T20:18:51+08:00">2021-11-24</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="函数组件"><a href="#函数组件" class="headerlink" title="函数组件"></a>函数组件</h2><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">Hello</span> = (<span class="params">props</span>) =&gt;&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;props.message)&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">Hello</span> = props =&gt; <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;props.message&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Hello</span>(<span class="params">props</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;props.message&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<br />
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/11/24/51/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
@@ -1286,7 +1278,7 @@
 
 <div class="copyright">
   &copy; 2021 – 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
