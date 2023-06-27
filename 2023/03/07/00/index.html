@@ -20,18 +20,23 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="Vim + VScode &#x2F; WebStorm使用 vim 快捷键的好处：  提高效率。 统一 WebStorm（JetBrains 系列软件） 和 VScode 的快捷键操作。 装 x。">
+<meta name="description" content="Vim + VScode &#x2F; WebStorm使用 vim 快捷键的好处：  提高效率。 统一 WebStorm（JetBrains 系列软件） 和 VScode 的快捷键操作。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vim + Vscode &#x2F; WebStorm">
 <meta property="og:url" content="http://example.com/2023/03/07/00/index.html">
 <meta property="og:site_name" content="Xiaolong&#39;s Blog">
-<meta property="og:description" content="Vim + VScode &#x2F; WebStorm使用 vim 快捷键的好处：  提高效率。 统一 WebStorm（JetBrains 系列软件） 和 VScode 的快捷键操作。 装 x。">
+<meta property="og:description" content="Vim + VScode &#x2F; WebStorm使用 vim 快捷键的好处：  提高效率。 统一 WebStorm（JetBrains 系列软件） 和 VScode 的快捷键操作。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Drwna/image//images/20230411180230.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Drwna/image//images/20230411180523.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Drwna/image//images/20230411180631.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Drwna/image//images/20230411180700.png">
 <meta property="article:published_time" content="2023-03-06T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-03-07T13:32:59.740Z">
+<meta property="article:modified_time" content="2023-06-27T03:18:24.912Z">
 <meta property="article:author" content="Xiaolong">
 <meta property="article:tag" content="vim">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Drwna/image//images/20230411180230.png">
 
 
 <link rel="canonical" href="http://example.com/2023/03/07/00/">
@@ -145,7 +150,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Vim-VScode-WebStorm"><span class="nav-number">1.</span> <span class="nav-text">Vim + VScode &#x2F; WebStorm</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6"><span class="nav-number">1.1.</span> <span class="nav-text">安装插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">1.2.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B1%E4%BA%AB%E7%B3%BB%E7%BB%9F%E5%89%AA%E8%B4%B4%E6%9D%BF"><span class="nav-number">1.3.</span> <span class="nav-text">共享系统剪贴板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%BC%96%E8%BE%91%E5%99%A8%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="nav-number">1.4.</span> <span class="nav-text">使用编辑器快捷键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vim-%E5%9B%9B%E7%A7%8D%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.5.</span> <span class="nav-text">vim 四种模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4"><span class="nav-number">1.6.</span> <span class="nav-text">命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E7%A7%BB%E5%8A%A8%E6%93%8D%E4%BD%9C%EF%BC%9A"><span class="nav-number">1.6.1.</span> <span class="nav-text">基础移动操作：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hjkl"><span class="nav-number">1.6.1.1.</span> <span class="nav-text">hjkl</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#e-b"><span class="nav-number">1.6.1.2.</span> <span class="nav-text">e &#x2F; b</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#gg-G"><span class="nav-number">1.6.1.3.</span> <span class="nav-text">gg &#x2F; G</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#zz-zt-zb"><span class="nav-number">1.6.1.4.</span> <span class="nav-text">zz &#x2F; zt &#x2F; zb</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#J%EF%BC%88%E5%A4%A7%E5%86%99%EF%BC%89"><span class="nav-number">1.6.1.5.</span> <span class="nav-text">J（大写）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%84%E5%90%88%E6%93%8D%E4%BD%9C%EF%BC%9A"><span class="nav-number">1.6.2.</span> <span class="nav-text">组合操作：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#dit"><span class="nav-number">1.6.2.1.</span> <span class="nav-text">dit</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#di-di"><span class="nav-number">1.6.2.2.</span> <span class="nav-text">di( &#x2F; di{</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#di%E2%80%99-di%E2%80%9D"><span class="nav-number">1.6.2.3.</span> <span class="nav-text">di’ &#x2F; di”</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Vim-VScode-WebStorm"><span class="nav-number">1.</span> <span class="nav-text">Vim + VScode &#x2F; WebStorm</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6"><span class="nav-number">1.1.</span> <span class="nav-text">安装插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">1.2.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B1%E4%BA%AB%E7%B3%BB%E7%BB%9F%E5%89%AA%E8%B4%B4%E6%9D%BF"><span class="nav-number">1.3.</span> <span class="nav-text">共享系统剪贴板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%BC%96%E8%BE%91%E5%99%A8%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="nav-number">1.4.</span> <span class="nav-text">使用编辑器快捷键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vim-%E5%9B%9B%E7%A7%8D%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.5.</span> <span class="nav-text">vim 四种模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4"><span class="nav-number">1.6.</span> <span class="nav-text">命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%EF%BC%9A"><span class="nav-number">1.6.1.</span> <span class="nav-text">基础命令：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hjkl"><span class="nav-number">1.6.1.1.</span> <span class="nav-text">hjkl</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#y"><span class="nav-number">1.6.1.2.</span> <span class="nav-text">y</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#yy"><span class="nav-number">1.6.1.3.</span> <span class="nav-text">yy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#p"><span class="nav-number">1.6.1.4.</span> <span class="nav-text">p</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#x"><span class="nav-number">1.6.1.5.</span> <span class="nav-text">x</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dd"><span class="nav-number">1.6.1.6.</span> <span class="nav-text">dd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#e-b"><span class="nav-number">1.6.1.7.</span> <span class="nav-text">e &#x2F; b</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#gg-G"><span class="nav-number">1.6.1.8.</span> <span class="nav-text">gg &#x2F; G</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#zz-zt-zb"><span class="nav-number">1.6.1.9.</span> <span class="nav-text">zz &#x2F; zt &#x2F; zb</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#J%EF%BC%88%E5%A4%A7%E5%86%99%EF%BC%89"><span class="nav-number">1.6.1.10.</span> <span class="nav-text">J（大写）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%84%E5%90%88%E5%91%BD%E4%BB%A4%EF%BC%9A"><span class="nav-number">1.6.2.</span> <span class="nav-text">组合命令：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#dit"><span class="nav-number">1.6.2.1.</span> <span class="nav-text">dit</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#di-di"><span class="nav-number">1.6.2.2.</span> <span class="nav-text">di( &#x2F; di{</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#di%E2%80%99-di%E2%80%9D"><span class="nav-number">1.6.2.3.</span> <span class="nav-text">di’ &#x2F; di”</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E9%94%AE%E7%9B%98%E6%98%A0%E5%B0%84%EF%BC%88window%EF%BC%89"><span class="nav-number">1.7.</span> <span class="nav-text">修改键盘映射（window）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9"><span class="nav-number">1.7.0.1.</span> <span class="nav-text">修改</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%8D%E5%8E%9F"><span class="nav-number">1.7.0.2.</span> <span class="nav-text">复原</span></a></li></ol></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -256,7 +261,6 @@
 <ol>
 <li>提高效率。</li>
 <li>统一 WebStorm（JetBrains 系列软件） 和 VScode 的快捷键操作。</li>
-<li>装 x。</li>
 </ol>
 <span id="more"></span>
 
@@ -328,10 +332,16 @@
 <p>按 <code>ESC</code> 返回普通模式。</p>
 </li>
 </ol>
-<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><h3 id="基础移动操作："><a href="#基础移动操作：" class="headerlink" title="基础移动操作："></a>基础移动操作：</h3><h4 id="hjkl"><a href="#hjkl" class="headerlink" title="hjkl"></a>hjkl</h4><p>上：<code>k</code></p>
+<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><h3 id="基础命令："><a href="#基础命令：" class="headerlink" title="基础命令："></a>基础命令：</h3><h4 id="hjkl"><a href="#hjkl" class="headerlink" title="hjkl"></a>hjkl</h4><p>上：<code>k</code></p>
 <p>下：<code>j</code></p>
 <p>左：<code>h</code></p>
 <p>右：<code>l</code></p>
+<h4 id="y"><a href="#y" class="headerlink" title="y"></a>y</h4><p>复制，可以用来复制指定的文本。</p>
+<h4 id="yy"><a href="#yy" class="headerlink" title="yy"></a>yy</h4><p>复制当前行，可以将当前光标所在的行复制到剪贴板中。</p>
+<h4 id="p"><a href="#p" class="headerlink" title="p"></a>p</h4><p>粘贴，将之前复制或剪切到剪贴板中的内容粘贴到当前光标所在位置后面。</p>
+<h4 id="x"><a href="#x" class="headerlink" title="x"></a>x</h4><p>删除命令，用来删除光标所在位置处的一个字符。</p>
+<h4 id="dd"><a href="#dd" class="headerlink" title="dd"></a>dd</h4><p>删除一整行。具体来说，可以通过以下操作实现：</p>
+<p>如果在执行 dd 命令之前输入了数字 n，那么会删除当前行及其后面的 n - 1 行。比如执行 3dd 命令会删除当前行及其下面的两行。</p>
 <h4 id="e-b"><a href="#e-b" class="headerlink" title="e / b"></a>e / b</h4><p>用于移动光标到单词的开头 / 结尾。</p>
 <ul>
 <li><p><code>b</code> 命令表示将光标移动到当前单词的开头。</p>
@@ -357,7 +367,7 @@
 <p>具体来说，它会删除当前行和下一行之间的换行符，并将它们合并成一行。</p>
 <p>该命令对于快速将两行文本合并为一行很有用。</p>
 <p>如果你需要将多个短语或句子合并成一行，可以使用 J 命令轻松实现这一目的。</p>
-<h3 id="组合操作："><a href="#组合操作：" class="headerlink" title="组合操作："></a>组合操作：</h3><p><code>daw</code> 删除光标所在的单词及其周围的空格。</p>
+<h3 id="组合命令："><a href="#组合命令：" class="headerlink" title="组合命令："></a>组合命令：</h3><p><code>daw</code> 删除光标所在的单词及其周围的空格。</p>
 <p><code>diw</code> 删除光标所在的单词。</p>
 <p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/20416162/is-there-any-difference-between-dw-and-daw-in-vim">daw 和 diw 的区别</a></p>
 <p><code>dw</code> 删除光标所在位置到单词结尾的单词和单词后的一个空格。</p>
@@ -374,6 +384,48 @@
 <p>其中 d 表示删除操作，i’ 表示内部引号（inner quote），表示删除当前光标所在位置所包含的一对单引号 ‘’ 之间的内容。</p>
 <p>具体来说，它会将当前光标定位到所在字符串的内部，然后删除该字符串中的所有内容，并将其存储在剪贴板中，以供后续使用。</p>
 <p>这个命令通常用于快速删除一对单引号 ‘’ 中的字符串文字。</p>
+<h2 id="修改键盘映射（window）"><a href="#修改键盘映射（window）" class="headerlink" title="修改键盘映射（window）"></a>修改键盘映射（window）</h2><p>Esc 键使用频率很高，手移动太大，不方便故将 Caps Lock 键映射为 Esc 键。</p>
+<h4 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h4><p>chatGPT 提供的步骤：</p>
+<p>以下是使用 SharpKeys 将 Caps Lock 键映射为 Esc 键的步骤：</p>
+<ol>
+<li>首先，下载并安装 <a target="_blank" rel="noopener" href="https://github.com/randyrants/sharpkeys/">SharpKeys</a>。你可以在 SharpKeys 的 GitHub 页面上找到最新的发行版。</li>
+<li>启动 SharpKeys，并点击“Add”按钮。</li>
+<li>在“Map this key (from key)”下拉列表中选择“Special: Caps Lock”。</li>
+<li>在“To this key (to key)”下拉列表中选择“Special: Escape”。</li>
+<li>点击“OK”按钮，然后点击“Write to Registry”按钮。</li>
+<li>最后，重新启动电脑，使更改生效。</li>
+</ol>
+<p>完成以上步骤后，你的 Caps Lock 键就会被映射为 Esc 键了。这样，你就可以更方便地在 Vim 或其他编辑器中进行快速的光标移动了。</p>
+<p>软件主界面</p>
+<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/20230411180230.png" alt="20230411180230" width="600px"></center>
+
+
+
+<p><strong>step 1</strong></p>
+<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/20230411180523.png" alt="20230411180523" width="600px"></center>
+
+
+
+<p><strong>step2</strong></p>
+<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/20230411180631.png" alt="20230411180631" width="600px"></center>
+
+
+
+<p><strong>step3</strong></p>
+<center><img src="https://cdn.jsdelivr.net/gh/Drwna/image//images/20230411180700.png" alt="20230411180700" width="600px"></center>
+
+
+
+<h4 id="复原"><a href="#复原" class="headerlink" title="复原"></a>复原</h4><p>chatGPT 提供：</p>
+<p>如果你使用了 SharpKeys 将 Caps Lock 键映射为 Esc 键，想要恢复原来的功能，可以按照以下步骤操作：</p>
+<ol>
+<li>启动 SharpKeys。</li>
+<li>在 SharpKeys 界面中找到你之前创建的键盘映射，然后选中它。</li>
+<li>点击“Delete”按钮，确认删除键盘映射。</li>
+<li>点击“Write to Registry”按钮，保存更改。</li>
+<li>最后，重新启动电脑，使更改生效。</li>
+</ol>
+<p>完成以上步骤后，Caps Lock 键的功能就会恢复为原来的状态。</p>
 
     </div>
 
